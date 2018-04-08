@@ -1,0 +1,9 @@
+package com.pjt.common.utils;
+
+
+public class DocumentState {
+	public static final String PPT_CONVERTABLE_STATE_OK ="PPT_CONVERTABLE_STATE_OK";
+	public static final String PPT_CONVERTABLE_STATE_PASSWORD_PROTECTED ="PPT_CONVERTABLE_STATE_PASSWORD_PROTECTED";
+	public static final String PPT_CONVERTABLE_STATE_READ_ONLY ="PPT_CONVERTABLE_STATE_READ_ONLY";
+	public static final String PPT_CONVERTABLE_STATE_INVALID ="PPT_CONVERTABLE_STATE_INVALID";
+}
