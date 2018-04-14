@@ -12,7 +12,8 @@
 *.launch
 .settings/
 *.sublime-workspace
-distribution.iml
+*.iml
+
 
 # IDE - VSCode
 .vscode/*

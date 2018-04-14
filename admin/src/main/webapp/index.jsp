@@ -5,7 +5,7 @@
 <head>
 <script type="text/javascript">
 	window.location.href = '${ctx}/admin/login';
-</script
+</script>
 </head>
 <body>
 </body>

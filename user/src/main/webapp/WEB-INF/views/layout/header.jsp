@@ -37,11 +37,11 @@
 								<ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
 									<li>
 										<a href="javascript:;">
-											<span class="time">just now</span>
+											<span class="time">立刻</span>
 											<span class="details">
                                                                     <span class="label label-sm label-icon label-success">
                                                                         <i class="fa fa-plus"></i>
-                                                                    </span> New user registered. </span>
+                                                                    </span> 新用户注册. </span>
 										</a>
 									</li>
 									<li>
@@ -104,7 +104,7 @@
 											<span class="details">
                                                                     <span class="label label-sm label-icon label-info">
                                                                         <i class="fa fa-bullhorn"></i>
-                                                                    </span> System Error. </span>
+                                                                    </span> 系统错误. </span>
 										</a>
 									</li>
 									<li>
@@ -342,7 +342,7 @@
 							</li>
 							<li>
 								<a href="page_user_login_1.html">
-									<i class="icon-key"></i> Log Out </a>
+									<i class="icon-key"></i> 注销 </a>
 							</li>
 						</ul>
 					</li>
@@ -380,23 +380,23 @@
 			<div class="hor-menu  ">
 				<ul class="nav navbar-nav">
 					<li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown active">
-						<a href="javascript:;"> Dashboard
+						<a href="javascript:;"> 我的考试
 							<span class="arrow"></span>
 						</a>
 						<ul class="dropdown-menu pull-left">
 							<li aria-haspopup="true" class=" active">
 								<a href="index.html" class="nav-link  active">
-									<i class="icon-bar-chart"></i> Default Dashboard
+									<i class="icon-bar-chart"></i> 已报名的考试
 									<span class="badge badge-success">1</span>
 								</a>
 							</li>
 							<li aria-haspopup="true" class=" ">
 								<a href="dashboard_2.html" class="nav-link  ">
-									<i class="icon-bulb"></i> Dashboard 2 </a>
+									<i class="icon-bulb"></i> 可报名的考试 </a>
 							</li>
 							<li aria-haspopup="true" class=" ">
 								<a href="dashboard_3.html" class="nav-link  ">
-									<i class="icon-graph"></i> Dashboard 3
+									<i class="icon-graph"></i> 考试练习
 									<span class="badge badge-danger">3</span>
 								</a>
 							</li>

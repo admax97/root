@@ -5,7 +5,8 @@
 
 <generatorConfiguration>
 	<!-- 使用绝对路径替换为本地的jar位置 -->
-	<classPathEntry  location="C:\DEV\MavenRepository\maven_jar\mysql\mysql-connector-java\5.1.27\mysql-connector-java-5.1.27.jar" />
+	<classPathEntry  location="D:\maven\reposidary\mysql\mysql-connector-java\5.1.42\mysql-connector-java-5.1.42.jar" />
+
 	<context id="DB2Tables" targetRuntime="MyBatis3">
 
 		<commentGenerator>
@@ -13,7 +14,7 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://127.0.0.1:3306/ots" userId="root" password="123456">
+						connectionURL="jdbc:mysql://127.0.0.1:3306/online" userId="root" password="ljx">
 		</jdbcConnection>
 
 		<javaTypeResolver>
@@ -36,6 +37,15 @@
 
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
 		<table tableName="admin"   domainObjectName="Admin" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+		<table tableName="exam"    domainObjectName="Exam" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+		<table tableName="library"   domainObjectName="Library" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+		<table tableName="paper"   domainObjectName="Paper" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+		<table tableName="question"   domainObjectName="Question" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+		<table tableName="student"   domainObjectName="Student" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+		<table tableName="users"   domainObjectName="Users" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+		<table tableName="student_exam_info"   domainObjectName="StuExamInfo" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+		<table tableName="paper_question"   domainObjectName="PaperQuestion" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+
 	</context>
 
 </generatorConfiguration>
