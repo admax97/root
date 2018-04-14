@@ -15,7 +15,16 @@ public class AdminController {
 
     @RequestMapping(value = "login", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView loginPage(Model mode) {
-
         return new ModelAndView("main/index");
+    }
+
+    @RequestMapping(value = "list", method = {RequestMethod.GET})
+    public ModelAndView list(Model mode) {
+        return new ModelAndView("admin/list");
+    }
+
+    @RequestMapping(value = "edit", method = {RequestMethod.GET})
+    public ModelAndView edit(Model mode) {
+        return new ModelAndView("admin/edit");
     }
 }
