@@ -24,7 +24,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item start active open">
-                        <a href="WEB-INF/views/error/404.jsp" class="nav-link ">
+                        <a href="${ctx}/WEB-INF/views/error/404.jsp" class="nav-link ">
                             <i class="icon-bar-chart"></i>
                             <span class="title">考生</span>
                             <span class="selected"></span>
@@ -47,7 +47,7 @@
                 </ul>
             </li>
             <li class="nav-item  ">
-                <a href="/WEB-INF/views/table_datatables_editable.jsp" class="nav-link nav-toggle">
+                <a href="/WEB-INF/metronic/table_datatables_editable.jsp" class="nav-link nav-toggle">
                     <i class="icon-diamond"></i>
                     <span class="title">题库管理</span>
                     <span class="arrow"></span>
