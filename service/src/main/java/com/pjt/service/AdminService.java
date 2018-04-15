@@ -1,5 +1,6 @@
 package com.pjt.service;
 
+import com.pjt.common.utils.Page;
 import com.pjt.persist.model.Admin;
 import com.pjt.persist.model.AdminExample;
 import org.springframework.stereotype.Service;
@@ -23,4 +24,6 @@ public interface AdminService {
     int updateByPrimaryKeySelective(Admin record);
 
     int updateByPrimaryKey(Admin record);
+
+    Page selectList(Page page);
 }
