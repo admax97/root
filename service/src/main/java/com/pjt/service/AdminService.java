@@ -1,13 +1,13 @@
-package com.pjt.persist.mapper;
+package com.pjt.service;
 
 import com.pjt.persist.model.Admin;
 import com.pjt.persist.model.AdminExample;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Repository
-public interface AdminMapper {
+@Service
+public interface AdminService {
     int countByExample(AdminExample example);
 
     int deleteByPrimaryKey(Integer id);

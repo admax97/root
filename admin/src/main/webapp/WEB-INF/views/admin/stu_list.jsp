@@ -6,7 +6,7 @@
 </script>
 <head>
     <meta charset="utf-8" />
-    <title>在线学习管理系统</title>
+    <title>Metronic Admin Theme #2 | Colreorder Extension</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Preview page of Metronic Admin Theme #2 for colreorder extension demos" name="description" />
@@ -47,7 +47,7 @@
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- END THEME PANEL -->
-            <h1 class="page-title">管理员管理</h1>
+            <h1 class="page-title">试题管理</h1>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
                     <li>
@@ -56,7 +56,7 @@
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li>
-                        <a href="#">管理员列表</a>
+                        <a href="#">学员列表</a>
                         <i class="fa fa-angle-right"></i>
                     </li>
 
@@ -77,28 +77,79 @@
                     <div class="portlet box green">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-globe"></i>管理员列表 </div>
+                                <i class="fa fa-globe"></i>Column Reordering </div>
                             <div class="tools"> </div>
                         </div>
                         <div class="portlet-body">
                             <table class="table table-striped table-bordered table-hover" id="sample_2">
                                 <thead>
                                 <tr>
-                                    <th> 序号 </th>
-                                    <th> 姓名 </th>
-                                    <th> 电话 </th>
-                                    <th> 编辑 </th>
+                                    <th> Rendering engine </th>
+                                    <th> Browser </th>
+                                    <th> Platform(s) </th>
+                                    <th> Engine version </th>
+                                    <th> CSS grade </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="admin" items="${adminList}">
                                 <tr>
-                                    <td>${admin.id}</td>
-                                    <td>${admin.name} </td>
-                                    <td>${admin.phonenumber}</td>
-                                    <td> </td>
+                                    <td> Gecko </td>
+                                    <td> Mozilla 1.0 </td>
+                                    <td> Win 95+ / OSX.1+ </td>
+                                    <td> 1 </td>
+                                    <td> A </td>
                                 </tr>
-                                </c:forEach>
+                                <tr>
+                                    <td> Presto </td>
+                                    <td> Opera 7.0 </td>
+                                    <td> Win 95+ / OSX.1+ </td>
+                                    <td> - </td>
+                                    <td> A </td>
+                                </tr>
+                                <tr>
+                                    <td> Presto </td>
+                                    <td> Opera 7.5 </td>
+                                    <td> Win 95+ / OSX.2+ </td>
+                                    <td> - </td>
+                                    <td> A </td>
+                                </tr>
+                                <tr>
+                                    <td> Presto </td>
+                                    <td> Opera 8.0 </td>
+                                    <td> Win 95+ / OSX.2+ </td>
+                                    <td> - </td>
+                                    <td> A </td>
+                                </tr>
+                                <tr>
+                                    <td> Presto </td>
+                                    <td> Opera 8.5 </td>
+                                    <td> Win 95+ / OSX.2+ </td>
+                                    <td> - </td>
+                                    <td> A </td>
+                                </tr>
+                                <tr>
+                                    <td> Presto </td>
+                                    <td> Opera 9.0 </td>
+                                    <td> Win 95+ / OSX.3+ </td>
+                                    <td> - </td>
+                                    <td> A </td>
+                                </tr>
+                                <tr>
+                                    <td> Presto </td>
+                                    <td> Opera 9.2 </td>
+                                    <td> Win 88+ / OSX.3+ </td>
+                                    <td> - </td>
+                                    <td> A </td>
+                                </tr>
+                                <tr>
+                                    <td> Presto </td>
+                                    <td> Nintendo DS browser </td>
+                                    <td> Nintendo DS </td>
+                                    <td> 8.5 </td>
+                                    <td> C/A
+                                        <sup>1</sup>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>

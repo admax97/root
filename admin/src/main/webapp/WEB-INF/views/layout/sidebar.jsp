@@ -24,14 +24,14 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item start active open">
-                        <a href="${ctx}/admin/list" class="nav-link ">
+                        <a href="${ctx}/student/list" class="nav-link ">
                             <i class="icon-bar-chart"></i>
                             <span class="title">学员列表</span>
                             <span class="selected"></span>
                         </a>
                     </li>
                     <li class="nav-item start ">
-                        <a href="${ctx}/admin/login" class="nav-link ">
+                        <a href="${ctx}/admin/list" class="nav-link ">
                             <i class="icon-bulb"></i>
                             <span class="title">管理员列表</span>
                             <span class="badge badge-success">1</span>
@@ -70,6 +70,34 @@
                     <li class="nav-item  ">
                         <a href="components_date_time_pickers.html" class="nav-link ">
                             <span class="title">查看试卷</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item  ">
+                <a href="/WEB-INF/metronic/table_datatables_editable.jsp" class="nav-link nav-toggle">
+                    <i class="icon-diamond"></i>
+                    <span class="title">考试管理</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="${ctx}/static/metronic/table_datatables_editable.html" class="nav-link ">
+                            <span class="title">创建考试</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item  ">
+                <a href="/WEB-INF/metronic/table_datatables_editable.jsp" class="nav-link nav-toggle">
+                    <i class="icon-diamond"></i>
+                    <span class="title">成绩统计</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="${ctx}/static/metronic/table_datatables_editable.html" class="nav-link ">
+                            <span class="title">查看成绩</span>
                         </a>
                     </li>
                 </ul>

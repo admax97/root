@@ -36,7 +36,7 @@
     <link href="${ctx}/static/assets/layouts/layout2/css/themes/blue.min.css" rel="stylesheet" type="text/css" id="style_color" />
     <link href="${ctx}/static/assets/layouts/layout2/css/custom.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="favicon.ico" /> </head>
+    <link rel="shortcut icon" href="${ctx}/static/metronic/favicon.ico" /> </head>
 </head>
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
@@ -45,7 +45,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="index.html">
-                <img src="../assets/layouts/layout2/img/logo-default.png" alt="logo" class="logo-default" /> </a>
+                <img src="../../static/assets/layouts/layout2/img/logo-default.png" alt="logo" class="logo-default" /> </a>
             <div class="menu-toggler sidebar-toggler">
                 <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
             </div>

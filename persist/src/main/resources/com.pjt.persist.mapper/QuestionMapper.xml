@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pjt.persist.mapper.QuestionMapper" >
+  <resultMap id="BaseResultMap" type="com.pjt.persist.model.Question" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="library_id" property="libraryId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="answer_describe" property="answerDescribe" jdbcType="VARCHAR" />
+    <result column="right_answer" property="rightAnswer" jdbcType="VARCHAR" />
+    <result column="create_id" property="createId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="update_id" property="updateId" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, library_id, title, answer_describe, right_answer, create_id, create_time, update_id, 
+    update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pjt.persist.model.QuestionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from question
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from question
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from question
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pjt.persist.model.Question" >
+    insert into question (id, library_id, title, 
+      answer_describe, right_answer, create_id, 
+      create_time, update_id, update_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{libraryId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{answerDescribe,jdbcType=VARCHAR}, #{rightAnswer,jdbcType=VARCHAR}, #{createId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=DATE}, #{updateId,jdbcType=INTEGER}, #{updateTime,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pjt.persist.model.Question" >
+    insert into question
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="libraryId != null" >
+        library_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="answerDescribe != null" >
+        answer_describe,
+      </if>
+      <if test="rightAnswer != null" >
+        right_answer,
+      </if>
+      <if test="createId != null" >
+        create_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateId != null" >
+        update_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="libraryId != null" >
+        #{libraryId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="answerDescribe != null" >
+        #{answerDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="rightAnswer != null" >
+        #{rightAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateId != null" >
+        #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pjt.persist.model.QuestionExample" resultType="java.lang.Integer" >
+    select count(*) from question
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pjt.persist.model.Question" >
+    update question
+    <set >
+      <if test="libraryId != null" >
+        library_id = #{libraryId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="answerDescribe != null" >
+        answer_describe = #{answerDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="rightAnswer != null" >
+        right_answer = #{rightAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null" >
+        create_id = #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateId != null" >
+        update_id = #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pjt.persist.model.Question" >
+    update question
+    set library_id = #{libraryId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      answer_describe = #{answerDescribe,jdbcType=VARCHAR},
+      right_answer = #{rightAnswer,jdbcType=VARCHAR},
+      create_id = #{createId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=DATE},
+      update_id = #{updateId,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
