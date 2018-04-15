@@ -1,5 +1,6 @@
 package com.pjt.controller;
 
+import com.pjt.common.utils.Page;
 import com.pjt.persist.mapper.AdminMapper;
 import com.pjt.persist.model.Admin;
 import com.pjt.persist.model.AdminExample;
@@ -7,11 +8,14 @@ import com.pjt.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jingxing on 2018/4/8.
@@ -27,11 +31,17 @@ private AdminService adminService ;
     }
 
     @RequestMapping(value = "list", method = {RequestMethod.GET})
-    public ModelAndView list(Model mode,Object object) {
-        AdminExample adminExample = new AdminExample();
-        List<Admin> adminList = adminService.selectByExample(adminExample);
-        return new ModelAndView("admin/list","adminList",adminList);
+    public ModelAndView list(Model model) {
+        Page page = new Page();
+        Map map = new HashMap<>();
+        map.put("id",1);
+        page.setParameterMap(map);
+        page.setPageNo(1);
+        page.setPageSize(5);
+        page = adminService.selectList(page);
+        return new ModelAndView("admin/list","adminList",page);
     }
+
 
     @RequestMapping(value = "edit", method = {RequestMethod.GET})
     public ModelAndView edit(Model mode) {
