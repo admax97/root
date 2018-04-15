@@ -96,7 +96,7 @@
                                     <td>${admin.id}</td>
                                     <td>${admin.name} </td>
                                     <td>${admin.phonenumber}</td>
-                                    <td> </td>
+                                    <td> 修改|删除</td>
                                 </tr>
                                 </c:forEach>
                                 </tbody>
