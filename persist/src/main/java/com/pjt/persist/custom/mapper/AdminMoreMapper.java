@@ -6,7 +6,7 @@ import com.pjt.persist.model.Admin;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface AdminMoreMapper extends AdminMapper {
 
     Integer getAdminListCount(Page page);

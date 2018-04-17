@@ -3,6 +3,7 @@ package com.ljx.persist;
 import com.pjt.persist.mapper.AdminMapper;
 import com.pjt.persist.model.Admin;
 import com.pjt.persist.model.AdminExample;
+import com.pjt.service.AdminService;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class AdminMapperTest {
 
     @Autowired
     private AdminMapper adminMapper;
+    @Autowired
+    private AdminService adminService;
     @org.junit.Test
     public void countByExample() throws Exception {
     }
@@ -42,7 +45,8 @@ public class AdminMapperTest {
         //adminExample.setOrderByClause("id");
         // AdminExample.Criteria criteria = adminExample.createCriteria();
         // criteria.andNameLike("x%");
-        List<Admin> admins = adminMapper.selectByExample(adminExample);
+        List<Admin> admins = adminService.selectByExample(adminExample);
+        System.out.println("size:"+admins.size());
         Assert.assertNotNull(adminExample);
 
     }

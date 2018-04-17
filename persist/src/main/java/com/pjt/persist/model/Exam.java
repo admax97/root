@@ -7,9 +7,7 @@ public class Exam {
 
     private String examtName;
 
-    private Date startTime;
-
-    private Date endTime;
+    private String examTime;
 
     private Integer type;
 
@@ -45,21 +43,9 @@ public class Exam {
         this.examtName = examtName == null ? null : examtName.trim();
     }
 
-    public Date getStartTime() {
-        return startTime;
-    }
+    public String getExamTime() {  return examTime; }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
+    public void setExamTime(String examTime) {  this.examTime = examTime; }
 
     public Integer getType() {
         return type;

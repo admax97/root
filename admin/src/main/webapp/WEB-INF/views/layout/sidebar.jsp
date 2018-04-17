@@ -75,7 +75,7 @@
                 </ul>
             </li>
             <li class="nav-item  ">
-                <a href="/WEB-INF/metronic/table_datatables_editable.jsp" class="nav-link nav-toggle">
+                <a href="${ctx}/exam/list" class="nav-link nav-toggle">
                     <i class="icon-diamond"></i>
                     <span class="title">考试管理</span>
                     <span class="arrow"></span>

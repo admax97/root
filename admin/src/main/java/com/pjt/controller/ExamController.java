@@ -1,7 +1,7 @@
 package com.pjt.controller;
 
 import com.pjt.common.utils.Page;
-import com.pjt.service.AdminService;
+import com.pjt.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +20,7 @@ import java.util.Map;
 @RequestMapping(value = "/exam")
 public class ExamController {
     @Autowired
-    private AdminService adminService ;
+    private ExamService examService ;
 
     @RequestMapping(value = "list",method = RequestMethod.GET )
     public ModelAndView examList(Model mode ){
@@ -29,7 +29,7 @@ public class ExamController {
 
     @RequestMapping(value = "ajax/ajaxList",method = RequestMethod.POST )
     public String examAjaxList(Page page,Model model){
-        page = adminService.selectList(page);
+        page = examService.selectList(page);
         model.addAttribute("examList",page.getResult());
         model.addAttribute("totalCnt",page.getTotalCount());
         model.addAttribute("pageNo",page.getPageNo());

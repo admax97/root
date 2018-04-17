@@ -4,8 +4,7 @@
   <resultMap id="BaseResultMap" type="com.pjt.persist.model.Exam" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="examt_name" property="examtName" jdbcType="VARCHAR" />
-    <result column="start_time" property="startTime" jdbcType="DATE" />
-    <result column="end_time" property="endTime" jdbcType="DATE" />
+    <result column="exam_time" property="examTime" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="paper_id" property="paperId" jdbcType="INTEGER" />
     <result column="exam_mark" property="examMark" jdbcType="VARCHAR" />
@@ -46,7 +45,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, examt_name, start_time, end_time, type, paper_id, exam_mark, expired_time, exam_status, 
+    id, examt_name, exam_time, type, paper_id, exam_mark, expired_time, exam_status,
     create_id, create_time, update_id, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pjt.persist.model.ExamExample" >
@@ -75,13 +74,12 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.pjt.persist.model.Exam" >
-    insert into exam (id, examt_name, start_time, 
-      end_time, type, paper_id, 
+    insert into exam (id, examt_name, exam_time, type, paper_id,
       exam_mark, expired_time, exam_status, 
       create_id, create_time, update_id, 
       update_time)
-    values (#{id,jdbcType=INTEGER}, #{examtName,jdbcType=VARCHAR}, #{startTime,jdbcType=DATE}, 
-      #{endTime,jdbcType=DATE}, #{type,jdbcType=INTEGER}, #{paperId,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{examtName,jdbcType=VARCHAR},#{examTime,jdbcType=VARCHAR},
+      #{type,jdbcType=INTEGER}, #{paperId,jdbcType=INTEGER},
       #{examMark,jdbcType=VARCHAR}, #{expiredTime,jdbcType=DATE}, #{examStatus,jdbcType=INTEGER}, 
       #{createId,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, #{updateId,jdbcType=INTEGER}, 
       #{updateTime,jdbcType=DATE})
@@ -95,11 +93,8 @@
       <if test="examtName != null" >
         examt_name,
       </if>
-      <if test="startTime != null" >
-        start_time,
-      </if>
-      <if test="endTime != null" >
-        end_time,
+      <if test="examTime != null" >
+        exam_time,
       </if>
       <if test="type != null" >
         type,
@@ -183,11 +178,8 @@
       <if test="examtName != null" >
         examt_name = #{examtName,jdbcType=VARCHAR},
       </if>
-      <if test="startTime != null" >
-        start_time = #{startTime,jdbcType=DATE},
-      </if>
-      <if test="endTime != null" >
-        end_time = #{endTime,jdbcType=DATE},
+      <if test="examTime != null" >
+        examt_time = #{examTime,jdbcType=VARCHAR},
       </if>
       <if test="type != null" >
         type = #{type,jdbcType=INTEGER},
@@ -222,8 +214,7 @@
   <update id="updateByPrimaryKey" parameterType="com.pjt.persist.model.Exam" >
     update exam
     set examt_name = #{examtName,jdbcType=VARCHAR},
-      start_time = #{startTime,jdbcType=DATE},
-      end_time = #{endTime,jdbcType=DATE},
+      exam_time = #{examTime,jdbcType=VARCHAR},
       type = #{type,jdbcType=INTEGER},
       paper_id = #{paperId,jdbcType=INTEGER},
       exam_mark = #{examMark,jdbcType=VARCHAR},
