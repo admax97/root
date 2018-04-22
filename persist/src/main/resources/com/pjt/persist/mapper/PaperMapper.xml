@@ -3,12 +3,16 @@
 <mapper namespace="com.pjt.persist.mapper.PaperMapper" >
   <resultMap id="BaseResultMap" type="com.pjt.persist.model.Paper" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="paper_type" property="paperType" jdbcType="VARCHAR" />
     <result column="paper_name" property="paperName" jdbcType="VARCHAR" />
+    <result column="total_score" property="totalScore" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="examiner" property="examiner" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="create_id" property="createId" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_id" property="updateId" jdbcType="INTEGER" />
-    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -40,7 +44,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, paper_name, title, create_id, create_time, update_id, update_time
+    id, paper_type, paper_name, total_score, status, examiner, title, create_id, create_time, 
+    update_id, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pjt.persist.model.PaperExample" >
     select
@@ -68,12 +73,14 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.pjt.persist.model.Paper" >
-    insert into paper (id, paper_name, title, 
-      create_id, create_time, update_id, 
-      update_time)
-    values (#{id,jdbcType=INTEGER}, #{paperName,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{createId,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, #{updateId,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=DATE})
+    insert into paper (id, paper_type, paper_name, 
+      total_score, status, examiner, 
+      title, create_id, create_time, 
+      update_id, update_time)
+    values (#{id,jdbcType=INTEGER}, #{paperType,jdbcType=VARCHAR}, #{paperName,jdbcType=VARCHAR}, 
+      #{totalScore,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{examiner,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{createId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.pjt.persist.model.Paper" >
     insert into paper
@@ -81,8 +88,20 @@
       <if test="id != null" >
         id,
       </if>
+      <if test="paperType != null" >
+        paper_type,
+      </if>
       <if test="paperName != null" >
         paper_name,
+      </if>
+      <if test="totalScore != null" >
+        total_score,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="examiner != null" >
+        examiner,
       </if>
       <if test="title != null" >
         title,
@@ -104,8 +123,20 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="paperType != null" >
+        #{paperType,jdbcType=VARCHAR},
+      </if>
       <if test="paperName != null" >
         #{paperName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalScore != null" >
+        #{totalScore,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="examiner != null" >
+        #{examiner,jdbcType=VARCHAR},
       </if>
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
@@ -114,13 +145,13 @@
         #{createId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateId != null" >
         #{updateId,jdbcType=INTEGER},
       </if>
       <if test="updateTime != null" >
-        #{updateTime,jdbcType=DATE},
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -133,8 +164,20 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.pjt.persist.model.Paper" >
     update paper
     <set >
+      <if test="paperType != null" >
+        paper_type = #{paperType,jdbcType=VARCHAR},
+      </if>
       <if test="paperName != null" >
         paper_name = #{paperName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalScore != null" >
+        total_score = #{totalScore,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="examiner != null" >
+        examiner = #{examiner,jdbcType=VARCHAR},
       </if>
       <if test="title != null" >
         title = #{title,jdbcType=VARCHAR},
@@ -143,25 +186,29 @@
         create_id = #{createId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateId != null" >
         update_id = #{updateId,jdbcType=INTEGER},
       </if>
       <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=DATE},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.pjt.persist.model.Paper" >
     update paper
-    set paper_name = #{paperName,jdbcType=VARCHAR},
+    set paper_type = #{paperType,jdbcType=VARCHAR},
+      paper_name = #{paperName,jdbcType=VARCHAR},
+      total_score = #{totalScore,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      examiner = #{examiner,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
       create_id = #{createId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
       update_id = #{updateId,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=DATE}
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

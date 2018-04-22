@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li class="nav-item start ">
-                        <a href="${ctx}/admin/edit" class="nav-link ">
+                        <a href="${ctx}/admin/add" class="nav-link ">
                             <i class="icon-graph"></i>
                             <span class="title">创建管理员</span>
                             <span class="badge badge-danger">5</span>
@@ -54,7 +54,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="${ctx}/static/metronic/table_datatables_editable.html" class="nav-link ">
+                        <a href="${ctx}/question/add" class="nav-link ">
                             <span class="title">创建试题</span>
                         </a>
                     </li>
@@ -82,9 +82,9 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="${ctx}/static/metronic/table_datatables_editable.html" class="nav-link ">
-                            <span class="title">创建考试</span>
-                        </a>
+                        <a href="${ctx}/exam/add" class="nav-link ">
+                    <span class="title">创建考试</span>
+                    </a>
                     </li>
                 </ul>
             </li>

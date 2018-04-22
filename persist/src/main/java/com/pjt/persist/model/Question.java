@@ -9,9 +9,21 @@ public class Question {
 
     private String title;
 
-    private String answerDescribe;
+    private String score;
+
+    private String answerA;
+
+    private String answerB;
+
+    private String answerC;
+
+    private String answerD;
+
+    private Integer status;
 
     private String rightAnswer;
+
+    private String questionType;
 
     private Integer createId;
 
@@ -45,12 +57,52 @@ public class Question {
         this.title = title == null ? null : title.trim();
     }
 
-    public String getAnswerDescribe() {
-        return answerDescribe;
+    public String getScore() {
+        return score;
     }
 
-    public void setAnswerDescribe(String answerDescribe) {
-        this.answerDescribe = answerDescribe == null ? null : answerDescribe.trim();
+    public void setScore(String score) {
+        this.score = score == null ? null : score.trim();
+    }
+
+    public String getAnswerA() {
+        return answerA;
+    }
+
+    public void setAnswerA(String answerA) {
+        this.answerA = answerA == null ? null : answerA.trim();
+    }
+
+    public String getAnswerB() {
+        return answerB;
+    }
+
+    public void setAnswerB(String answerB) {
+        this.answerB = answerB == null ? null : answerB.trim();
+    }
+
+    public String getAnswerC() {
+        return answerC;
+    }
+
+    public void setAnswerC(String answerC) {
+        this.answerC = answerC == null ? null : answerC.trim();
+    }
+
+    public String getAnswerD() {
+        return answerD;
+    }
+
+    public void setAnswerD(String answerD) {
+        this.answerD = answerD == null ? null : answerD.trim();
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public String getRightAnswer() {
@@ -59,6 +111,14 @@ public class Question {
 
     public void setRightAnswer(String rightAnswer) {
         this.rightAnswer = rightAnswer == null ? null : rightAnswer.trim();
+    }
+
+    public String getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(String questionType) {
+        this.questionType = questionType == null ? null : questionType.trim();
     }
 
     public Integer getCreateId() {

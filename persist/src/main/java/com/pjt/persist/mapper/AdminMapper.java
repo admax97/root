@@ -2,11 +2,8 @@ package com.pjt.persist.mapper;
 
 import com.pjt.persist.model.Admin;
 import com.pjt.persist.model.AdminExample;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
-@Repository
 public interface AdminMapper {
     int countByExample(AdminExample example);
 

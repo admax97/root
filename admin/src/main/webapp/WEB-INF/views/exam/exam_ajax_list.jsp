@@ -17,24 +17,24 @@
             <th>关联试卷</th>
             <th>考试类型</th>
             <th>考试状态</th>
-            <th>创建人</th>
+            <%--<th>创建人</th>--%>
         </tr>
         </thead>
         <tbody>
         <c:choose>
             <c:when test="${!empty examList}">
 
-                <c:forEach items="${examList}" var="customExam">
+                <c:forEach items="${examList}" var="exam">
                     <tr>
                         <td>
-                            <div  title="${customExam.id}">
-                                    ${customExam.id}
+                            <div  title="${exam.examName}">
+                                    ${exam.examName}
                             </div>
                         </td>
-                        <td>${customExam.name}</td>
-                        <td>${customExam.phonenumber}</td>
-                        <td>${customExam.role}</td>
-                        <td>${customExam.password}</td>
+                        <td>${exam.id}</td>
+                        <td>${exam.paperId}</td>
+                        <td>${exam.type}</td>
+                        <td>${exam.examStatus}</td>
                         <td width="150px">
                             <div class="btn-group ma-t">
                                 <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown"
@@ -43,8 +43,8 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="javascript:editExamInfo('${customExam.id}');">查看考试</li>
-                                    <li><a href="javascript:paperReview('${customExam.id}');">预览试卷</a></li>
+                                    <li><a href="javascript:editExamInfo('${exam.id}');">查看考试</a></li>
+                                    <li><a href="javascript:paperReview('${exam.id}');">预览试卷</a></li>
                                 </ul>
                             </div>
                         </td>

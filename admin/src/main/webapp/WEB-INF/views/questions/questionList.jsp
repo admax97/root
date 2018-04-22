@@ -50,7 +50,7 @@
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- END THEME PANEL -->
-            <h1 class="page-title">管理员管理</h1>
+            <h1 class="page-title">题库管理</h1>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
                     <li>
@@ -93,7 +93,7 @@
                                     <th> 姓名 </th>
                                     <th> 电话 </th>
                                     <th> 状态 </th>
-                                    <th> 操作 </th>
+                                    <th> 编辑 </th>
                                 </tr>
                                 </thead>
                                 <tbody data-auto-height="">
@@ -104,9 +104,8 @@
                                     <td>${admin.phonenumber}</td>
                                     <td><c:if test="${admin.status==1}">正常</c:if> <c:if test="${admin.status==2}">作废</c:if> </td>
                                     <td>
-                                            <a class="btn bg-yellow-crusta" href="${ctx}/admin/update?id=${admin.id}" style="border-radius: 5px !important;margin-right:15px;color: white;" ><i class="fa fa-edit"></i>修改</a>
-
-                                            <button style="border-radius: 5px !important;margin-right:15px" class="btn red-sunglo" onclick="delAdmin(${admin.id },${admin.status})"><i class="fa fa-times"></i>冻结</button>
+                                        <a  href="${ctx}/admin/update?id=${admin.id}" onmouseover="this.style.color='red';" onmouseout="this.style.color='#0a6aa1';">修改</a>|
+                                        <a href="javascript:delAdmin(${admin.id },${admin.status})" onmouseover="this.style.color='red';" onmouseout="this.style.color='#0a6aa1';">冻结</a>
                                     </td>
                                 </tr>
                                 </c:forEach>
@@ -130,26 +129,26 @@
                 </select>
             </div>--%>
             <!--分页-->
-                <%--<div style="float: right">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            &lt;%&ndash;<li><a href="javascript:splitPage(pageNo,pageSize)">1</a></li>&ndash;%&gt;
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>--%>
+                <%--<div style="float: right">--%>
+                    <%--<nav aria-label="Page navigation">--%>
+                        <%--<ul class="pagination">--%>
+                            <%--<li>--%>
+                                <%--<a href="#" aria-label="Previous">--%>
+                                    <%--<span aria-hidden="true">&laquo;</span>--%>
+                                <%--</a>--%>
+                            <%--</li>--%>
+                            <%--&lt;%&ndash;<li><a href="javascript:splitPage(pageNo,pageSize)">1</a></li>&ndash;%&gt;--%>
+                            <%--<li><a href="#">2</a></li>--%>
+                            <%--<li><a href="#">3</a></li>--%>
+                            <%--<li><a href="#">4</a></li>--%>
+                            <%--<li>--%>
+                                <%--<a href="#" aria-label="Next">--%>
+                                    <%--<span aria-hidden="true">&raquo;</span>--%>
+                                <%--</a>--%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
+                    <%--</nav>--%>
+                <%--</div>--%>
         </div>
 
         <!-- END CONTENT -->
@@ -205,9 +204,9 @@
 <script src="${ctx}/static/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script src="${ctx}/static/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>--%>
 <script type="text/css" src="${ctx}/static/script/jquery-1.8.0.min.js"></script>
-<link rel="stylesheet" href="${ctx}/static/css/page/bootstrap-table.css">
-<script src="${ctx}/static/script/page/bootstrap-table.js"></script>
-<script src="${ctx}/static/script/page/bootstrap-table-zh-CN.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 
 <script>
@@ -216,22 +215,14 @@
         pagination: true,
         pageSize: 5,
         search:true,
-        searchOnEnterKey:true,
-        pageList:[2, 5, 7],
-        striped:true
-        /*detailView:true,
-        detailFormatter:function(index, row) {
-            var a = row;
-
-            return a;
-        }*/
+        pageList:[2, 5, 7]
 
     });
 
 //    $('#sample_2').bootstrapTable('method', parameter);
 
     /*function splitPage(pageNo,pageSize) {
-       $.ajax({
+        $.ajax({
             type: 'POST',
             url: ctx + "/admin/ajax/ajaxList",
             data: { 'pageNo': pageNo, 'pageSize': pageSize},

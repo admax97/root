@@ -2,22 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.pjt.persist.custom.mapper.ExamMoreMapper" >
   <resultMap id="BaseResultMap" type="com.pjt.persist.model.Exam" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="examt_name" property="examtName" jdbcType="VARCHAR" />
-    <result column="exam_time" property="examTime" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="INTEGER" />
-    <result column="paper_id" property="paperId" jdbcType="INTEGER" />
-    <result column="exam_mark" property="examMark" jdbcType="VARCHAR" />
-    <result column="expired_time" property="expiredTime" jdbcType="DATE" />
-    <result column="exam_status" property="examStatus" jdbcType="INTEGER" />
-    <result column="create_id" property="createId" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="DATE" />
-    <result column="update_id" property="updateId" jdbcType="INTEGER" />
-    <result column="update_time" property="updateTime" jdbcType="DATE" />
+      <id column="id" property="id" jdbcType="INTEGER" />
+      <result column="exam_time" property="examTime" jdbcType="VARCHAR" />
+      <result column="exam_name" property="examName" jdbcType="VARCHAR" />
+      <result column="exam_type" property="examType" jdbcType="VARCHAR" />
+      <result column="exam_number" property="examNumber" jdbcType="VARCHAR" />
+      <result column="paper_id" property="paperId" jdbcType="INTEGER" />
+      <result column="exam_mark" property="examMark" jdbcType="VARCHAR" />
+      <result column="expired_time" property="expiredTime" jdbcType="TIMESTAMP" />
+      <result column="creater" property="creater" jdbcType="VARCHAR" />
+      <result column="exam_status" property="examStatus" jdbcType="INTEGER" />
+      <result column="create_id" property="createId" jdbcType="INTEGER" />
+      <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+      <result column="update_id" property="updateId" jdbcType="INTEGER" />
+      <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List">
-      id, examt_name, exam_time, type, paper_id,exam_mark, expired_time, exam_status,
-      create_id, create_time, update_id,update_time
+      id, exam_time, exam_name, exam_type, exam_number, paper_id, exam_mark, expired_time,
+    creater, exam_status, create_id, create_time, update_id, update_time
  </sql>
   <sql id="where">
     <where>

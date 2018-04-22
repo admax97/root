@@ -45,8 +45,8 @@
     <div class="page-header-inner ">
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="index.html">
-                <img src="../assets/layouts/layout2/img/logo-default.png" alt="logo" class="logo-default" /> </a>
+            <a href="#">
+                <img src="${ctx}/static/assets/layouts/layout2/img/logo-default.png" alt="logo" class="logo-default" /> </a>
             <div class="menu-toggler sidebar-toggler">
                 <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
             </div>
@@ -366,39 +366,23 @@
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <img alt="" class="img-circle" src="../assets/layouts/layout2/img/avatar3_small.jpg" />
-                            <span class="username username-hide-on-mobile"> Nick </span>
+                            <img alt="" class="img-circle" src="${ctx}/static/assets/layouts/layout2/img/avatar3_small.jpg" />
+                            <span class="username username-hide-on-mobile"> 用户名称</span>
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="page_user_profile_1.html">
+                                <a href="${ctx}/static/metronic/page_user_profile_1.html">
                                     <i class="icon-user"></i> My Profile </a>
                             </li>
                             <li>
-                                <a href="app_calendar.html">
-                                    <i class="icon-calendar"></i> My Calendar </a>
+                                <a href="${ctx}/static/metronic/app_calendar.html">
+                                    <i class="icon-calendar"></i> 日历 </a>
                             </li>
+
                             <li>
-                                <a href="app_inbox.html">
-                                    <i class="icon-envelope-open"></i> My Inbox
-                                    <span class="badge badge-danger"> 3 </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="app_todo_2.html">
-                                    <i class="icon-rocket"></i> My Tasks
-                                    <span class="badge badge-success"> 7 </span>
-                                </a>
-                            </li>
-                            <li class="divider"> </li>
-                            <li>
-                                <a href="page_user_lock_1.html">
-                                    <i class="icon-lock"></i> Lock Screen </a>
-                            </li>
-                            <li>
-                                <a href="page_user_login_1.html">
-                                    <i class="icon-key"></i> Log Out </a>
+                                <a href="${ctx}/static/metronic/page_user_login_1.html">
+                                    <i class="icon-key"></i> 注销 </a>
                             </li>
                         </ul>
                     </li>

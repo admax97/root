@@ -5,17 +5,21 @@ import java.util.Date;
 public class Exam {
     private Integer id;
 
-    private String examtName;
-
     private String examTime;
 
-    private Integer type;
+    private String examName;
+
+    private String examType;
+
+    private String examNumber;
 
     private Integer paperId;
 
     private String examMark;
 
     private Date expiredTime;
+
+    private String creater;
 
     private Integer examStatus;
 
@@ -35,24 +39,36 @@ public class Exam {
         this.id = id;
     }
 
-    public String getExamtName() {
-        return examtName;
+    public String getExamTime() {
+        return examTime;
     }
 
-    public void setExamtName(String examtName) {
-        this.examtName = examtName == null ? null : examtName.trim();
+    public void setExamTime(String examTime) {
+        this.examTime = examTime == null ? null : examTime.trim();
     }
 
-    public String getExamTime() {  return examTime; }
-
-    public void setExamTime(String examTime) {  this.examTime = examTime; }
-
-    public Integer getType() {
-        return type;
+    public String getExamName() {
+        return examName;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setExamName(String examName) {
+        this.examName = examName == null ? null : examName.trim();
+    }
+
+    public String getExamType() {
+        return examType;
+    }
+
+    public void setExamType(String examType) {
+        this.examType = examType == null ? null : examType.trim();
+    }
+
+    public String getExamNumber() {
+        return examNumber;
+    }
+
+    public void setExamNumber(String examNumber) {
+        this.examNumber = examNumber == null ? null : examNumber.trim();
     }
 
     public Integer getPaperId() {
@@ -77,6 +93,14 @@ public class Exam {
 
     public void setExpiredTime(Date expiredTime) {
         this.expiredTime = expiredTime;
+    }
+
+    public String getCreater() {
+        return creater;
+    }
+
+    public void setCreater(String creater) {
+        this.creater = creater == null ? null : creater.trim();
     }
 
     public Integer getExamStatus() {

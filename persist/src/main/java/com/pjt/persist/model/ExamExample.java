@@ -2,7 +2,6 @@ package com.pjt.persist.model;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class ExamExample {
@@ -106,32 +105,6 @@ public class ExamExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
-        }
-
         public Criteria andIdIsNull() {
             addCriterion("id is null");
             return (Criteria) this;
@@ -192,253 +165,283 @@ public class ExamExample {
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameIsNull() {
-            addCriterion("examt_name is null");
+        public Criteria andExamTimeIsNull() {
+            addCriterion("exam_time is null");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameIsNotNull() {
-            addCriterion("examt_name is not null");
+        public Criteria andExamTimeIsNotNull() {
+            addCriterion("exam_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameEqualTo(String value) {
-            addCriterion("examt_name =", value, "examtName");
+        public Criteria andExamTimeEqualTo(String value) {
+            addCriterion("exam_time =", value, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameNotEqualTo(String value) {
-            addCriterion("examt_name <>", value, "examtName");
+        public Criteria andExamTimeNotEqualTo(String value) {
+            addCriterion("exam_time <>", value, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameGreaterThan(String value) {
-            addCriterion("examt_name >", value, "examtName");
+        public Criteria andExamTimeGreaterThan(String value) {
+            addCriterion("exam_time >", value, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameGreaterThanOrEqualTo(String value) {
-            addCriterion("examt_name >=", value, "examtName");
+        public Criteria andExamTimeGreaterThanOrEqualTo(String value) {
+            addCriterion("exam_time >=", value, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameLessThan(String value) {
-            addCriterion("examt_name <", value, "examtName");
+        public Criteria andExamTimeLessThan(String value) {
+            addCriterion("exam_time <", value, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameLessThanOrEqualTo(String value) {
-            addCriterion("examt_name <=", value, "examtName");
+        public Criteria andExamTimeLessThanOrEqualTo(String value) {
+            addCriterion("exam_time <=", value, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameLike(String value) {
-            addCriterion("examt_name like", value, "examtName");
+        public Criteria andExamTimeLike(String value) {
+            addCriterion("exam_time like", value, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameNotLike(String value) {
-            addCriterion("examt_name not like", value, "examtName");
+        public Criteria andExamTimeNotLike(String value) {
+            addCriterion("exam_time not like", value, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameIn(List<String> values) {
-            addCriterion("examt_name in", values, "examtName");
+        public Criteria andExamTimeIn(List<String> values) {
+            addCriterion("exam_time in", values, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameNotIn(List<String> values) {
-            addCriterion("examt_name not in", values, "examtName");
+        public Criteria andExamTimeNotIn(List<String> values) {
+            addCriterion("exam_time not in", values, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameBetween(String value1, String value2) {
-            addCriterion("examt_name between", value1, value2, "examtName");
+        public Criteria andExamTimeBetween(String value1, String value2) {
+            addCriterion("exam_time between", value1, value2, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andExamtNameNotBetween(String value1, String value2) {
-            addCriterion("examt_name not between", value1, value2, "examtName");
+        public Criteria andExamTimeNotBetween(String value1, String value2) {
+            addCriterion("exam_time not between", value1, value2, "examTime");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeIsNull() {
-            addCriterion("start_time is null");
+        public Criteria andExamNameIsNull() {
+            addCriterion("exam_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeIsNotNull() {
-            addCriterion("start_time is not null");
+        public Criteria andExamNameIsNotNull() {
+            addCriterion("exam_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("start_time =", value, "startTime");
+        public Criteria andExamNameEqualTo(String value) {
+            addCriterion("exam_name =", value, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("start_time <>", value, "startTime");
+        public Criteria andExamNameNotEqualTo(String value) {
+            addCriterion("exam_name <>", value, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("start_time >", value, "startTime");
+        public Criteria andExamNameGreaterThan(String value) {
+            addCriterion("exam_name >", value, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("start_time >=", value, "startTime");
+        public Criteria andExamNameGreaterThanOrEqualTo(String value) {
+            addCriterion("exam_name >=", value, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeLessThan(Date value) {
-            addCriterionForJDBCDate("start_time <", value, "startTime");
+        public Criteria andExamNameLessThan(String value) {
+            addCriterion("exam_name <", value, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("start_time <=", value, "startTime");
+        public Criteria andExamNameLessThanOrEqualTo(String value) {
+            addCriterion("exam_name <=", value, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("start_time in", values, "startTime");
+        public Criteria andExamNameLike(String value) {
+            addCriterion("exam_name like", value, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("start_time not in", values, "startTime");
+        public Criteria andExamNameNotLike(String value) {
+            addCriterion("exam_name not like", value, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("start_time between", value1, value2, "startTime");
+        public Criteria andExamNameIn(List<String> values) {
+            addCriterion("exam_name in", values, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("start_time not between", value1, value2, "startTime");
+        public Criteria andExamNameNotIn(List<String> values) {
+            addCriterion("exam_name not in", values, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeIsNull() {
-            addCriterion("end_time is null");
+        public Criteria andExamNameBetween(String value1, String value2) {
+            addCriterion("exam_name between", value1, value2, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeIsNotNull() {
-            addCriterion("end_time is not null");
+        public Criteria andExamNameNotBetween(String value1, String value2) {
+            addCriterion("exam_name not between", value1, value2, "examName");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("end_time =", value, "endTime");
+        public Criteria andExamTypeIsNull() {
+            addCriterion("exam_type is null");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("end_time <>", value, "endTime");
+        public Criteria andExamTypeIsNotNull() {
+            addCriterion("exam_type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("end_time >", value, "endTime");
+        public Criteria andExamTypeEqualTo(String value) {
+            addCriterion("exam_type =", value, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("end_time >=", value, "endTime");
+        public Criteria andExamTypeNotEqualTo(String value) {
+            addCriterion("exam_type <>", value, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeLessThan(Date value) {
-            addCriterionForJDBCDate("end_time <", value, "endTime");
+        public Criteria andExamTypeGreaterThan(String value) {
+            addCriterion("exam_type >", value, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("end_time <=", value, "endTime");
+        public Criteria andExamTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("exam_type >=", value, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("end_time in", values, "endTime");
+        public Criteria andExamTypeLessThan(String value) {
+            addCriterion("exam_type <", value, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("end_time not in", values, "endTime");
+        public Criteria andExamTypeLessThanOrEqualTo(String value) {
+            addCriterion("exam_type <=", value, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("end_time between", value1, value2, "endTime");
+        public Criteria andExamTypeLike(String value) {
+            addCriterion("exam_type like", value, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andEndTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("end_time not between", value1, value2, "endTime");
+        public Criteria andExamTypeNotLike(String value) {
+            addCriterion("exam_type not like", value, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNull() {
-            addCriterion("type is null");
+        public Criteria andExamTypeIn(List<String> values) {
+            addCriterion("exam_type in", values, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNotNull() {
-            addCriterion("type is not null");
+        public Criteria andExamTypeNotIn(List<String> values) {
+            addCriterion("exam_type not in", values, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andTypeEqualTo(Integer value) {
-            addCriterion("type =", value, "type");
+        public Criteria andExamTypeBetween(String value1, String value2) {
+            addCriterion("exam_type between", value1, value2, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotEqualTo(Integer value) {
-            addCriterion("type <>", value, "type");
+        public Criteria andExamTypeNotBetween(String value1, String value2) {
+            addCriterion("exam_type not between", value1, value2, "examType");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThan(Integer value) {
-            addCriterion("type >", value, "type");
+        public Criteria andExamNumberIsNull() {
+            addCriterion("exam_number is null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("type >=", value, "type");
+        public Criteria andExamNumberIsNotNull() {
+            addCriterion("exam_number is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThan(Integer value) {
-            addCriterion("type <", value, "type");
+        public Criteria andExamNumberEqualTo(String value) {
+            addCriterion("exam_number =", value, "examNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("type <=", value, "type");
+        public Criteria andExamNumberNotEqualTo(String value) {
+            addCriterion("exam_number <>", value, "examNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIn(List<Integer> values) {
-            addCriterion("type in", values, "type");
+        public Criteria andExamNumberGreaterThan(String value) {
+            addCriterion("exam_number >", value, "examNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotIn(List<Integer> values) {
-            addCriterion("type not in", values, "type");
+        public Criteria andExamNumberGreaterThanOrEqualTo(String value) {
+            addCriterion("exam_number >=", value, "examNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTypeBetween(Integer value1, Integer value2) {
-            addCriterion("type between", value1, value2, "type");
+        public Criteria andExamNumberLessThan(String value) {
+            addCriterion("exam_number <", value, "examNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("type not between", value1, value2, "type");
+        public Criteria andExamNumberLessThanOrEqualTo(String value) {
+            addCriterion("exam_number <=", value, "examNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamNumberLike(String value) {
+            addCriterion("exam_number like", value, "examNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamNumberNotLike(String value) {
+            addCriterion("exam_number not like", value, "examNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamNumberIn(List<String> values) {
+            addCriterion("exam_number in", values, "examNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamNumberNotIn(List<String> values) {
+            addCriterion("exam_number not in", values, "examNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamNumberBetween(String value1, String value2) {
+            addCriterion("exam_number between", value1, value2, "examNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamNumberNotBetween(String value1, String value2) {
+            addCriterion("exam_number not between", value1, value2, "examNumber");
             return (Criteria) this;
         }
 
@@ -583,52 +586,122 @@ public class ExamExample {
         }
 
         public Criteria andExpiredTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("expired_time =", value, "expiredTime");
+            addCriterion("expired_time =", value, "expiredTime");
             return (Criteria) this;
         }
 
         public Criteria andExpiredTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("expired_time <>", value, "expiredTime");
+            addCriterion("expired_time <>", value, "expiredTime");
             return (Criteria) this;
         }
 
         public Criteria andExpiredTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("expired_time >", value, "expiredTime");
+            addCriterion("expired_time >", value, "expiredTime");
             return (Criteria) this;
         }
 
         public Criteria andExpiredTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("expired_time >=", value, "expiredTime");
+            addCriterion("expired_time >=", value, "expiredTime");
             return (Criteria) this;
         }
 
         public Criteria andExpiredTimeLessThan(Date value) {
-            addCriterionForJDBCDate("expired_time <", value, "expiredTime");
+            addCriterion("expired_time <", value, "expiredTime");
             return (Criteria) this;
         }
 
         public Criteria andExpiredTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("expired_time <=", value, "expiredTime");
+            addCriterion("expired_time <=", value, "expiredTime");
             return (Criteria) this;
         }
 
         public Criteria andExpiredTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("expired_time in", values, "expiredTime");
+            addCriterion("expired_time in", values, "expiredTime");
             return (Criteria) this;
         }
 
         public Criteria andExpiredTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("expired_time not in", values, "expiredTime");
+            addCriterion("expired_time not in", values, "expiredTime");
             return (Criteria) this;
         }
 
         public Criteria andExpiredTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("expired_time between", value1, value2, "expiredTime");
+            addCriterion("expired_time between", value1, value2, "expiredTime");
             return (Criteria) this;
         }
 
         public Criteria andExpiredTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("expired_time not between", value1, value2, "expiredTime");
+            addCriterion("expired_time not between", value1, value2, "expiredTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterIsNull() {
+            addCriterion("creater is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterIsNotNull() {
+            addCriterion("creater is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterEqualTo(String value) {
+            addCriterion("creater =", value, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterNotEqualTo(String value) {
+            addCriterion("creater <>", value, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterGreaterThan(String value) {
+            addCriterion("creater >", value, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterGreaterThanOrEqualTo(String value) {
+            addCriterion("creater >=", value, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterLessThan(String value) {
+            addCriterion("creater <", value, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterLessThanOrEqualTo(String value) {
+            addCriterion("creater <=", value, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterLike(String value) {
+            addCriterion("creater like", value, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterNotLike(String value) {
+            addCriterion("creater not like", value, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterIn(List<String> values) {
+            addCriterion("creater in", values, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterNotIn(List<String> values) {
+            addCriterion("creater not in", values, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterBetween(String value1, String value2) {
+            addCriterion("creater between", value1, value2, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreaterNotBetween(String value1, String value2) {
+            addCriterion("creater not between", value1, value2, "creater");
             return (Criteria) this;
         }
 
@@ -763,52 +836,52 @@ public class ExamExample {
         }
 
         public Criteria andCreateTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("create_time =", value, "createTime");
+            addCriterion("create_time =", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("create_time <>", value, "createTime");
+            addCriterion("create_time <>", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("create_time >", value, "createTime");
+            addCriterion("create_time >", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("create_time >=", value, "createTime");
+            addCriterion("create_time >=", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeLessThan(Date value) {
-            addCriterionForJDBCDate("create_time <", value, "createTime");
+            addCriterion("create_time <", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("create_time <=", value, "createTime");
+            addCriterion("create_time <=", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("create_time in", values, "createTime");
+            addCriterion("create_time in", values, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("create_time not in", values, "createTime");
+            addCriterion("create_time not in", values, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("create_time between", value1, value2, "createTime");
+            addCriterion("create_time between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("create_time not between", value1, value2, "createTime");
+            addCriterion("create_time not between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
@@ -883,52 +956,52 @@ public class ExamExample {
         }
 
         public Criteria andUpdateTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("update_time =", value, "updateTime");
+            addCriterion("update_time =", value, "updateTime");
             return (Criteria) this;
         }
 
         public Criteria andUpdateTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("update_time <>", value, "updateTime");
+            addCriterion("update_time <>", value, "updateTime");
             return (Criteria) this;
         }
 
         public Criteria andUpdateTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("update_time >", value, "updateTime");
+            addCriterion("update_time >", value, "updateTime");
             return (Criteria) this;
         }
 
         public Criteria andUpdateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("update_time >=", value, "updateTime");
+            addCriterion("update_time >=", value, "updateTime");
             return (Criteria) this;
         }
 
         public Criteria andUpdateTimeLessThan(Date value) {
-            addCriterionForJDBCDate("update_time <", value, "updateTime");
+            addCriterion("update_time <", value, "updateTime");
             return (Criteria) this;
         }
 
         public Criteria andUpdateTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("update_time <=", value, "updateTime");
+            addCriterion("update_time <=", value, "updateTime");
             return (Criteria) this;
         }
 
         public Criteria andUpdateTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("update_time in", values, "updateTime");
+            addCriterion("update_time in", values, "updateTime");
             return (Criteria) this;
         }
 
         public Criteria andUpdateTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("update_time not in", values, "updateTime");
+            addCriterion("update_time not in", values, "updateTime");
             return (Criteria) this;
         }
 
         public Criteria andUpdateTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("update_time between", value1, value2, "updateTime");
+            addCriterion("update_time between", value1, value2, "updateTime");
             return (Criteria) this;
         }
 
         public Criteria andUpdateTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("update_time not between", value1, value2, "updateTime");
+            addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
     }

@@ -5,7 +5,15 @@ import java.util.Date;
 public class Paper {
     private Integer id;
 
+    private String paperType;
+
     private String paperName;
+
+    private String totalScore;
+
+    private Integer status;
+
+    private String examiner;
 
     private String title;
 
@@ -25,12 +33,44 @@ public class Paper {
         this.id = id;
     }
 
+    public String getPaperType() {
+        return paperType;
+    }
+
+    public void setPaperType(String paperType) {
+        this.paperType = paperType == null ? null : paperType.trim();
+    }
+
     public String getPaperName() {
         return paperName;
     }
 
     public void setPaperName(String paperName) {
         this.paperName = paperName == null ? null : paperName.trim();
+    }
+
+    public String getTotalScore() {
+        return totalScore;
+    }
+
+    public void setTotalScore(String totalScore) {
+        this.totalScore = totalScore == null ? null : totalScore.trim();
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getExaminer() {
+        return examiner;
+    }
+
+    public void setExaminer(String examiner) {
+        this.examiner = examiner == null ? null : examiner.trim();
     }
 
     public String getTitle() {

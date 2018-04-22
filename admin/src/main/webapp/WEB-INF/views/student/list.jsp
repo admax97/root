@@ -6,7 +6,7 @@
 </script>
 <head>
     <meta charset="utf-8" />
-    <title>Metronic Admin Theme #2 | Colreorder Extension</title>
+    <title>在线学习管理系统</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Preview page of Metronic Admin Theme #2 for colreorder extension demos" name="description" />
@@ -32,6 +32,8 @@
     <link href="${ctx}/static/assets/layouts/layout2/css/custom.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="${ctx}/static/metronic/favicon.ico" /> </head>
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
 <!-- BEGIN HEADER -->
 <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
@@ -47,25 +49,26 @@
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- END THEME PANEL -->
-            <h1 class="page-title">试题管理</h1>
+            <h1 class="page-title">人员管理</h1>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
                     <li>
                         <i class="icon-home"></i>
-                        <a href="index.html">人员管理</a>
-                        <i class="fa fa-angle-right"></i>
-                    </li>
-                    <li>
-                        <a href="#">学员列表</a>
+                        <a href="#">学员管理</a>
                         <i class="fa fa-angle-right"></i>
                     </li>
 
+
                 </ul>
                 <div class="page-toolbar">
-                    <div class="btn-group pull-right">
-                        <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle"> Actions
-                            <i class="fa fa-angle-down"></i>
-                        </button>
+                    <div class="btn-group pull-right" style="margin-top:2px;">
+                        <%--<button type="button" class="btn btn-fit-height grey-salt dropdown-toggle"> Actions--%>
+                            <%--<i class="fa fa-angle-down"></i>--%>
+                        <%--</button>--%>
+                            <button class="btn green-meadow " style="border-radius: 5px !important;margin-right:15px"><i class="fa fa-level-down" style="font-size: 15px"></i>&nbsp;&nbsp;导入</button>&nbsp;&nbsp;
+
+                            <button class="btn green-meadow" style="border-radius: 5px !important;"><i class="fa fa-level-up" style="font-size: 15px"></i>&nbsp;导出</button>
+
                     </div>
                 </div>
             </div>
@@ -77,79 +80,45 @@
                     <div class="portlet box green">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-globe"></i>Column Reordering </div>
+                                <i class="fa fa-globe"></i>学员列表 </div>
                             <div class="tools"> </div>
                         </div>
                         <div class="portlet-body">
-                            <table class="table table-striped table-bordered table-hover" id="sample_2">
+                            <table class="table table-striped table-bordered table-hover" id="table">
                                 <thead>
                                 <tr>
-                                    <th> Rendering engine </th>
-                                    <th> Browser </th>
-                                    <th> Platform(s) </th>
-                                    <th> Engine version </th>
-                                    <th> CSS grade </th>
+                                    <th> 学员编号 </th>
+                                    <th> 姓名 </th>
+                                    <th> 性别 </th>
+                                    <th> 联系方式</th>
+                                    <th> 状态 </th>
+                                    <th> 操作 </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td> Gecko </td>
-                                    <td> Mozilla 1.0 </td>
-                                    <td> Win 95+ / OSX.1+ </td>
-                                    <td> 1 </td>
-                                    <td> A </td>
-                                </tr>
-                                <tr>
-                                    <td> Presto </td>
-                                    <td> Opera 7.0 </td>
-                                    <td> Win 95+ / OSX.1+ </td>
-                                    <td> - </td>
-                                    <td> A </td>
-                                </tr>
-                                <tr>
-                                    <td> Presto </td>
-                                    <td> Opera 7.5 </td>
-                                    <td> Win 95+ / OSX.2+ </td>
-                                    <td> - </td>
-                                    <td> A </td>
-                                </tr>
-                                <tr>
-                                    <td> Presto </td>
-                                    <td> Opera 8.0 </td>
-                                    <td> Win 95+ / OSX.2+ </td>
-                                    <td> - </td>
-                                    <td> A </td>
-                                </tr>
-                                <tr>
-                                    <td> Presto </td>
-                                    <td> Opera 8.5 </td>
-                                    <td> Win 95+ / OSX.2+ </td>
-                                    <td> - </td>
-                                    <td> A </td>
-                                </tr>
-                                <tr>
-                                    <td> Presto </td>
-                                    <td> Opera 9.0 </td>
-                                    <td> Win 95+ / OSX.3+ </td>
-                                    <td> - </td>
-                                    <td> A </td>
-                                </tr>
-                                <tr>
-                                    <td> Presto </td>
-                                    <td> Opera 9.2 </td>
-                                    <td> Win 88+ / OSX.3+ </td>
-                                    <td> - </td>
-                                    <td> A </td>
-                                </tr>
-                                <tr>
-                                    <td> Presto </td>
-                                    <td> Nintendo DS browser </td>
-                                    <td> Nintendo DS </td>
-                                    <td> 8.5 </td>
-                                    <td> C/A
-                                        <sup>1</sup>
+                                <c:forEach var="stu" items="${stuList}">
+                                    <tr>
+                                        <td> ${stu.id} </td>
+                                        <td> ${stu.name} </td>
+                                        <td> ${stu.sex} </td>
+                                        <td> ${stu.phonenumber} </td>
+                                        <td><c:if test="${stu.status==1}">正常</c:if>
+                                            <c:if test="${stu.status==2}">作废</c:if>
+                                        </td>
+                                        <td>
+
+                  <a class="btn bg-yellow-crusta" href="${ctx}/student/update?id=${stu.id}" style="border-radius: 5px !important;margin-right:15px;color: white;" ><i class="fa fa-edit"></i>修改</a>
+                   <%--<button style="border-radius: 5px !important;margin-right:15px" class="btn yellow-crusta"--%>
+                           <%--onclick="javascript:window.href='${ctx}/student/update?id=${stu.id}' "><i class="fa fa-edit"></i>修改</button>--%>
+
+                                    <%--<a href="javascript: elStu(${stu.id },${stu.status})" onmouseover="this.style.color='red';" onmouseout="this.style.color='#0a6aa1';">冻结</a>--%>
+                                    <button style="border-radius: 5px !important;margin-right:15px" class="btn red-sunglo" onclick="delStu(${stu.id },${stu.status})">冻结</button>
+
                                     </td>
-                                </tr>
+                                    </tr>
+                                </c:forEach>
+
+
                                 </tbody>
                             </table>
                         </div>
@@ -170,5 +139,29 @@
     <!-- BEGIN FOOTER -->
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
 </div>
+<!--分页-->
+<script type="text/css" src="${ctx}/static/script/jquery-1.8.0.min.js"></script>
+<link rel="stylesheet" href="${ctx}/static/css/page/bootstrap-table.css">
+<script src="${ctx}/static/script/page/bootstrap-table.js"></script>
+<script src="${ctx}/static/script/page/bootstrap-table-zh-CN.js"></script>
+
+<script src="${ctx}/static/assets/global/scripts/datatable.js" type="text/javascript"></script>
+<script src="${ctx}/static/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+<script src="${ctx}/static/assets/pages/scripts/table-datatables-responsive.min.js" type="text/javascript"></script>
+
+<script>
+    $('#table').bootstrapTable({
+        pagination: true,
+        pageSize: 5,
+        search:true,
+        searchOnEnterKey:true,
+        pageList:[2, 5, 7]
+
+    });
+//    $('#table').DataTable( {
+//        responsive: true
+//    } );
+</script>
 </body>
 <!-- END BODY -->

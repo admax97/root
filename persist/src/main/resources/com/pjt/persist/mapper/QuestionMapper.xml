@@ -5,12 +5,18 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="library_id" property="libraryId" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="answer_describe" property="answerDescribe" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="VARCHAR" />
+    <result column="answer_a" property="answerA" jdbcType="VARCHAR" />
+    <result column="answer_b" property="answerB" jdbcType="VARCHAR" />
+    <result column="answer_c" property="answerC" jdbcType="VARCHAR" />
+    <result column="answer_d" property="answerD" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
     <result column="right_answer" property="rightAnswer" jdbcType="VARCHAR" />
+    <result column="question_type" property="questionType" jdbcType="VARCHAR" />
     <result column="create_id" property="createId" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_id" property="updateId" jdbcType="INTEGER" />
-    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -42,8 +48,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, library_id, title, answer_describe, right_answer, create_id, create_time, update_id, 
-    update_time
+    id, library_id, title, score, answer_a, answer_b, answer_c, answer_d, status, right_answer, 
+    question_type, create_id, create_time, update_id, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pjt.persist.model.QuestionExample" >
     select
@@ -72,12 +78,16 @@
   </delete>
   <insert id="insert" parameterType="com.pjt.persist.model.Question" >
     insert into question (id, library_id, title, 
-      answer_describe, right_answer, create_id, 
+      score, answer_a, answer_b, 
+      answer_c, answer_d, status, 
+      right_answer, question_type, create_id, 
       create_time, update_id, update_time
       )
     values (#{id,jdbcType=INTEGER}, #{libraryId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
-      #{answerDescribe,jdbcType=VARCHAR}, #{rightAnswer,jdbcType=VARCHAR}, #{createId,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=DATE}, #{updateId,jdbcType=INTEGER}, #{updateTime,jdbcType=DATE}
+      #{score,jdbcType=VARCHAR}, #{answerA,jdbcType=VARCHAR}, #{answerB,jdbcType=VARCHAR}, 
+      #{answerC,jdbcType=VARCHAR}, #{answerD,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{rightAnswer,jdbcType=VARCHAR}, #{questionType,jdbcType=VARCHAR}, #{createId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.pjt.persist.model.Question" >
@@ -92,11 +102,29 @@
       <if test="title != null" >
         title,
       </if>
-      <if test="answerDescribe != null" >
-        answer_describe,
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="answerA != null" >
+        answer_a,
+      </if>
+      <if test="answerB != null" >
+        answer_b,
+      </if>
+      <if test="answerC != null" >
+        answer_c,
+      </if>
+      <if test="answerD != null" >
+        answer_d,
+      </if>
+      <if test="status != null" >
+        status,
       </if>
       <if test="rightAnswer != null" >
         right_answer,
+      </if>
+      <if test="questionType != null" >
+        question_type,
       </if>
       <if test="createId != null" >
         create_id,
@@ -121,23 +149,41 @@
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
       </if>
-      <if test="answerDescribe != null" >
-        #{answerDescribe,jdbcType=VARCHAR},
+      <if test="score != null" >
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="answerA != null" >
+        #{answerA,jdbcType=VARCHAR},
+      </if>
+      <if test="answerB != null" >
+        #{answerB,jdbcType=VARCHAR},
+      </if>
+      <if test="answerC != null" >
+        #{answerC,jdbcType=VARCHAR},
+      </if>
+      <if test="answerD != null" >
+        #{answerD,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
       </if>
       <if test="rightAnswer != null" >
         #{rightAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="questionType != null" >
+        #{questionType,jdbcType=VARCHAR},
       </if>
       <if test="createId != null" >
         #{createId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateId != null" >
         #{updateId,jdbcType=INTEGER},
       </if>
       <if test="updateTime != null" >
-        #{updateTime,jdbcType=DATE},
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -156,23 +202,41 @@
       <if test="title != null" >
         title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="answerDescribe != null" >
-        answer_describe = #{answerDescribe,jdbcType=VARCHAR},
+      <if test="score != null" >
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="answerA != null" >
+        answer_a = #{answerA,jdbcType=VARCHAR},
+      </if>
+      <if test="answerB != null" >
+        answer_b = #{answerB,jdbcType=VARCHAR},
+      </if>
+      <if test="answerC != null" >
+        answer_c = #{answerC,jdbcType=VARCHAR},
+      </if>
+      <if test="answerD != null" >
+        answer_d = #{answerD,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
       </if>
       <if test="rightAnswer != null" >
         right_answer = #{rightAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="questionType != null" >
+        question_type = #{questionType,jdbcType=VARCHAR},
       </if>
       <if test="createId != null" >
         create_id = #{createId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateId != null" >
         update_id = #{updateId,jdbcType=INTEGER},
       </if>
       <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=DATE},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -181,12 +245,18 @@
     update question
     set library_id = #{libraryId,jdbcType=INTEGER},
       title = #{title,jdbcType=VARCHAR},
-      answer_describe = #{answerDescribe,jdbcType=VARCHAR},
+      score = #{score,jdbcType=VARCHAR},
+      answer_a = #{answerA,jdbcType=VARCHAR},
+      answer_b = #{answerB,jdbcType=VARCHAR},
+      answer_c = #{answerC,jdbcType=VARCHAR},
+      answer_d = #{answerD,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
       right_answer = #{rightAnswer,jdbcType=VARCHAR},
+      question_type = #{questionType,jdbcType=VARCHAR},
       create_id = #{createId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
       update_id = #{updateId,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=DATE}
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

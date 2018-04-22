@@ -11,4 +11,7 @@ public interface AdminMoreMapper extends AdminMapper {
 
     Integer getAdminListCount(Page page);
     List<Admin> getAdminList(Page page);
+
+
+
 }

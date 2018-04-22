@@ -7,7 +7,9 @@ public class Library {
 
     private String title;
 
-    private Integer questionType;
+    private Integer status;
+
+    private String libraryType;
 
     private Integer createId;
 
@@ -33,12 +35,20 @@ public class Library {
         this.title = title == null ? null : title.trim();
     }
 
-    public Integer getQuestionType() {
-        return questionType;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setQuestionType(Integer questionType) {
-        this.questionType = questionType;
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getLibraryType() {
+        return libraryType;
+    }
+
+    public void setLibraryType(String libraryType) {
+        this.libraryType = libraryType == null ? null : libraryType.trim();
     }
 
     public Integer getCreateId() {

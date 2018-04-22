@@ -19,6 +19,8 @@ public class Admin {
 
     private Integer updateId;
 
+    private Integer status;
+
     private Date updateTime;
 
     public Integer getId() {
@@ -83,6 +85,14 @@ public class Admin {
 
     public void setUpdateId(Integer updateId) {
         this.updateId = updateId;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Date getUpdateTime() {

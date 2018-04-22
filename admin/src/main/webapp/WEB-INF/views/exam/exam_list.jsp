@@ -27,7 +27,7 @@
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- END THEME PANEL -->
-            <h1 class="page-title">管理员管理</h1>
+            <h1 class="page-title">考试管理</h1>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
                     <li>
@@ -61,8 +61,8 @@
                             <div class="tools"> </div>
                         </div>
                         <div class="portlet-body">
-                            <div class="row margin-bottom-10">
-                                <div class="col-md-8">
+                            <div class="row margin-bottom-10" style="text-align: center">
+                                <br class="col-md-8">
                                     <table>
                                         <tr>
                                             <td>考试名称</td>
@@ -76,14 +76,50 @@
                                                 <div class="col-md-12">
                                                     <select class="form-control" name="key2">
                                                         <option VALUE="">－ALL－</option>
+                                                        <option VALUE="">－java语言－</option>
+                                                        <option VALUE="">－数据库－</option>
+                                                        <option VALUE="">－html－</option>
                                                     </select>
                                                 </div>
                                             </td>
                                             <td>
-                                                <button class="btn blue" type="button" onclick="goPage('1',20);"><i class=" icon-magnifier"></i>查询</button>
+                                                <button class="btn blue" type="button" onclick="goPage('1',2);"><i class=" icon-magnifier"></i>查询</button>
                                             </td>
                                         </tr>
                                     </table>
+                            <br>
+
+                                    <table class="table table-striped table-bordered table-hover" id="sample_2" style="text-align: center">
+                                        <thead  style="text-align: center">
+                                        <tr >
+                                            <th > 序号 </th>
+                                            <th> 考试名称 </th>
+                                            <th> 考试时间 </th>
+                                            <th> 考试类型 </th>
+                                            <th> 描述 </th>
+                                            <th> 考试状态 </th>
+                                            <th> 操作 </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                        <c:forEach var="exam" items="${examList}">
+                                            <tr>
+                                                <td>${exam.id}</td>
+                                                <td>${exam.examName}</td>
+                                                <td>${exam.examTime} </td>
+                                                <%--<td><c:if test="${exam.type==1}">技能</c:if> <c:if test="${exam.type==2}">性格</c:if> </td>--%>
+                                                <td>${exam.examType}</td>
+                                                <td>${exam.examMark}</td>
+                                                <td><c:if test="${exam.examStatus==1}">正常</c:if> <c:if test="${exam.examStatus==2}">作废</c:if> </td>
+                                                <td> 修改|删除</td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+
+
                                 </div>
 
                                 <div class="col-md-4 pull-right text-right">
@@ -105,6 +141,26 @@
                 <div class="clearfix">
                 </div>
             </div>
+        <div style="float: right">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <%--<li><a href="javascript:splitPage(pageNo,pageSize)">1</a></li>--%>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         </div>
         <!-- END CONTENT -->
     </div>
@@ -122,7 +178,7 @@
             $.ajax({
 
                 type: 'POST',
-                url: ctx + "/exam/ajax/ajaxList",
+                url: ctx + "${ctx}/exam/ajax/ajaxList",
                 data: {'parameterMap':parameterMap, 'pageNo': pageNo, 'pageSize': pageSize},
                 dataType: "text",
                 success: function (msg) {
@@ -134,7 +190,9 @@
             });
         }
     </script>
+<%--
     <script src="${ctx}/static/script/exam/exam.js" type="text/javascript"></script>
+--%>
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
 </div>
 

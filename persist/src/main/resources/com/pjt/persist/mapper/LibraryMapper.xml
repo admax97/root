@@ -4,11 +4,12 @@
   <resultMap id="BaseResultMap" type="com.pjt.persist.model.Library" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="question_type" property="questionType" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="library_type" property="libraryType" jdbcType="VARCHAR" />
     <result column="create_id" property="createId" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_id" property="updateId" jdbcType="INTEGER" />
-    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -40,7 +41,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, title, question_type, create_id, create_time, update_id, update_time
+    id, title, status, library_type, create_id, create_time, update_id, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pjt.persist.model.LibraryExample" >
     select
@@ -68,12 +69,12 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.pjt.persist.model.Library" >
-    insert into library (id, title, question_type, 
-      create_id, create_time, update_id, 
-      update_time)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{questionType,jdbcType=INTEGER}, 
-      #{createId,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, #{updateId,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=DATE})
+    insert into library (id, title, status, 
+      library_type, create_id, create_time, 
+      update_id, update_time)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{libraryType,jdbcType=VARCHAR}, #{createId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.pjt.persist.model.Library" >
     insert into library
@@ -84,8 +85,11 @@
       <if test="title != null" >
         title,
       </if>
-      <if test="questionType != null" >
-        question_type,
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="libraryType != null" >
+        library_type,
       </if>
       <if test="createId != null" >
         create_id,
@@ -107,20 +111,23 @@
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
       </if>
-      <if test="questionType != null" >
-        #{questionType,jdbcType=INTEGER},
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="libraryType != null" >
+        #{libraryType,jdbcType=VARCHAR},
       </if>
       <if test="createId != null" >
         #{createId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateId != null" >
         #{updateId,jdbcType=INTEGER},
       </if>
       <if test="updateTime != null" >
-        #{updateTime,jdbcType=DATE},
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -136,20 +143,23 @@
       <if test="title != null" >
         title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="questionType != null" >
-        question_type = #{questionType,jdbcType=INTEGER},
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="libraryType != null" >
+        library_type = #{libraryType,jdbcType=VARCHAR},
       </if>
       <if test="createId != null" >
         create_id = #{createId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateId != null" >
         update_id = #{updateId,jdbcType=INTEGER},
       </if>
       <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=DATE},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -157,11 +167,12 @@
   <update id="updateByPrimaryKey" parameterType="com.pjt.persist.model.Library" >
     update library
     set title = #{title,jdbcType=VARCHAR},
-      question_type = #{questionType,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      library_type = #{libraryType,jdbcType=VARCHAR},
       create_id = #{createId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
       update_id = #{updateId,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=DATE}
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

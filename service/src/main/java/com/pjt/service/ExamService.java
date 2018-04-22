@@ -1,28 +1,55 @@
 package com.pjt.service;
 
 import com.pjt.common.utils.Page;
+import com.pjt.persist.custom.mapper.ExamMoreMapper;
 import com.pjt.persist.model.Exam;
 import com.pjt.persist.model.ExamExample;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
-public interface ExamService {
-    int countByExample(ExamExample example);
+public class ExamService{
+    @Autowired
+    private ExamMoreMapper examMoreMapper;
+    public int countByExample(ExamExample example){
+        return examMoreMapper.countByExample(example);
+    }
 
-    int deleteByPrimaryKey(Integer id);
+    public int deleteByPrimaryKey(Integer id){
+        return examMoreMapper.deleteByPrimaryKey(id);
+    }
 
-    int insert(Exam record);
+    public int insert(Exam record){
+        return examMoreMapper.insert(record);
+    }
 
-    int insertSelective(Exam record);
+    public int insertSelective(Exam record){
+        return examMoreMapper.insertSelective(record);
+    }
 
-    List<Exam> selectByExample(ExamExample example);
+    public List<Exam> selectByExample(ExamExample example){
 
-    Exam selectByPrimaryKey(Integer id);
+        return examMoreMapper.selectByExample(example);
+    }
 
-    int updateByPrimaryKeySelective(Exam record);
+   public Exam selectByPrimaryKey(Integer id){
+        return examMoreMapper.selectByPrimaryKey(id);
+    }
 
-    int updateByPrimaryKey(Exam record);
+   public int updateByPrimaryKeySelective(Exam record){
+        return examMoreMapper.updateByPrimaryKeySelective(record);
+    }
 
-    Page selectList(Page page);
+   public int updateByPrimaryKey(Exam record){
+        return examMoreMapper.updateByPrimaryKey(record);
+    }
+
+    public Page selectList(Page page) {
+        page.setTotalCount(examMoreMapper.getExamListCount(page));
+        page.setResult(examMoreMapper.getExamList(page));
+        System.out.println("条数："+page.getTotalCount());
+        return page;
+    }
 }
