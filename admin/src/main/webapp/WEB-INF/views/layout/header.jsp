@@ -34,7 +34,7 @@
     <!-- BEGIN THEME LAYOUT STYLES -->
     <link href="${ctx}/static/assets/layouts/layout2/css/layout.min.css" rel="stylesheet" type="text/css" />
     <link href="${ctx}/static/assets/layouts/layout2/css/themes/blue.min.css" rel="stylesheet" type="text/css" id="style_color" />
-    <link href="${ctx}/static/assets/layouts/layout2/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/assets/layouts/layout2/css/custom.css" rel="stylesheet" type="text/css" />
     <script src="${ctx}/static/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="${ctx}/static/metronic/favicon.ico" /> </head>
