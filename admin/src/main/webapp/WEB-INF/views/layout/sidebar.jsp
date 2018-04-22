@@ -55,7 +55,12 @@
                 <ul class="sub-menu">
                     <li class="nav-item  ">
                         <a href="${ctx}/question/add" class="nav-link ">
-                            <span class="title">创建试题</span>
+                            <span class="title">创建题库</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="${ctx}/question/add" class="nav-link ">
+                            <span class="title">题库列表</span>
                         </a>
                     </li>
                 </ul>
@@ -69,7 +74,12 @@
                 <ul class="sub-menu">
                     <li class="nav-item  ">
                         <a href="components_date_time_pickers.html" class="nav-link ">
-                            <span class="title">查看试卷</span>
+                            <span class="title">创建试卷</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="components_date_time_pickers.html" class="nav-link ">
+                            <span class="title">试卷列表</span>
                         </a>
                     </li>
                 </ul>
@@ -85,6 +95,11 @@
                         <a href="${ctx}/exam/add" class="nav-link ">
                     <span class="title">创建考试</span>
                     </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="${ctx}/exam/add" class="nav-link ">
+                            <span class="title">考试列表</span>
+                        </a>
                     </li>
                 </ul>
             </li>
