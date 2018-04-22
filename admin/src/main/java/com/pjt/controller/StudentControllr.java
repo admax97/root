@@ -18,7 +18,7 @@ public class StudentControllr {
 
     @Autowired
     private StudentService studentService;
-    List<Student> stuList =null;
+
     @RequestMapping(value = "list", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView list(Model mode) {
         List<Student> studentList = studentService.selectByExample(new StudentExample());

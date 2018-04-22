@@ -11,6 +11,28 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Preview page of Metronic Admin Theme #2 for colreorder extension demos" name="description" />
     <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="${ctx}/static/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <link href="${ctx}/static/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="${ctx}/static/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="${ctx}/static/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <link href="${ctx}/static/assets/layouts/layout2/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/assets/layouts/layout2/css/themes/blue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="${ctx}/static/assets/layouts/layout2/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="${ctx}/static/metronic/favicon.ico" /> </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
 <!-- BEGIN HEADER -->
@@ -76,9 +98,10 @@
                                                 <div class="col-md-12">
                                                     <select class="form-control" name="key2">
                                                         <option VALUE="">－ALL－</option>
-                                                        <option VALUE="">－java语言－</option>
-                                                        <option VALUE="">－数据库－</option>
-                                                        <option VALUE="">－html－</option>
+                                                        <option VALUE="java语言">－java语言－</option>
+                                                        <option VALUE="数据库">－数据库－</option>
+                                                        <option VALUE="html">－html－</option>
+                                                        <option VALUE="c语言">－c语言－</option>
                                                     </select>
                                                 </div>
                                             </td>
@@ -89,7 +112,7 @@
                                     </table>
                             <br>
 
-                                    <table class="table table-striped table-bordered table-hover" id="sample_2" style="text-align: center">
+                                   <%-- <table class="table table-striped table-bordered table-hover" id="sample_2" style="text-align: center">
                                         <thead  style="text-align: center">
                                         <tr >
                                             <th > 序号 </th>
@@ -109,7 +132,7 @@
                                                 <td>${exam.id}</td>
                                                 <td>${exam.examName}</td>
                                                 <td>${exam.examTime} </td>
-                                                <%--<td><c:if test="${exam.type==1}">技能</c:if> <c:if test="${exam.type==2}">性格</c:if> </td>--%>
+                                                &lt;%&ndash;<td><c:if test="${exam.type==1}">技能</c:if> <c:if test="${exam.type==2}">性格</c:if> </td>&ndash;%&gt;
                                                 <td>${exam.examType}</td>
                                                 <td>${exam.examMark}</td>
                                                 <td><c:if test="${exam.examStatus==1}">正常</c:if> <c:if test="${exam.examStatus==2}">作废</c:if> </td>
@@ -117,7 +140,7 @@
                                             </tr>
                                         </c:forEach>
                                         </tbody>
-                                    </table>
+                                    </table>--%>
 
 
                                 </div>
@@ -141,7 +164,7 @@
                 <div class="clearfix">
                 </div>
             </div>
-        <div style="float: right">
+       <%-- <div style="float: right">
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li>
@@ -149,7 +172,7 @@
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <%--<li><a href="javascript:splitPage(pageNo,pageSize)">1</a></li>--%>
+                    &lt;%&ndash;<li><a href="javascript:splitPage(pageNo,pageSize)">1</a></li>&ndash;%&gt;
                     <li><a href="#">1</a></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
@@ -160,7 +183,7 @@
                     </li>
                 </ul>
             </nav>
-        </div>
+        </div>--%>
         </div>
         <!-- END CONTENT -->
     </div>
@@ -174,7 +197,7 @@
             var key1 = $("input[name=key1]").val();
             var key2 = $("select[name=key2]").val();
 
-            var parameterMap = {'id': key1, 'name': key2}
+            var parameterMap = {'examName': key1, 'examType': key2}
             $.ajax({
 
                 type: 'POST',
@@ -190,9 +213,7 @@
             });
         }
     </script>
-<%--
     <script src="${ctx}/static/script/exam/exam.js" type="text/javascript"></script>
---%>
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
 </div>
 

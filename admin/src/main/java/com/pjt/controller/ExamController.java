@@ -24,8 +24,8 @@ public class ExamController {
 
     @RequestMapping(value = "list",method = RequestMethod.GET )
     public ModelAndView examList(Model mode ){
-        List<Exam> examList = examService.selectByExample(new ExamExample());
-        return new ModelAndView("exam/exam_list","examList",examList);
+//        List<Exam> examList = examService.selectByExample(new ExamExample());
+        return new ModelAndView("exam/exam_list");
     }
 
     @RequestMapping(value = "ajax/ajaxList",method = RequestMethod.POST )

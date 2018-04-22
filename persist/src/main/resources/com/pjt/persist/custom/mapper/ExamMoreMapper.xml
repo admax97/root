@@ -23,14 +23,14 @@
  </sql>
   <sql id="where">
     <where>
-      <if test="parameterMap.id!=null and parameterMap.id!=''">
-        AND id = #{parameterMap.id}
+      <if test="parameterMap.examName!=null and parameterMap.examName!=''">
+        AND exam_name LIKE concat('%',concat('*',LTrim(RTrim(#{parameterMap.examName}))),'%') ESCAPE '*'
       </if>
-      <if test="parameterMap.name!=null and parameterMap.name!=''">
-        AND name LIKE concat('%',concat('*',LTrim(RTrim(#{parameterMap.name}))),'%') ESCAPE '*'
-      </if>
-      <if test="parameterMap.type!=null and parameterMap.type!=''">
-        AND type = #{parameterMap.type}
+     <!-- <if test="parameterMap.name!=null and parameterMap.name!=''">
+     #  AND name LIKE concat('%',concat('*',LTrim(RTrim(#{parameterMap.name}))),'%') ESCAPE '*'
+      </if>-->
+      <if test="parameterMap.examType!=null and parameterMap.examType!=''">
+        AND exam_type = #{parameterMap.examType}
       </if>
     </where>
   </sql>
