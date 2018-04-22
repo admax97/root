@@ -52,19 +52,29 @@
                         <form role="form" action="${ctx}/admin/update" method="post">
                             <div class="form-body">
                                 <div class="form-group">
+                                    <label >请选择试题类型</label>
+                                    <select name="选择" class="form-control input-circle">
+                                        <option>java</option>
+                                        <option>c语言</option>
+                                        <option>html</option>
+                                        <option>数据库</option>
+                                    </select>
+                                </div>
+                                <div>
+
+
+                                </div>
+
+
+
+                                <div class="form-group">
                                     <label >名称</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control input-circle-left" placeholder="请输入管理员名称" name="name" maxlength="11">
                                         <span class="input-group-addon input-circle-right"> <i class="fa fa-user"></i></span>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                   <select name="请选择试题类型" class="form-control form-filter input-sm">
 
-                                        <option>java</option>
-                                        <option>c语言</option>
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <label>手机号</label>
                                     <input class="form-control spinner input-circle" type="text" placeholder="请输入管理员手机号" name="phonenumber" maxlength="11"/>
