@@ -36,15 +36,17 @@
                 <td><c:if test="${exam.examStatus==1}">正常</c:if> <c:if test="${exam.examStatus==2}">作废</c:if> </td>
                 <td> ${exam.creater}</td>
                 <td width="150px">
-                    <div class="btn-group ma-t">
-                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
+                    <div class="btn-group">
+                        <button class="btn btn-sm blue dropdown-toggle" type="button" data-toggle="dropdown"> 操作
+                            <i class="fa fa-angle-down"></i>
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:editExamInfo('${exam.id}');">查看考试</a></li>
-                            <li><a href="javascript:paperReview('${exam.id}');">预览试卷</a></li>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="javascript:;"> 查看考试 </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;"> 预览试卷 </a>
+                            </li>
                         </ul>
                     </div>
                 </td>
