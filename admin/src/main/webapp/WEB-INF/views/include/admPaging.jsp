@@ -24,7 +24,6 @@
 
     //首页
     int fstPage = 1;
-
     //末页
     int endPage = pageCnt;
 
@@ -33,96 +32,98 @@
 
     var pageId = '<%=pageId%>';
     function paging(pageNo){
-
         var pageSize = parseInt($("#"+pageId+" select[name=pageSize]").val());
-
         if(pageId == 'modalPaging'){
-
             goModalPaging(pageNo,pageSize);
-
         }else{
-
             goPage(pageNo,pageSize);
-
         }
-//        scrolltop(pageNo);
     }
-
-    function scrolltop(top){
-        var hei=25*top-25;
-        $("#"+pageId+" #xab").scrollTop(hei);
-    }
-
-    function scrollFn(){
-        $("#"+pageId+" #xab").toggle();scrolltop(parseInt($("#"+pageId+"#xiye").html()));
-
-    }
-
 </script>
-<!DOCTYPE html>
-<div class="row">
-<div class="pag" id="<%=pageId%>">
-    <div class="pag-left text-left pull-left ml-14">
-        <span class="bor">
-                  	     		 	<select name="pageSize"  onchange="paging(1);">
+<div class="col-md-12" id="<%=pageId%>">
+    <div class="text-left pull-left col-md-4">
+        <div class="col-xs-3">
+            <select class="form-control input-sm" name="pageSize"  onchange="paging(1);">
                                         <option <%if(pageSize ==10 ) {%>selected <%}%> >10</option>
                                         <option <%if(pageSize ==15 ) {%>selected <%}%> >15</option>
                                         <option <%if(pageSize ==20 ) {%>selected <%}%> >20</option>
                                         <option <%if(pageSize ==30 ) {%>selected <%}%> >30</option>
                                         <option <%if(pageSize ==50 ) {%>selected <%}%> >50</option>
-                                    </select>
-                  	     		 </span>
-        <span>共<%=totalCnt%>条记录</span>
+             </select>
+        </div>
+        <div>共<%=totalCnt%>条记录</div>
     </div>
     <!--pagleft end-->
-    <div class="pull-right mr-14">
-        <div class="fenye">
-            <ul>
+    <div class="pull-right col-md-8">
+            <ul class="pagination">
                 <% if(pageNo == 1){%>
-                <li class="bg-blue" id="first">首页</li>
+                <li>
+                    <a href="javascript:void(0)" aria-label="Previous">
+                        <span aria-hidden="true">首页</span>
+                    </a>
+                </li>
                 <% }else{%>
-                <li class="bg-blue" onclick="paging('1');" id="first">首页</li>
+                <li>
+                    <a href="javascript:paging('1')" aria-label="Previous">
+                        <span aria-hidden="true">首页</span>
+                    </a>
+                </li>
                 <%}%>
 
                 <% if(pageNo >1){%>
-                <li class="bg-blue" onclick="paging('<%=prePageNo%>');"id="top" >上一页</li>
+                <li>
+                    <a href="javascript:paging('<%=prePageNo%>');" aria-label="Previous">
+                        <span aria-hidden="true">上一页</span>
+                    </a>
+                </li>
                 <% }else{%>
-                <li class="bg-blue" id="top" >上一页</li>
+                <li>
+                    <a href="javascript:void(0)" >
+                        <span aria-hidden="true">上一页</span>
+                    </a>
+                </li>
                 <%}%>
-
-                <li class="xifenye" id="xifenye" onclick="scrollFn();">
-                    <a id="xiye"><%=pageNo%></a>/<a id="mo"><%=pageCnt%></a>
-
-                    <div class="xab" id="xab" style="display:none">
-                        <ul id="uljia">
+                <li>
                             <%
                                 for(int p = 1; p <= pageCnt ; p++ ){
                             %>
-
-                            <li  onclick="paging('<%=p%>');"><%=p%></li>
-
+                       <li>
+                           <a href="javascript:paging('<%=p%>');" >
+                               <span aria-hidden="true"><%=p%></span>
+                           </a>
+                       </li>
                             <%
                                 }
                             %>
-                        </ul>
-                    </div>
                 </li>
                 <% if(pageNo < pageCnt){%>
-                <li class="bg-blue" onclick="paging('<%=nextPageNo%>');" id="down" >下一页</li>
+                <li>
+                    <a href="javascript:paging('<%=nextPageNo%>');" >
+                        <span aria-hidden="true">下一页</span>
+                    </a>
+                </li>
                 <% }else{%>
-                <li class="bg-blue"  id="down" >下一页</li>
+                <li>
+                    <a href="javascript:void(0)" >
+                        <span aria-hidden="true">下一页</span>
+                    </a>
+                </li>
                 <%}%>
 
                 <% if(pageNo == pageCnt){%>
-                <li class="bg-blue"  id="last">末页</li>
+                <li>
+                    <a href="javascript:void(0)" >
+                        <span aria-hidden="true">末页</span>
+                    </a>
+                </li>
                 <% }else{%>
-                <li class="bg-blue" onclick="paging('<%=pageCnt%>');" id="last">末页</li>
+                <li>
+                    <a href="javascript:paging('<%=pageCnt%>');" >
+                        <span aria-hidden="true">末页</span>
+                    </a>
+                </li>
                 <%}%>
-
             </ul>
-        </div>
     </div>
     <!--pagright end-->
 </div>
-</div>
-</html>

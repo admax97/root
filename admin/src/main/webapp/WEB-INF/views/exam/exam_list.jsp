@@ -84,7 +84,7 @@
                         </div>
                         <div class="portlet-body">
                             <div class="row margin-bottom-10" style="text-align: center">
-                                <br class="col-md-8">
+                                <div class="col-md-8">
                                     <table>
                                         <tr>
                                             <td>考试名称</td>
@@ -110,45 +110,10 @@
                                             </td>
                                         </tr>
                                     </table>
-                            <br>
-
-                                   <%-- <table class="table table-striped table-bordered table-hover" id="sample_2" style="text-align: center">
-                                        <thead  style="text-align: center">
-                                        <tr >
-                                            <th > 序号 </th>
-                                            <th> 考试名称 </th>
-                                            <th> 考试时间 </th>
-                                            <th> 考试类型 </th>
-                                            <th> 描述 </th>
-                                            <th> 考试状态 </th>
-                                            <th> 操作 </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-
-
-                                        <c:forEach var="exam" items="${examList}">
-                                            <tr>
-                                                <td>${exam.id}</td>
-                                                <td>${exam.examName}</td>
-                                                <td>${exam.examTime} </td>
-                                                &lt;%&ndash;<td><c:if test="${exam.type==1}">技能</c:if> <c:if test="${exam.type==2}">性格</c:if> </td>&ndash;%&gt;
-                                                <td>${exam.examType}</td>
-                                                <td>${exam.examMark}</td>
-                                                <td><c:if test="${exam.examStatus==1}">正常</c:if> <c:if test="${exam.examStatus==2}">作废</c:if> </td>
-                                                <td> 修改|删除</td>
-                                            </tr>
-                                        </c:forEach>
-                                        </tbody>
-                                    </table>--%>
-
-
-                                </div>
-
+                               </div>
                                 <div class="col-md-4 pull-right text-right">
                                         <a class="btn btn-primary" href="javascript:editExamInfo('0');"> <i class=" icon-plus"></i>创建考试</a>
                                 </div>
-
                             </div>
                             <div id="content" class="row">
 
@@ -198,10 +163,11 @@
             var key2 = $("select[name=key2]").val();
 
             var parameterMap = {'examName': key1, 'examType': key2}
+
             $.ajax({
 
                 type: 'POST',
-                url: ctx + "${ctx}/exam/ajax/ajaxList",
+                url: ctx + "/exam/ajax/ajaxList",
                 data: {'parameterMap':parameterMap, 'pageNo': pageNo, 'pageSize': pageSize},
                 dataType: "text",
                 success: function (msg) {
