@@ -1,28 +1,29 @@
 package com.pjt.service;
 
 import com.pjt.common.utils.Page;
+import com.pjt.persist.custom.mapper.ExamMoreMapper;
 import com.pjt.persist.model.Exam;
 import com.pjt.persist.model.ExamExample;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public interface ExamService {
-    int countByExample(ExamExample example);
+public class ExamService{
+    @Autowired
+    private ExamMoreMapper examMoreMapper;
+    public int countByExample(ExamExample example) {
+        return 0;
+    }
 
-    int deleteByPrimaryKey(Integer id);
+    public int deleteByPrimaryKey(Integer id) {
+        return 0;
+    }
 
-    int insert(Exam record);
-
-    int insertSelective(Exam record);
-
-    List<Exam> selectByExample(ExamExample example);
-
-    Exam selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Exam record);
-
-    int updateByPrimaryKey(Exam record);
-
-    Page selectList(Page page);
+    public Page selectList(Page page) {
+        page.setTotalCount(examMoreMapper.getExamListCount(page));
+        page.setResult(examMoreMapper.getExamList(page));
+        System.out.println("条数："+page.getTotalCount());
+        return page;
+    }
 }

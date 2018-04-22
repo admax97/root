@@ -1,7 +1,6 @@
 package com.pjt.controller;
 
 import com.pjt.common.utils.Page;
-    import com.pjt.persist.model.Admin;
 import com.pjt.persist.model.AdminExample;
 import com.pjt.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
