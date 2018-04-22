@@ -59,7 +59,7 @@
         <div class="page-top">
             <!-- BEGIN HEADER SEARCH BOX -->
             <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-            <form class="search-form search-form-expanded" action="page_general_search_3.html" method="GET">
+           <%-- <form class="search-form search-form-expanded" action="page_general_search_3.html" method="GET">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search..." name="query">
                     <span class="input-group-btn">
@@ -68,7 +68,8 @@
                                 </a>
                             </span>
                 </div>
-            </form>
+            </form>--%>
+                <span style="font-size: 30px;color: #3598DC;padding-top: 10px;">欢迎登录在线考试管理后台</span>
             <!-- END HEADER SEARCH BOX -->
             <!-- BEGIN TOP NAVIGATION MENU -->
             <div class="top-menu">
