@@ -97,7 +97,7 @@
                     </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="${ctx}/exam/add" class="nav-link ">
+                        <a href="${ctx}/exam/list" class="nav-link ">
                             <span class="title">考试列表</span>
                         </a>
                     </li>

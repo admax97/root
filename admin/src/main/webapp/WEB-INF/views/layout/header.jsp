@@ -69,7 +69,7 @@
                             </span>
                 </div>
             </form>--%>
-                <span style="font-size: 30px;color: #3598DC;padding-top: 10px;">欢迎登录在线考试管理后台</span>
+                <span style="font-size: 30px;color: #1f2b3d;position: absolute;padding-top: 10px;margin-left: 20px">欢迎登录在线考试管理后台</span>
             <!-- END HEADER SEARCH BOX -->
             <!-- BEGIN TOP NAVIGATION MENU -->
             <div class="top-menu">
