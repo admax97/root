@@ -39,8 +39,8 @@ public class AdminMapperTest {
     public void updateByPrimaryKeySelective() throws Exception {
         Admin admin = adminService.selectByPrimaryKey(6);
         admin.setName("张三1213");
-       int ad= adminService.updateByPrimaryKeySelective(admin);
-       System.out.println("jiegio"+ad);
+        int ad= adminService.updateByPrimaryKeySelective(admin);
+        System.out.println("jiegio"+ad);
         List<Admin> admins = adminService.selectByExample(new AdminExample());
         for (Admin admin1:admins) {
             System.out.println("管梨园：" + admin1.getName());

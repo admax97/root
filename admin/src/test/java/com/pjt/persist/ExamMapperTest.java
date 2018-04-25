@@ -4,6 +4,7 @@ import com.pjt.persist.mapper.ExamMapper;
 import com.pjt.persist.model.Exam;
 import com.pjt.persist.model.ExamExample;
 import com.pjt.service.ExamService;
+import com.pjt.service.LibraryService;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,8 +22,12 @@ public class ExamMapperTest {
 
     @Autowired
     private ExamService examService;
+    @Autowired
+    private  LibraryService libraryService;
     @org.junit.Test
     public void countByExample() throws Exception {
+                String ti = libraryService.getTitlebyType("1");
+                System.out.print("ti:"+ti);
     }
 
     @org.junit.Test

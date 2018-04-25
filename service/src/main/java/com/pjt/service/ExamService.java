@@ -30,7 +30,6 @@ public class ExamService{
     }
 
     public List<Exam> selectByExample(ExamExample example){
-
         return examMoreMapper.selectByExample(example);
     }
 

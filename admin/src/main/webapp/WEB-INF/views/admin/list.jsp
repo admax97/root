@@ -122,34 +122,7 @@
                 <!--main end-->
                 <div class="clearfix"></div>
             </div>
-            <%--<div style="float: left">
-                <select>
-                    <option>5</option>
-                    <option>10</option>
-                    <option>15</option>
-                </select>
-            </div>--%>
-            <!--分页-->
-                <%--<div style="float: right">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            &lt;%&ndash;<li><a href="javascript:splitPage(pageNo,pageSize)">1</a></li>&ndash;%&gt;
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>--%>
+
         </div>
 
         <!-- END CONTENT -->
@@ -165,8 +138,24 @@
     /* 删除管理员 */
     function delAdmin(id,status){
         if(status == 2){
-            var op = confirm("该管理员已经被冻结！");
-            op == false;
+           // var op = confirm("该管理员已经被冻结！");
+            bootbox.confirm({
+                message: "您确定删除所选中代理商户吗？",
+                buttons: {
+                    confirm: {
+                        label: '确定',
+                        className: 'btn-success'
+                    },
+                    cancel: {
+                        label: '取消',
+                        className: 'btn-danger'
+                    }
+                },
+                callback: function (result) {
+
+                }
+            });
+           // op == false;
         }
        if(status == 1){
            var op = confirm("确定要冻结该管理员吗？");
@@ -191,6 +180,25 @@
     }
 
 </script>
+<script>
+    bootbox.confirm({
+        message: "您确定删除所选中代理商户吗？",
+        buttons: {
+            confirm: {
+                label: '确定',
+                className: 'btn-success'
+            },
+            cancel: {
+                label: '取消',
+                className: 'btn-danger'
+            }
+        },
+        callback: function (result) {
+
+        }
+    });
+
+</script>
 <!--分页-->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <%--<script src="${ctx}/static/assets/global/scripts/datatable.js" type="text/javascript"></script>
@@ -208,10 +216,12 @@
 <link rel="stylesheet" href="${ctx}/static/css/page/bootstrap-table.css">
 <script src="${ctx}/static/script/page/bootstrap-table.js"></script>
 <script src="${ctx}/static/script/page/bootstrap-table-zh-CN.js"></script>
+<!--弹出框样式-->
+<script src="${ctx}/static/assets/global/plugins/bootbox/bootbox.min.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 
 <script>
-
+//前端分页
     $('#table').bootstrapTable({
         pagination: true,
         pageSize: 5,
@@ -219,33 +229,9 @@
         searchOnEnterKey:true,
         pageList:[2, 5, 7],
         striped:true
-        /*detailView:true,
-        detailFormatter:function(index, row) {
-            var a = row;
-
-            return a;
-        }*/
-
     });
 
-//    $('#sample_2').bootstrapTable('method', parameter);
 
-    /*function splitPage(pageNo,pageSize) {
-       $.ajax({
-            type: 'POST',
-            url: ctx + "/admin/ajax/ajaxList",
-            data: { 'pageNo': pageNo, 'pageSize': pageSize},
-            dataType: "text",
-            success: function (msg) {
-                alert("msg"+msg);
-                $("#content").html(msg);
-            },
-            error: function (msg) {
-
-            }
-
-        });
-    }*/
 </script>
 </body>
 <!-- END BODY -->

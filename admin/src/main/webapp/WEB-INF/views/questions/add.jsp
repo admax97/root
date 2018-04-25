@@ -23,13 +23,9 @@
                 <ul class="page-breadcrumb">
                     <li>
                         <i class="icon-home"></i>
-                        <a href="#">创建试题</a>
+                        <a href="#">创建题库</a>
                         <i class="fa fa-angle-right"></i>
                     </li>
-                    <%--<li>
-                        <a href="#">创建管理员</a>
-                        <i class="fa fa-angle-right"></i>
-                    </li>--%>
                 </ul>
                 <div class="page-toolbar">
                     <div class="btn-group pull-right">
@@ -60,8 +56,8 @@
                                         <option>数据库</option>
                                     </select>
                                 </div>
-                                <div>
-
+                                <div class="form-group">
+                                    <label >请选择题库类型</label>
 
                                 </div>
 

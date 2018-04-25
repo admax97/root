@@ -47,19 +47,19 @@
                 </ul>
             </li>
             <li class="nav-item  ">
-                <a href="/WEB-INF/metronic/table_datatables_editable.jsp" class="nav-link nav-toggle">
+                <a href="${ctx}/library/list" class="nav-link nav-toggle">
                     <i class="icon-diamond"></i>
                     <span class="title">题库管理</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="${ctx}/question/add" class="nav-link ">
+                        <a href="${ctx}/library/add" class="nav-link ">
                             <span class="title">创建题库</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="${ctx}/question/add" class="nav-link ">
+                        <a href="${ctx}/library/list" class="nav-link ">
                             <span class="title">题库列表</span>
                         </a>
                     </li>

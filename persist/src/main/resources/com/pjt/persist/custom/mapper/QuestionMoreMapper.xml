@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pjt.persist.custom.mapper.QuestionMoreMapper" >
+  <resultMap id="BaseResultMap" type="com.pjt.persist.model.Question" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="library_id" property="libraryId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="VARCHAR" />
+    <result column="answer_a" property="answerA" jdbcType="VARCHAR" />
+    <result column="answer_b" property="answerB" jdbcType="VARCHAR" />
+    <result column="answer_c" property="answerC" jdbcType="VARCHAR" />
+    <result column="answer_d" property="answerD" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="right_answer" property="rightAnswer" jdbcType="VARCHAR" />
+    <result column="question_type" property="questionType" jdbcType="VARCHAR" />
+    <result column="create_id" property="createId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_id" property="updateId" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, library_id, title, score, answer_a, answer_b, answer_c, answer_d, status, right_answer, 
+    question_type, create_id, create_time, update_id, update_time
+  </sql>
+
+  <sql id="where">
+    <where>
+      <if test="parameterMap.title!=null and parameterMap.title!=''">
+        AND title LIKE concat('%',concat('*',LTrim(RTrim(#{parameterMap.title}))),'%') ESCAPE '*'
+      </if>
+      <!-- <if test="parameterMap.name!=null and parameterMap.name!=''">
+      #  AND name LIKE concat('%',concat('*',LTrim(RTrim(#{parameterMap.name}))),'%') ESCAPE '*'
+       </if>-->
+      <if test="parameterMap.typeSubCd!=null and parameterMap.typeSubCd!=''">
+        AND question_type = #{parameterMap.typeSubCd}
+      </if>
+    </where>
+  </sql>
+  <sql id="pageLimit">
+    <if test="pageSize!=null">
+      <if test="offset!=null">
+        LIMIT #{pageSize} OFFSET #{offset}
+      </if>
+    </if>
+  </sql>
+  <select id="getQuestionList" parameterType="com.pjt.common.utils.Page" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from question
+    <include refid="where"/>
+    order by id
+    <include refid="pageLimit"/>
+  </select>
+
+  <select id="getQuestionListCount" resultType="java.lang.Integer" parameterType="com.pjt.common.utils.Page" >
+    select
+    count(0) as count
+    from question
+    <include refid="where"/>
+  </select>
+</mapper>

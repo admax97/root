@@ -45,6 +45,7 @@
 		<table tableName="users"   domainObjectName="Users" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
 		<table tableName="student_exam_info"   domainObjectName="StuExamInfo" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
 		<table tableName="paper_question"   domainObjectName="PaperQuestion" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+		<table tableName="type_dictionary"   domainObjectName="TypeDictionary" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
 
 	</context>
 

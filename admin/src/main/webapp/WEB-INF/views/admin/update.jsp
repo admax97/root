@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="portlet-body form">
-                        <form role="form" action="${ctx}/admin/update" method="post">
+                        <form  id="updateForm" role="form" action="${ctx}/admin/update" method="post">
                             <div class="form-body">
                                 <div class="form-group">
                                     <label >名称</label>
@@ -84,8 +84,9 @@
 --%>
                                 </div>
                             <div class="form-actions">
-                                <input type="submit" class="  btn btn-circle green "  onclick="return confirm('确定修改管理员信息吗？')" />
-                                <button type="button" class="btn default" onclick="window.close()">取消</button>
+                                <%--<input type="submit" class="  btn btn-circle green "  onclick="return confirm('确定修改管理员信息吗？')" />--%>
+                                    <input type="button" id="updataInput" class="  btn  green " value="确定" />
+                                    <button type="button" class="btn default" onclick="window.close()" >取消</button>
                             </div>
                             </div>
                         </form>
@@ -102,28 +103,57 @@
 <!-- BEGIN FOOTER -->
 <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
 </div>
+<!--弹出框样式-->
+<script src="${ctx}/static/assets/global/plugins/bootbox/bootbox.min.js"></script>
 <script>
-    /*修改管理员信息*/
-    function updateAdmin(id){
-        var op = confirm("确定要修改管理员吗？");
-        if(op == true){
-            $.ajax({
-                type : "post",
-                url : "${ctx}/admin/del",
-                data : "id=" + id,
-                datetype : "text",
-                //请求成功后调用
-                success : function() {
-                    alert("修改成功");
-                    window.location.reload();
+    $("#updataInput").click(function () {
+        var data = $("#updateForm").serialize();
+        bootbox.confirm({
+            message: "确定要修改管理员吗？",
+            buttons: {
+                confirm: {
+                    label: '确定',
+                    className: 'btn-success'
                 },
-                //请求失败后调用
-                error : function() {
-                    alert("冻结失败");
+                cancel: {
+                    label: '取消',
+                    className: 'btn-danger'
                 }
-            });
-        }
-    }
+            },
+            callback: function (result) {
+                if(result){
+                    $.post("${ctx}/admin/update",
+                        data,
+                        function(data,status) {
+                        if('success' == status){
+                        bootbox.alert({
+                            size: "small",
+                            title: "提示",
+                            message: "修改管理员成功！",
+                            callback: function(){
+                                window.location.href = '/admin/list';
+                            }
+                        });
+                    } else {
+                                bootbox.alert({
+                                    size: "small",
+                                    title: "提示",
+                                    message: "修改管理员失败！",
+                                    callback: function(){
+                                        window.location.href = '/admin/list';
+                                    }
+                                });
+                            }
+
+                        });
+                }
+
+            }
+        });
+
+    });
+
+
 
 </script>
 

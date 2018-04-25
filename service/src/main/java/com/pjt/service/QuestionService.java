@@ -1,5 +1,6 @@
 package com.pjt.service;
 
+import com.pjt.common.utils.Page;
 import com.pjt.persist.custom.mapper.QuestionMoreMapper;
 import com.pjt.persist.model.Question;
 import com.pjt.persist.model.QuestionExample;
@@ -43,6 +44,13 @@ public class QuestionService {
 
     public int updateByPrimaryKey(Question record){
         return questionMoreMapper.updateByPrimaryKey(record);
+    }
+
+    public Page selectList(Page page){
+        page.setTotalCount(questionMoreMapper.getQuestionListCount(page));
+        page.setResult(questionMoreMapper.getQuestionList(page));
+        System.out.println("pagesize："+page.getPageSize());
+        return page;
     }
 }
 

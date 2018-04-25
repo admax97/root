@@ -49,7 +49,7 @@
     order by id desc
     <include refid="pageLimit"/>
   </select>
-  <!--查詢管理员总数-->
+  <!--查詢考试总记录数-->
   <select id="getExamListCount" resultType="java.lang.Integer" parameterType="com.pjt.common.utils.Page" >
     select
     count(0) as count
