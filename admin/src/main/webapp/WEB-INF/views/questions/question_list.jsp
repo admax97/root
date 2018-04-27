@@ -56,7 +56,14 @@
                     <div class="portlet box green">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-globe"></i>${title}题库 </div>
+                                <i class="fa fa-globe"></i>
+                                <c:if test="${title eq 'AA01'}">
+                                    选择题题库
+                                </c:if>
+                                <c:if test="${title eq 'AA02'}">
+                                    简答题题库
+                                </c:if>
+                                 </div>
                             <div class="tools"> </div>
                         </div>
                         <div class="portlet-body">
