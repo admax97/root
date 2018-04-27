@@ -15,8 +15,10 @@
         <tr >
             <th> 考试编号 </th>
             <th> 题库名称 </th>
-            <th> 题库类型 </th>
+            <th> 试题类型 </th>
+            <th> 题库范围 </th>
             <th> 题库状态 </th>
+            <th> 创建时间 </th>
             <th> 操作</th>
         </tr>
         </thead>
@@ -27,8 +29,27 @@
             <tr>
                 <td>${library.id}</td>
                 <td>${library.title}</td>
-                <td>${library.libraryType} </td>
-                <td><c:if test="${library.status==1}">正常</c:if> <c:if test="${library.status==2}">作废</c:if> </td>
+                <td>
+                    <c:if test="${library.quesType eq 'AA01'}">
+                        选择题题库
+                    </c:if>
+                    <c:if test="${library.quesType eq 'AA02'}">
+                        简答题题库
+                    </c:if>
+                </td>
+                <td>
+                    <c:if test="${library.libraryType eq 'BB01'}">
+                        java
+                    </c:if>
+                    <c:if test="${library.libraryType eq 'BB02'}">
+                        c语言
+                    </c:if>
+                    <c:if test="${library.libraryType eq 'BB03'}">
+                        html
+                    </c:if>
+                </td>
+                <td><c:if test="${library.status==1}">未发布</c:if> <c:if test="${library.status==2}">已发布</c:if> </td>
+                <td><fmt:formatDate value="${library.createTime}" pattern="yyyy-MM-dd HH:mm"/></td>
                 <td width="150px">
                     <div class="btn-group">
                         <button class="btn btn-sm blue dropdown-toggle" type="button" data-toggle="dropdown"> 操作

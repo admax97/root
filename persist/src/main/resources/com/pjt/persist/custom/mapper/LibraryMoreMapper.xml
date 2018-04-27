@@ -6,6 +6,7 @@
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="library_type" property="libraryType" jdbcType="VARCHAR" />
+    <result column="ques_type" property="quesType" jdbcType="CHAR" />
     <result column="create_id" property="createId" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_id" property="updateId" jdbcType="INTEGER" />
@@ -13,7 +14,7 @@
   </resultMap>
 
   <sql id="Base_Column_List" >
-    id, title, status, library_type, create_id, create_time, update_id, update_time
+    id, title, status, library_type, ques_type, create_id, create_time, update_id, update_time
   </sql>
   <sql id="where">
     <where>
@@ -40,7 +41,7 @@
     <include refid="Base_Column_List" />
     from library
     <include refid="where"/>
-    order by id
+    order by id desc
     <include refid="pageLimit"/>
   </select>
 
