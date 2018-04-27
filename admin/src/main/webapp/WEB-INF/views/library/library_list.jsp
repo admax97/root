@@ -86,7 +86,7 @@
                         </div>
                         <div class="portlet-body">
                             <div class="row margin-bottom-10" style="text-align: center">
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <table>
                                         <tr>
                                             <td>题库名称</td>
@@ -95,14 +95,29 @@
                                                     <input type="text" placeholder="题库名称"  name="key1" class="form-control">
                                                 </div>
                                             </td>
-                                            <td>题库类型</td>
+                                            <td>试题类型</td>
                                             <td>
                                                 <div class="col-md-12">
                                                     <select class="form-control" name="key2">
-                                                             <option VALUE="">－ALL－</option>
-                                                        <c:forEach var="type" items="${typeDictionaryList}">
-                                                             <option VALUE="${type.typeSubName}">－${type.typeSubName}－</option>
-                                                        </c:forEach>
+                                                        <option VALUE="">－请选择试题类型－</option>
+                                                        <c:if test="${!empty quesType}">
+                                                            <c:forEach var="type" items="${quesType}">
+                                                                <option value="${type.typeSubCd}">${type.typeSubName}</option>
+                                                            </c:forEach>
+                                                        </c:if>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>题库范围</td>
+                                            <td>
+                                                <div class="col-md-12">
+                                                    <select class="form-control" name="key3">
+                                                        <option VALUE="">－请选择试题范围－</option>
+                                                        <c:if test="${!empty areaType}">
+                                                            <c:forEach var="type" items="${areaType}">
+                                                                <option value="${type.typeSubCd}">${type.typeSubName}</option>
+                                                            </c:forEach>
+                                                        </c:if>
                                                     </select>
                                                 </div>
                                             </td>
@@ -142,8 +157,8 @@
 
             var key1 = $("input[name=key1]").val();
             var key2 = $("select[name=key2]").val();
-
-            var parameterMap = {'title': key1, 'libraryType': key2}
+            var key3 = $("select[name=key3]").val();
+            var parameterMap = {'title': key1, 'quesType': key2, 'libraryType': key3}
 
             $.ajax({
 

@@ -27,6 +27,9 @@
       <if test="parameterMap.libraryType!=null and parameterMap.libraryType!=''">
         AND library_type = #{parameterMap.libraryType}
       </if>
+      <if test="parameterMap.quesType!=null and parameterMap.quesType!=''">
+        AND ques_type = #{parameterMap.quesType}
+      </if>
     </where>
   </sql>
   <sql id="pageLimit">

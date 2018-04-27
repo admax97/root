@@ -36,9 +36,14 @@ public class LibraryController {
 
     @RequestMapping(value = "list",method = RequestMethod.GET )
     public ModelAndView libraryList(Model mode ){
-        List<TypeDictionary> typeDictionaryList = typeDictionaryService.selectByExample(new TypeDictionaryExample());
-        ServletContext application = request.getServletContext();
-        application.setAttribute("typeDictionaryList",typeDictionaryList);
+        TypeDictionaryExample typeDictionaryExample = new TypeDictionaryExample();
+        TypeDictionaryExample typeDictionaryExample2 = new TypeDictionaryExample();
+        typeDictionaryExample.createCriteria().andTypeCdEqualTo("AA");
+        List<TypeDictionary> quesType = typeDictionaryService.selectByExample(typeDictionaryExample);
+        typeDictionaryExample2.createCriteria().andTypeCdEqualTo("BB");
+        List<TypeDictionary> areaType = typeDictionaryService.selectByExample(typeDictionaryExample2);
+        mode.addAttribute("quesType",quesType);
+        mode.addAttribute("areaType",areaType);
         return new ModelAndView("library/library_list");
     }
 
