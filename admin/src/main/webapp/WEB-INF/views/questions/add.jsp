@@ -50,11 +50,14 @@
                         </div>
                     </div>
                     <div class="portlet-body form">
-                        <form role="form" action="${ctx}/admin/update" method="post">
+                        <form role="form"  method="post" id="questionForm">
+                            <input type="hidden" value="${libraryid}" name="libraryId" id="libraryId">
+                            <input type="hidden" value="${library.quesType}" name="questionType">
+                            <input type="hidden" value="${library.libraryType}" name="libraryType">
                             <div class="form-body">
                                 <div class="form-group">
                                     <label>题库题型</label>
-                                    <select class="form-control input-circle" name="quesType" disabled>
+                                    <select class="form-control input-circle" name="questionType" disabled>
                                         <option VALUE="">－请选择试题类型－</option>
                                         <c:if test="${!empty quesType}">
                                             <c:forEach var="type" items="${quesType}">
@@ -75,28 +78,66 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label >名称</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control input-circle-left" placeholder="请输入管理员名称" name="name" maxlength="11">
-                                        <span class="input-group-addon input-circle-right"> <i class="fa fa-user"></i></span>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>手机号</label>
-                                    <input class="form-control spinner input-circle" type="text" placeholder="请输入管理员手机号" name="phonenumber" maxlength="11"/>
+                                    <label>题目</label>
+                                    <textarea class="form-control" rows="3" name="title"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label>密码</label>
+                                    <label>分数</label>
                                     <div class="input-icon right">
                                         <i class="fa fa-microphone"></i>
-                                        <input type="text" class="form-control input-circle" placeholder="请输入管理员密码" name="password" maxlength="50">
+                                        <input type="text" class="form-control input-circle" placeholder="请输入分数" name="score" maxlength="2">
                                     </div>
                                 </div>
-                            <div class="form-actions">
-                                <input type="submit" class="btn blue-steel"/>
-                                <button type="button" class="btn default" >返回</button>
-                            </div>
+                                <c:if test="${!empty library.quesType && library.quesType eq 'AA01' }">
+                                <div class="form-group">
+                                    <label>选项A</label>
+                                    <div class="input-icon right">
+                                        <i class="fa fa-microphone"></i>
+                                        <input type="text" class="form-control input-circle" placeholder="请输入选项A" name="answerA" maxlength="200">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>选项B</label>
+                                    <div class="input-icon right">
+                                        <i class="fa fa-microphone"></i>
+                                        <input type="text" class="form-control input-circle" placeholder="请输入选项B" name="answerB" maxlength="200">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>选项C</label>
+                                    <div class="input-icon right">
+                                        <i class="fa fa-microphone"></i>
+                                        <input type="text" class="form-control input-circle" placeholder="请输入选项C" name="answerC" maxlength="200">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>选项D</label>
+                                    <div class="input-icon right">
+                                        <i class="fa fa-microphone"></i>
+                                        <input type="text" class="form-control input-circle" placeholder="请输入选项D" name="answerD" maxlength="200">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>答案项</label>
+                                    <select class="form-control input-circle" name="rightAnswer">
+                                        <option VALUE="">－请选择答案－</option>
+                                        <option VALUE="A">选项A</option>
+                                        <option VALUE="B">选项B</option>
+                                        <option VALUE="C">选项C</option>
+                                        <option VALUE="D">选项D</option>
+                                    </select>
+                                </div>
+                                 </c:if>
+                                <c:if test="${!empty library.quesType && library.quesType eq 'AA02' }">
+                                    <div class="form-group">
+                                        <label>答案内容</label>
+                                        <textarea class="form-control" rows="3" name="rightAnswer"></textarea>
+                                    </div>
+                                </c:if>
+                              <div class="form-actions">
+                                  <button type="button" class="btn blue-steel" onclick="addQuestion()"  >提交</button>
+                                  <button type="button" class="btn default"  onclick="goBackList('${library.id}')" >返回</button>
+                              </div>
                             </div>
                         </form>
                     </div>
@@ -108,6 +149,7 @@
     </div>
     <!-- END CONTENT -->
 </div>
+<script src="${ctx}/static/script/question/addQuestion.js" type="text/javascript"></script>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
 <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>

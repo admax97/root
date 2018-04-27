@@ -31,10 +31,10 @@
                 <td>${library.title}</td>
                 <td>
                     <c:if test="${library.quesType eq 'AA01'}">
-                        选择题题库
+                        选择题
                     </c:if>
                     <c:if test="${library.quesType eq 'AA02'}">
-                        简答题题库
+                        简答题
                     </c:if>
                 </td>
                 <td>

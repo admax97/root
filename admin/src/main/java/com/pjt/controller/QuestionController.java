@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -83,6 +85,17 @@ public class QuestionController {
         }else{
             return  new ModelAndView("questions/list");
         }
+    }
+
+    @RequestMapping(value = "addProc", method = {RequestMethod.POST})
+    public void addProc( Question question, PrintWriter out) {
+        String result = "error";
+        question.setStatus(1);
+        question.setCreateTime(new Date());
+        if( questionService.insertSelective(question) >0)
+            result ="success";
+        out.write(result);
+        out.flush();
     }
 
 }
