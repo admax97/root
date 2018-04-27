@@ -53,21 +53,27 @@
                         <form role="form" action="${ctx}/admin/update" method="post">
                             <div class="form-body">
                                 <div class="form-group">
-                                    <label >请选择试题类型</label>
-                                    <select name="选择" class="form-control input-circle">
-                                        <option>java</option>
-                                        <option>c语言</option>
-                                        <option>html</option>
-                                        <option>数据库</option>
+                                    <label>题库题型</label>
+                                    <select class="form-control input-circle" name="quesType" disabled>
+                                        <option VALUE="">－请选择试题类型－</option>
+                                        <c:if test="${!empty quesType}">
+                                            <c:forEach var="type" items="${quesType}">
+                                                <option value="${type.typeSubCd}" <c:if test="${type.typeSubCd eq library.quesType }"> selected="true" </c:if>>${type.typeSubName}</option>
+                                            </c:forEach>
+                                        </c:if>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label >请选择题库类型</label>
-
+                                    <label>题库试题范围</label>
+                                    <select class="form-control input-circle" name="libraryType" disabled>
+                                        <option VALUE="">－请选择试题范围－</option>
+                                        <c:if test="${!empty areaType}">
+                                            <c:forEach var="type" items="${areaType}">
+                                                <option value="${type.typeSubCd}"  <c:if test="${type.typeSubCd eq library.libraryType }"> selected="true" </c:if>>${type.typeSubName}</option>
+                                            </c:forEach>
+                                        </c:if>
+                                    </select>
                                 </div>
-
-
-
                                 <div class="form-group">
                                     <label >名称</label>
                                     <div class="input-group">

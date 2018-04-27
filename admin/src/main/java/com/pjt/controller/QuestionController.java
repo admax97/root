@@ -64,14 +64,25 @@ public class QuestionController {
 
 
     @RequestMapping(value = "add",method = {RequestMethod.GET,RequestMethod.POST})
-    public ModelAndView add(String libraryid,Question question,Model model){
-        System.out.println("liid:"+libraryid);
+    public ModelAndView add(Integer libraryid,Question question,Model model){
         if(libraryid!=null){
-            question.setLibraryId(Integer.parseInt(libraryid));
+            question.setLibraryId(libraryid);
+            model.addAttribute("libraryid",libraryid);
+            Library library = libraryService.selectByPrimaryKey(libraryid);
+            TypeDictionaryExample typeDictionaryExample = new TypeDictionaryExample();
+            TypeDictionaryExample typeDictionaryExample2 = new TypeDictionaryExample();
+            typeDictionaryExample.createCriteria().andTypeCdEqualTo("AA");
+            List<TypeDictionary> quesType = typeDictionaryService.selectByExample(typeDictionaryExample);
+            typeDictionaryExample2.createCriteria().andTypeCdEqualTo("BB");
+            List<TypeDictionary> areaType = typeDictionaryService.selectByExample(typeDictionaryExample2);
+            model.addAttribute("quesType",quesType);
+            model.addAttribute("areaType",areaType);
+            model.addAttribute("library",library);
+            model.addAttribute("question",question);
+            return  new ModelAndView("questions/add");
+        }else{
+            return  new ModelAndView("questions/list");
         }
-        model.addAttribute("libraryid",libraryid);
-
-        return  new ModelAndView("questions/add");
     }
 
 }
