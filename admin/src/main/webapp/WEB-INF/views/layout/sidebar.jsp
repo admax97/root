@@ -23,7 +23,7 @@
                     <span class="arrow open"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item start active open">
+                    <li class="nav-item start active">
                         <a href="${ctx}/student/list" class="nav-link ">
                             <i class="icon-bar-chart"></i>
                             <span class="title">学员列表</span>

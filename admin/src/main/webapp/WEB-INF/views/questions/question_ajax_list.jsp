@@ -21,8 +21,6 @@
         </tr>
         </thead>
         <tbody>
-
-
         <c:forEach var="question" items="${questionList}">
             <tr>
                 <td>${question.id}</td>

@@ -74,7 +74,7 @@
                                                     <input type="text" placeholder="试题名称"  name="key1" class="form-control">
                                                 </div>
                                             </td>
-                                            <td>试题类型</td>
+                                            <td>题库范围</td>
                                             <td>
                                                 <div class="col-md-12">
                                                     <select class="form-control" name="key2">
@@ -126,7 +126,7 @@
 
             var key2 = $("select[name=key2]").val();
 
-            var parameterMap = {'title': key1,'typeSubCd':key2, 'libraryid': libraryid};
+            var parameterMap = {'title': key1,'typeSubCd':key2, 'libraryId': libraryid};
 
             $.ajax({
 

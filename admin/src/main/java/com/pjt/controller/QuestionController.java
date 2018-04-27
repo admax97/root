@@ -46,7 +46,9 @@ public class QuestionController {
 
     @RequestMapping(value = "ajax/ajaxList",method = RequestMethod.POST )
     public String questionAjaxList(Page page, Model model){
-        List<TypeDictionary> typeDictionaryList = typeDictionaryService.selectByExample(new TypeDictionaryExample());
+        TypeDictionaryExample typeDictionaryExample = new TypeDictionaryExample();
+        typeDictionaryExample.createCriteria().andTypeCdEqualTo("AA");
+        List<TypeDictionary> typeDictionaryList = typeDictionaryService.selectByExample(typeDictionaryExample);
         page = questionService.selectList(page);
         model.addAttribute("questionList",page.getResult());
         model.addAttribute("totalCnt",page.getTotalCount());

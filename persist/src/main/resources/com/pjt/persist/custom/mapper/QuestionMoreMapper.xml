@@ -13,6 +13,7 @@
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="right_answer" property="rightAnswer" jdbcType="VARCHAR" />
     <result column="question_type" property="questionType" jdbcType="VARCHAR" />
+    <result column="library_type" property="libraryType" jdbcType="VARCHAR" />
     <result column="create_id" property="createId" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_id" property="updateId" jdbcType="INTEGER" />
@@ -20,7 +21,7 @@
   </resultMap>
   <sql id="Base_Column_List" >
     id, library_id, title, score, answer_a, answer_b, answer_c, answer_d, status, right_answer, 
-    question_type, create_id, create_time, update_id, update_time
+    question_type, library_type, create_id, create_time, update_id, update_time
   </sql>
 
   <sql id="where">
@@ -32,7 +33,10 @@
       #  AND name LIKE concat('%',concat('*',LTrim(RTrim(#{parameterMap.name}))),'%') ESCAPE '*'
        </if>-->
       <if test="parameterMap.typeSubCd!=null and parameterMap.typeSubCd!=''">
-        AND question_type = #{parameterMap.typeSubCd}
+        AND library_type = #{parameterMap.typeSubCd}
+      </if>
+      <if test="parameterMap.libraryId!=null and parameterMap.libraryId!=''">
+        AND library_id = #{parameterMap.libraryId}
       </if>
     </where>
   </sql>
