@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +44,18 @@ public class UserController {
         }else {
             request.setAttribute("msg", "用户名或者密码错误！");
         }
+        request.getRequestDispatcher("/stu_login.jsp").forward(request,response);
+        return null;
+    }
+
+    @RequestMapping(value="regisiter",method = {RequestMethod.POST,RequestMethod.GET})
+    public String regisiter(Model model,Student student,HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException {
+        if(!("".equals(student.getName()) )&& !("".equals(student.getPassword()) ) ){
+            Student dbstu = studentService.getStuByNamePwd(student);
+            request.setAttribute("msg","该用户名已存在，请重新填写用户信息！");
+        }
+        int resu = studentService.insertSelective(student);
+        System.out.println("resu:"+resu);
         request.getRequestDispatcher("/stu_login.jsp").forward(request,response);
         return null;
     }

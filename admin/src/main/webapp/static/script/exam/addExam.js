@@ -1,15 +1,17 @@
-
-function  addLibrary(){
+/**
+ * Created by jingxing on 2018/4/27.
+ */
+function  addExam(){
     var form = $('#libraryForm');/*formID*/
     // if(!form.valid()) return false;
     $.ajax({
         type: "post",
-        url:  ctx+"/library/addProc",
-        data: $("#libraryForm").serialize(),
+        url:  ctx+"/exam/addProc",
+        data: $("#examForm").serialize(),
         success: function(data) {
             if($.trim(data) =='success'){
-                alert("添加题库成功")
-                setTimeout(goLibList(),500)
+                alert("添加考试成功")
+                setTimeout(goExamList(),500)
             }
         },
         error: function(errorMsg) {
@@ -18,6 +20,6 @@ function  addLibrary(){
     });
 }
 
-function goLibList (){
-    window.location.href = ctx+"/library/list";
+function goExamList (){
+    window.location.href = ctx+"/exam/list";
 }

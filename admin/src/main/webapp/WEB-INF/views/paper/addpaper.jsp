@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="form-group"><hr></div>
                                 <div class="form-group"><label>选择题题库范围</label>
-                                    <select class="form-control input-circle" name="singleChoiceType">
+                                    <select class="form-control input-circle" name="singleChoiceLibraryType">
                                         <option VALUE="">－请选择题库范围－</option>
                                         <c:if test="${!empty areaType}">
                                             <c:forEach var="type" items="${areaType}">
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="form-group"><hr></div>
                                 <div class="form-group"><label>简答题题库范围</label>
-                                    <select class="form-control input-circle" name="shortQuestionType">
+                                    <select class="form-control input-circle" name="shortQuestionLibraryType">
                                         <option VALUE="">－请选择题库范围－</option>
                                         <c:if test="${!empty areaType}">
                                             <c:forEach var="type" items="${areaType}">
@@ -141,8 +141,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" id="closeModal" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" id="closeModal" class="btn btn-default" data-dismiss="modal" onclick="goPaperList()">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="goPaperList()">确定</button>
             </div>
         </div>
     </div>
@@ -161,7 +161,7 @@
                 if(data.singleChoiceCount>0){
                     for(var i = 0; i<data.singleChoiceList.length; i++){
                         number++;
-                        html += "<p>"+number+"."+data.singleChoiceList[i].title+"</p>";
+                           html += "<p>"+number+"."+data.singleChoiceList[i].title+"</p>";
                         html +="<p>A."+data.singleChoiceList[i].answerA+"&nbsp;&nbsp; B."+data.singleChoiceList[i].answerB+" <br> C."+data.singleChoiceList[i].answerC+" &nbsp;&nbsp;D."+data.singleChoiceList[i].answerD+"</p>"
                     }
                 }
@@ -190,6 +190,10 @@
         var total = parseInt(singleScore) + parseInt(jdScore);
         document.getElementById("totalScore").value=total;
     });
+
+    function goPaperList (){
+        window.location.href = ctx+"/paper/list";
+    }
 </script>
 </body>
 <!-- END BODY -->

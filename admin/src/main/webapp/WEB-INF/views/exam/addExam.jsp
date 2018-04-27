@@ -23,7 +23,7 @@
                 <ul class="page-breadcrumb">
                     <li>
                         <i class="icon-home"></i>
-                        <a href="index.html">人员管理</a>
+                        <a href="index.html">考试管理</a>
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li>
@@ -49,29 +49,50 @@
                         </div>
                     </div>
                     <div class="portlet-body form">
-                        <form role="form" action="${ctx}/admin/update" method="post">
+                        <form role="form" action="" method="post" id="examForm">
                             <div class="form-body">
                                 <div class="form-group">
                                     <label >名称</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control input-circle-left" placeholder="请输入考试名称" name="name" maxlength="11">
+                                        <input type="text" class="form-control input-circle-left" placeholder="请输入考试名称" name="examName" maxlength="11">
                                         <span class="input-group-addon input-circle-right"> <i class="fa fa-user"></i></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>手机号</label>
-                                    <input class="form-control spinner input-circle" type="text" placeholder="请输入管理员手机号" name="phonenumber" maxlength="11"/>
+                                    <label>考试类型</label>
+                                    <input class="form-control spinner input-circle" type="text" placeholder="请输入考试类型" name="examType" maxlength="11"/>
                                 </div>
                                 <div class="form-group">
-                                    <label>密码</label>
-                                    <div class="input-icon right">
-                                        <i class="fa fa-microphone"></i>
-                                        <input type="text" class="form-control input-circle" placeholder="请输入管理员密码" name="password" maxlength="50">
-                                    </div>
+                                    <label>关联试卷</label>
+                                    <select class="form-control input-circle" name="examTime">
+                                        <option VALUE="">－请选择要关联的试卷－</option>
+                                        <c:forEach var="paper" items="${paperList}">
+                                            <option VALUE="${paper.id}">－${paper.paperName}－</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
+                                <div class="form-group">
+                                    <label>考试时长</label>
+                                    <select class="form-control input-circle" name="examTime">
+                                        <option VALUE="">－请选择考试时长－</option>
+                                        <option value="30m" >30分钟</option>
+                                        <option value="60m" >1小时</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>创建人</label>
+                                    <c:if test="${!empty sessionScope.admin}">
+                                        <input class="form-control spinner input-circle" readonly type="text" value="${sessionScope.admin.name}" name="creater" maxlength="11"/>
+                                    </c:if>
+                                </div>
+                                <div class="form-group">
+                                    <label>注意事项</label>
+                                    <input class="form-control spinner input-circle" type="text" placeholder="请输入考试注意事项" name="examMark" maxlength="11"/>
+                                </div>
+
                             <div class="form-actions">
-                                <input type="submit" class="btn blue-steel"/>
-                                <button type="button" class="btn default" >返回</button>
+                                <button type="button" class="btn blue-steel" onclick="addExam()">提交</button>
+                                <button type="button" class="btn default"  onclick="goExamList()">返回</button>
                             </div>
                             </div>
                         </form>
@@ -84,6 +105,8 @@
     </div>
     <!-- END CONTENT -->
 </div>
+<script src="${ctx}/static/script/library/addLibrary.js" type="text/javascript"></script>
+
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
 <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>

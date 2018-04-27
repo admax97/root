@@ -36,35 +36,35 @@ public class PaperQuestionService {
 
         /*先插入试卷对象*/
         Paper paper = new Paper();
-        paper.setCreateId(paperDTO.getCreaterID());
+        /*paper.setCreateId(paperDTO.getCreaterID());*/
         paper.setPaperName(paperDTO.getPaperName());
         paper.setTotalScore(String.valueOf(paperDTO.getShortQuestionScore() + paperDTO.getSingleChoiceScore()));
         paper.setTitle(paperDTO.getTitle());
         paper.setStatus(1);
         paper.setCreateTime(new Date());
-        paperMapper.insert(paper);
+        paperMoreMapper.insertMore(paper);
 
         /*插入试卷-试题关系对象*/
 
         /*生成随机单选题*/
         List<Question> sigleQuestions = null;
         if(paperDTO.getSingleChoiceCount() != null && paperDTO.getSingleChoiceCount() != 0){
-            sigleQuestions = paperQuestionMapper.randomQuestion(paperDTO.getSingleChoiceType(), paperDTO.getSingleChoiceCount());
+            sigleQuestions = paperQuestionMapper.randomQuestion(paperDTO.getSingleChoiceType(), paperDTO.getSingleChoiceCount(), paperDTO.getSingleChoiceLibraryType());
         }
 
         /*生成随机简答题*/
         List<Question> shortQuestions = null;
         if (paperDTO.getShortQuestionCount() != null && paperDTO.getShortQuestionCount() != 0){
-            shortQuestions = paperQuestionMapper.randomQuestion(paperDTO.getShortQuestionType(), paperDTO.getShortQuestionCount());
+            shortQuestions = paperQuestionMapper.randomQuestion(paperDTO.getShortQuestionType(), paperDTO.getShortQuestionCount(), paperDTO.getShortQuestionLibraryType());
         }
 
         int number = 1;
         /*插入单选题*/
         if(sigleQuestions != null && sigleQuestions.size() != 0){
-           for(Question question: sigleQuestions) {
+            for(Question question: sigleQuestions) {
                 number ++;
                 paperQuestionMapper.add(question.getId(), paper.getId(), paperDTO.getSingleChoiceScore() / paperDTO.getSingleChoiceCount(), number);
-           }
+            }
         }
 
         /*插入简答题*/

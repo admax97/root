@@ -29,7 +29,7 @@
 			<!-- BEGIN LOGO -->
 			<div class="page-logo">
 				<a href="index.html">
-					<img src="${ctx}/static/assets/layouts/layout3/img/logo-default.jpg" alt="logo" class="logo-default">
+					<img src="${ctx}/static/assets/layouts/layout3/img/testimg.jpg" style="width: 176px;height: 70px;margin-top: -30px;" alt="logo" class="logo-default">
 				</a>
 			</div>
 			<!-- END LOGO -->

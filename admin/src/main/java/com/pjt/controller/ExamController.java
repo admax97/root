@@ -3,7 +3,10 @@ package com.pjt.controller;
 import com.pjt.common.utils.Page;
 import com.pjt.persist.model.Exam;
 import com.pjt.persist.model.ExamExample;
+import com.pjt.persist.model.Paper;
+import com.pjt.persist.model.PaperExample;
 import com.pjt.service.ExamService;
+import com.pjt.service.PaperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,6 +27,8 @@ public class ExamController {
     @Autowired
     private ExamService examService ;
 
+    @Autowired
+    private PaperService paperService;
     @RequestMapping(value = "list",method = RequestMethod.GET )
     public ModelAndView examList(Model mode ){
         //List<Exam> examList = examService.selectByExample(new ExamExample());
@@ -42,11 +49,25 @@ public class ExamController {
     @RequestMapping(value = "add", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView add(Model mode,Exam  exam) {
         if (exam.getExamName()==null||exam.getExamName().equals("") ){
+            List<Paper> paperList = paperService.selectByExample(new PaperExample());
+            mode.addAttribute("paperList",paperList);
+
             return new ModelAndView("exam/addExam");
         }
 //        exam.insertSelective(admin);
 //        System.out.println("name="+admin.getName()+" -----  "+admin.getPhonenumber());
 //        List<Admin> adminList =adminService.selectByExample(new AdminExample());
         return new ModelAndView("exam/list");
+    }
+
+    @RequestMapping(value = "addProc", method = {RequestMethod.POST})
+    public void addProc(Model mode, Exam exam,PrintWriter out) {
+        String result = "error";
+        exam.setExamStatus(1);
+        exam.setCreateTime(new Date());
+        if( examService.insertSelective(exam) >0)
+            result ="success";
+        out.write(result);
+        out.flush();
     }
 }

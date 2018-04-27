@@ -34,8 +34,9 @@ public interface PaperQuestionMapper {
      * @param count 随机试题数量
      * @return 试题集合
      */
-    @Select("SELECT * FROM `question` WHERE question_type = #{questionType} ORDER BY id * RAND() LIMIT #{count}")
-    List<Question> randomQuestion(@Param("questionType") String questionType, @Param("count") Integer count);
+    @Select("SELECT * FROM `question` WHERE question_type = #{questionType} AND library_type = #{libraryType} ORDER BY id * RAND() LIMIT #{count}")
+    List<Question> randomQuestion(@Param("questionType") String questionType, @Param("count") Integer count,
+                                  @Param("libraryType") String libraryType);
 
     /**
      * 插入试题与试卷关系记录
@@ -60,7 +61,7 @@ public interface PaperQuestionMapper {
     List<Question> selectSignle(@Param("id") Integer paperID, @Param("questionType") String questionType);
 
     /**
-     *  查询某个试卷的单选题集合
+     *  查询某个试卷的简答题题集合
      * @param paperID 试卷编号
      * @param questionType 题型
      * @return

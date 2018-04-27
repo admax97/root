@@ -32,8 +32,14 @@ public class PaperDTO implements Serializable{
     /*单选题类型*/
     private String singleChoiceType;
 
+    /*单选题题库类型*/
+    private String singleChoiceLibraryType;
+
     /*简答题类型*/
     private String shortQuestionType;
+
+    /*简答题题库类型*/
+    private String shortQuestionLibraryType;
 
 
     /*简答题集合*/
@@ -140,6 +146,22 @@ public class PaperDTO implements Serializable{
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getSingleChoiceLibraryType() {
+        return singleChoiceLibraryType;
+    }
+
+    public void setSingleChoiceLibraryType(String singleChoiceLibraryType) {
+        this.singleChoiceLibraryType = singleChoiceLibraryType;
+    }
+
+    public String getShortQuestionLibraryType() {
+        return shortQuestionLibraryType;
+    }
+
+    public void setShortQuestionLibraryType(String shortQuestionLibraryType) {
+        this.shortQuestionLibraryType = shortQuestionLibraryType;
     }
 
     public Integer getTotalScore() {

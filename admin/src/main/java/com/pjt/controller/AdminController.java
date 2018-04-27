@@ -33,7 +33,6 @@ public class AdminController {
     public String loginPage(HttpServletResponse response,HttpServletRequest request,  Admin admin) throws ServletException, IOException {
         System.out.println("这里是login,,,,main/indea"+admin.getName()+admin.getPassword() );
         admin.setPassword(MD5Utils.md5(admin.getPassword()));
-        System.out.println("MD5加密之后："+admin.getPassword() );
         Admin ckAdmin = adminService.checkAdmin(admin);
         HttpSession session = request.getSession();
         if(ckAdmin!=null){

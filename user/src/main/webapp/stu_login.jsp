@@ -107,26 +107,30 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- END FORGOT PASSWORD FORM -->
     <!-- BEGIN REGISTRATION FORM -->
-    <form class="register-form" action="index.html" method="post">
+    <form class="register-form"  action="index.html" method="post">
         <h3 class="font-green">注册</h3>
         <p class="hint"> 请输入详细信息: </p>
-        <div class="form-group">
+        <%-- <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">Full Name</label>
             <input class="form-control placeholder-no-fix" type="text" placeholder="请输入姓名" name="fullname" /> </div>
-        <div class="form-group">
+       <div class="form-group">
             <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
             <label class="control-label visible-ie8 visible-ie9">Email</label>
-            <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email" /> </div>
+            <input class="form-control placeholder-no-fix" type="text" placeholder="请输入邮箱" name="email" /> </div>--%>
         <p class="hint"> Enter your account details below: </p>
         <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">Username</label>
-            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
+            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="请输入姓名" name="name" /> </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
+            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="请输入手机号码" name="phonenumber" /> </div>
         <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">Password</label>
             <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="请输入密码" name="password" /> </div>
         <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" /> </div>
+            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="却认密码" name="rpassword" /> </div>
+
         <div class="form-group margin-top-20 margin-bottom-20">
             <label class="mt-checkbox mt-checkbox-outline">
                 <input type="checkbox" name="tnc" /> I agree to the
@@ -137,8 +141,8 @@ License: You must have a valid license purchased only from themeforest(the above
             <div id="register_tnc_error"> </div>
         </div>
         <div class="form-actions">
-            <button type="button" id="register-back-btn" class="btn green btn-outline">Back</button>
-            <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
+            <button type="button" id="register-back-btn" class="btn green btn-outline">取消</button>
+            <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">提交</button>
         </div>
     </form>
     <!-- END REGISTRATION FORM -->
@@ -178,6 +182,11 @@ License: You must have a valid license purchased only from themeforest(the above
             $('#radio1003').attr('checked', 'checked');
         });
     })
+</script>
+
+<script>
+
+
 </script>
 </body>
 

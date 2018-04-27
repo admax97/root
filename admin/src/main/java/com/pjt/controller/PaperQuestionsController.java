@@ -24,15 +24,20 @@ public class PaperQuestionsController {
     /**
      * 生成试卷以及试卷预览
      * @param model
-     * @param paperDTO paperName，shortQuestionCount，singleChoiceCount，singleChoiceType，
-     *                 shortQuestionType，createrID，shortQuestionScore，singleChoiceScore，title
+     * @param paperDTO paperName，shortQuestionCount，singleChoiceCount，singleChoiceLibraryType，
+     *                 shortQuestionLibraryType，createrID，shortQuestionScore，singleChoiceScore，title，
+     *
+     *
      * @return
      */
     @RequestMapping(value = "/generateAndReview", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public PaperDTO generateAndReview(Model model, PaperDTO paperDTO, HttpServletRequest request){
-        //Admin admin = (Admin) request.getSession().getAttribute("admin");
-        paperDTO.setCreaterID(1);
+    public PaperDTO generateAndReview(Model model, PaperDTO paperDTO){
+
+        /*默认试题类型：简答题：AA02 单选题：AA01*/
+        paperDTO.setShortQuestionType("AA02");
+        paperDTO.setSingleChoiceType("AA01");
+
         /*生成试卷*/
         int paperID = paperQuestionService.newPaper(paperDTO);
 

@@ -15,5 +15,6 @@ public interface PaperMoreMapper extends PaperMapper {
     Integer getPaperListCount(Page page);
     List<Paper> getPaperList(Page page);
     void batchDeleteByPaperID( List<Serializable> ids);
+    int insertMore(Paper record);
 
 }
