@@ -82,7 +82,7 @@
                                 </div>
                             <div class="form-actions">
                                 <button type="button" class="btn blue-steel" onclick="addLibrary()">提交</button>
-                                <button type="button" class="btn default" >返回</button>
+                                <button type="button" class="btn default"  onclick="goLibList()">返回</button>
                             </div>
                             </div>
                         </form>
@@ -95,7 +95,7 @@
     </div>
     <!-- END CONTENT -->
 </div>
-<script src="${ctx}/static/script/exam/library.js" type="text/javascript"></script>
+<script src="${ctx}/static/script/library/addLibrary.js" type="text/javascript"></script>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
 <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>

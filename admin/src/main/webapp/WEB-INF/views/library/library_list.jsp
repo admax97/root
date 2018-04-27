@@ -175,7 +175,7 @@
             });
         }
     </script>
-    <script src="${ctx}/static/script/exam/library.js" type="text/javascript"></script>
+    <script src="${ctx}/static/script/library/library.js" type="text/javascript"></script>
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
 </div>
 
