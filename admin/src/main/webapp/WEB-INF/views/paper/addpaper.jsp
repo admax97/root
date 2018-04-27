@@ -58,12 +58,14 @@
                                         <span class="input-group-addon input-circle-right"> <i class="fa fa-user"></i></span>
                                     </div>
                                 </div>
-                                <div class="form-group"><label>选择题类型</label>
-                                    <select name="singleChoiceType">
-                                        <option value=""></option>
-                                        <c:forEach var="stype" items="${singleTypeList}">
-                                            <option  value="${stype.typeSubCd}">${stype.typeSubName}</option>
-                                        </c:forEach>
+                                <div class="form-group"><label>选择题题库范围</label>
+                                    <select class="form-control input-circle" name="singleChoiceType">
+                                        <option VALUE="">－请选择题库范围－</option>
+                                        <c:if test="${!empty areaType}">
+                                            <c:forEach var="type" items="${areaType}">
+                                                <option value="${type.typeSubCd}">${type.typeSubName}</option>
+                                            </c:forEach>
+                                        </c:if>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -74,13 +76,14 @@
                                     <label>选择题数量</label>
                                     <input class="form-control spinner input-circle" required type="text" placeholder="请输入选择题数量" name="singleChoiceCount" id="singleCount" maxlength="2"/>
                                 </div>
-                                <div class="form-group">
-                                    <label>简答题类型</label>
-                                    <select name="shortQuestionType">
-                                        <option value=""></option>
-                                        <c:forEach var="jdtype" items="${jdTypeList}">
-                                            <option value="${jdtype.typeSubCd}">${jdtype.typeSubName}</option>
-                                        </c:forEach>
+                                <div class="form-group"><label>简答题题库范围</label>
+                                    <select class="form-control input-circle" name="shortQuestionType">
+                                        <option VALUE="">－请选择题库范围－</option>
+                                        <c:if test="${!empty areaType}">
+                                            <c:forEach var="type" items="${areaType}">
+                                                <option value="${type.typeSubCd}">${type.typeSubName}</option>
+                                            </c:forEach>
+                                        </c:if>
                                     </select>
                                 </div>
                                 <div class="form-group">

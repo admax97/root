@@ -845,6 +845,76 @@ public class QuestionExample {
             return (Criteria) this;
         }
 
+        public Criteria andLibraryTypeIsNull() {
+            addCriterion("library_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeIsNotNull() {
+            addCriterion("library_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeEqualTo(String value) {
+            addCriterion("library_type =", value, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeNotEqualTo(String value) {
+            addCriterion("library_type <>", value, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeGreaterThan(String value) {
+            addCriterion("library_type >", value, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("library_type >=", value, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeLessThan(String value) {
+            addCriterion("library_type <", value, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeLessThanOrEqualTo(String value) {
+            addCriterion("library_type <=", value, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeLike(String value) {
+            addCriterion("library_type like", value, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeNotLike(String value) {
+            addCriterion("library_type not like", value, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeIn(List<String> values) {
+            addCriterion("library_type in", values, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeNotIn(List<String> values) {
+            addCriterion("library_type not in", values, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeBetween(String value1, String value2) {
+            addCriterion("library_type between", value1, value2, "libraryType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLibraryTypeNotBetween(String value1, String value2) {
+            addCriterion("library_type not between", value1, value2, "libraryType");
+            return (Criteria) this;
+        }
+
         public Criteria andCreateIdIsNull() {
             addCriterion("create_id is null");
             return (Criteria) this;

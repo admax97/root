@@ -55,12 +55,13 @@ public class PaperController {
     public ModelAndView add(Model mode ) {
         TypeDictionaryExample typeDictionaryExample = new TypeDictionaryExample();
         TypeDictionaryExample jdtypeDictionaryExample = new TypeDictionaryExample();
-        typeDictionaryExample.createCriteria().andTypeSubNameLike("%选择");
-        List<TypeDictionary> singleTypeList = typeDictionaryService.selectByExample(typeDictionaryExample);
-        mode.addAttribute("singleTypeList",singleTypeList);
-        jdtypeDictionaryExample.createCriteria().andTypeSubNameLike("%简答");
-        List<TypeDictionary> jdTypeList = typeDictionaryService.selectByExample(jdtypeDictionaryExample);
-        mode.addAttribute("jdTypeList",jdTypeList);
+        typeDictionaryExample.createCriteria().andTypeCdEqualTo("AA");
+        List<TypeDictionary> quesType = typeDictionaryService.selectByExample(typeDictionaryExample);
+        mode.addAttribute("quesType",quesType);
+        jdtypeDictionaryExample.createCriteria().andTypeCdEqualTo("BB");
+        List<TypeDictionary> areaType = typeDictionaryService.selectByExample(jdtypeDictionaryExample);
+        mode.addAttribute("areaType",areaType);
+
         return new ModelAndView("paper/addpaper");
     }
 
