@@ -4,7 +4,8 @@
 <html>
 <head>
 <script type="text/javascript">
-	window.location.href = '${ctx}/admin/login';
+	<%--window.location.href = '${ctx}/admin/login';--%>
+    window.location.href = '${ctx}/admin/admin_login.jsp';
 </script>
 </head>
 <body>

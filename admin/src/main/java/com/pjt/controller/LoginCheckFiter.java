@@ -16,7 +16,7 @@ public class LoginCheckFiter extends HandlerInterceptorAdapter {
 
         String url=request.getRequestURL().toString();
 
-//        System.out.println("url::"+url);
+          System.out.println("url::"+url);
 //        if(admin==null ) {
 //            //判断获取的路径不为空且不是访问登录页面或执行登录操作时跳转
 //            if(url!=null && !url.equals("") && url.indexOf("login")<0 && url.indexOf("static")<0  ) {

@@ -13,28 +13,26 @@
     <table class="table table-striped table-bordered table-hover" id="sample_2" style="text-align: center">
         <thead  style="text-align: center">
         <tr >
-            <th> 考试编号 </th>
-            <th> 考试名称 </th>
-            <th> 考试时间 </th>
-            <th> 考试类型 </th>
-            <th> 关联试卷 </th>
-            <th> 考试状态 </th>
-            <th> 创建人 </th>
+            <th> 试卷编号 </th>
+            <th> 试卷名称 </th>
+            <th> 试卷类型 </th>
+            <th> 试卷分数 </th>
+            <th> 发布状态 </th>
+            <th> 阅卷人 </th>
             <th> 操作</th>
         </tr>
         </thead>
         <tbody>
 
 
-        <c:forEach var="exam" items="${examList}">
+        <c:forEach var="paper" items="${paperList}">
             <tr>
-                <td>${exam.examNumber}</td>
-                <td>${exam.examName}</td>
-                <td>${exam.examTime} </td>
-                <td>${exam.examType}</td>
-                <td>${exam.paperId}</td>
-                <td><c:if test="${exam.examStatus==1}">正常</c:if> <c:if test="${exam.examStatus==2}">作废</c:if> </td>
-                <td> ${exam.creater}</td>
+                <td>${paper.id}</td>
+                <td>${paper.paperName}</td>
+                <td>${paper.paperType} </td>
+                <td>${paper.totalScore}</td>
+                <td><c:if test="${paper.status==1}">正常</c:if> <c:if test="${paper.status==2}">作废</c:if> </td>
+                <td> ${paper.examiner}</td>
                 <td width="150px">
                     <div class="btn-group">
                         <button class="btn btn-sm blue dropdown-toggle" type="button" data-toggle="dropdown"> 操作
@@ -42,7 +40,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="javascript:;"> 查看考试 </a>
+                                <a href="javascript:;"> 编辑试卷 </a>
                             </li>
                             <li>
                                 <a href="javascript:;"> 预览试卷 </a>

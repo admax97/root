@@ -52,4 +52,7 @@
     <include refid="where"/>
   </select>
 
+  <select id="checkAdmin" parameterType="com.pjt.persist.model.Admin" resultType="com.pjt.persist.model.Admin">
+      SELECT <include refid="Base_Column_List" /> FROM admin WHERE  name = #{name} AND password = #{password}
+  </select>
 </mapper>

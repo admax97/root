@@ -45,11 +45,15 @@
         order by id desc
         <include refid="pageLimit"/>
     </select>
-    <!--查詢管理员总数-->
-    <select id="getExamListCount" resultType="java.lang.Integer" parameterType="com.pjt.common.utils.Page" >
+    <!--查詢总数-->
+    <select id="getStuListCount" resultType="java.lang.Integer" parameterType="com.pjt.common.utils.Page" >
         select
         count(0) as count
         from student
         <include refid="where"/>
+    </select>
+    
+    <select id="getStuByNamePwd" resultType="com.pjt.persist.model.Student" parameterType="com.pjt.persist.model.Student">
+        SELECT <include refid="Base_Column_List" /> FROM student WHERE name=#{name} AND password =#{password}
     </select>
 </mapper>

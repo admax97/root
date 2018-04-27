@@ -54,6 +54,9 @@ public class AdminService {
         return page;
     }
 
+    public Admin checkAdmin(Admin ckadmin){
 
+        return adminMoreMapper.checkAdmin( ckadmin);
+    }
 
 }

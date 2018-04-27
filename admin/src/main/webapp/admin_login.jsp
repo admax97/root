@@ -43,24 +43,25 @@
     <body class=" login">
         <!-- BEGIN LOGO -->
         <div class="logo">
-            <span style="font-size: 30px;color: #00aaaa">欢迎登录系统后台</span>
+            <span style="font-size: 30px;color: #1f2b3d;">欢迎登录系统后台</span>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
         <div class="content">
+
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" action="index.html" method="post">
+            <form class="login-form" action="${ctx}/admin/login" method="post">
                 <h3 class="form-title">登录到您的帐户</h3>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
-                    <span> 请输入登录账号和密码. </span>
+                   <span> 请输入登录账号和密码</span>
                 </div>
                 <div class="form-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                     <label class="control-label visible-ie8 visible-ie9">登录账号</label>
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
-                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="请输入登录账号" name="username" /> </div>
+                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="请输入登录账号" name="name" /> </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">密码</label>
@@ -77,15 +78,8 @@
                 </div>
                 <div class="login-options">
                 </div>
-              <%--  <div class="forget-password">
-                    <h4>忘记密码？?</h4>
-                    <p> 别担心, 点击
-                        <a href="javascript:;" id="forget-password"> 这里 </a> 重置密码. </p>
-                </div>--%>
-                <div class="create-account">
-                    <p> 还没有账户?&nbsp;
-                        <a href="javascript:;" id="register-btn"> 创建一个帐户 </a>
-                    </p>
+                  <div class="forget-password">
+                    <h4 style="text-align: center;color: #CF7EA9">${msg}</h4>
                 </div>
             </form>
             <!-- END LOGIN FORM -->

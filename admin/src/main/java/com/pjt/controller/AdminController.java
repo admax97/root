@@ -1,5 +1,6 @@
 package com.pjt.controller;
 
+import com.pjt.common.utils.MD5Utils;
 import com.pjt.common.utils.Page;
 import com.pjt.persist.model.Admin;
 import com.pjt.persist.model.AdminExample;
@@ -11,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -21,25 +27,33 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private AdminService adminService ;
+    @Autowired
+    HttpServletRequest request;
     @RequestMapping(value = "login", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView loginPage(Model mode) {
-        System.out.println("这里是login,,,,main/indea");
-        return new ModelAndView("main/index");
+    public String loginPage(HttpServletResponse response,HttpServletRequest request,  Admin admin) throws ServletException, IOException {
+        System.out.println("这里是login,,,,main/indea"+admin.getName()+admin.getPassword() );
+        admin.setPassword(MD5Utils.md5(admin.getPassword()));
+        System.out.println("MD5加密之后："+admin.getPassword() );
+        Admin ckAdmin = adminService.checkAdmin(admin);
+        HttpSession session = request.getSession();
+        if(ckAdmin!=null){
+            if(ckAdmin.getStatus()==1){
+                session.setAttribute("admin",ckAdmin);
+                request.getRequestDispatcher("/WEB-INF/views/main/index.jsp").forward(request,response);
+                return null;
+            }else {
+                request.setAttribute("msg", "用户已被冻结，请及时联系管理员！");
+            }
+        }else {
+            request.setAttribute("msg", "用户名或者密码错误！");
+        }
+        request.getRequestDispatcher("/admin_login.jsp").forward(request,response);
+        return null;
+
     }
 
     @RequestMapping(value = "list", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView list(Model model) {
-      /*  Page page = new Page();
-        Map map = new HashMap<>();
-        map.put("id",1);
-        page.setParameterMap(map);
-        page.setPageNo(1);
-        page.setPageSize(5);
-        page = adminService.selectList(page);
-        return new ModelAndView("admin/list","adminList",page.getResult());*/
-        /*Page page = adminService.selectList(new Page());
-        System.out.println("分页总行数page:"+page.getTotalCount());*/
-//      int totalCount = adminService.countByExample(new AdminExample());
         List<Admin> adminList =adminService.selectByExample(new AdminExample());
         return new ModelAndView("admin/list","adminList",adminList);
     }

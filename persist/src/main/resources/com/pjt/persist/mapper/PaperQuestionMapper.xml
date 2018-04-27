@@ -153,4 +153,11 @@
       short_answer_score = #{shortAnswerScore,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <delete id="batchDeleteByPaperID" parameterType="java.util.List">
+    DELETE FROM paper_question
+    WHERE paper_id IN
+    <foreach item='id' collection='list' open='(' separator=',' close=')'>
+      #{id}
+    </foreach>
+  </delete>
 </mapper>

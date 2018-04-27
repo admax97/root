@@ -73,12 +73,12 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="components_date_time_pickers.html" class="nav-link ">
+                        <a href="${ctx}/paper/add" class="nav-link ">
                             <span class="title">创建试卷</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="components_date_time_pickers.html" class="nav-link ">
+                        <a href="${ctx}/paper/list" class="nav-link ">
                             <span class="title">试卷列表</span>
                         </a>
                     </li>
@@ -104,7 +104,7 @@
                 </ul>
             </li>
             <li class="nav-item  ">
-                <a href="/WEB-INF/metronic/table_datatables_editable.jsp" class="nav-link nav-toggle">
+                <a href="${ctx}/WEB-INF/views/score/index.html" class="nav-link nav-toggle">
                     <i class="icon-diamond"></i>
                     <span class="title">成绩统计</span>
                     <span class="arrow"></span>

@@ -42,4 +42,7 @@ public class StudentService {
     public  int updateByPrimaryKey(Student record){
         return  studentMoreMapper.updateByPrimaryKey(record);
     }
+   public Student getStuByNamePwd(Student student){
+        return studentMoreMapper.getStuByNamePwd(student);
+    }
 }

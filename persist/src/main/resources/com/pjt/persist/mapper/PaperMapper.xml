@@ -72,12 +72,12 @@
     delete from paper
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.pjt.persist.model.Paper" >
-    insert into paper (id, paper_type, paper_name, 
-      total_score, status, examiner, 
-      title, create_id, create_time, 
+  <insert id="insert" parameterType="com.pjt.persist.model.Paper" useGeneratedKeys="true" keyProperty="id" keyColumn="id" >
+    insert into paper (paper_type, paper_name,
+      total_score, status, examiner,
+      title, create_id, create_time,
       update_id, update_time)
-    values (#{id,jdbcType=INTEGER}, #{paperType,jdbcType=VARCHAR}, #{paperName,jdbcType=VARCHAR}, 
+    values (#{paperType,jdbcType=VARCHAR}, #{paperName,jdbcType=VARCHAR},
       #{totalScore,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{examiner,jdbcType=VARCHAR}, 
       #{title,jdbcType=VARCHAR}, #{createId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})

@@ -52,5 +52,9 @@
     <error-code>404</error-code>
     <location>/WEB-INF/views/error/404.jsp</location>
   </error-page>-->
+  <!--默认首页-->
 
+  <welcome-file-list>
+    <welcome-file>admin_login.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>

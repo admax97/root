@@ -54,22 +54,15 @@
                 <ul class="page-breadcrumb">
                     <li>
                         <i class="icon-home"></i>
-                        <a href="#">考试管理</a>
+                        <a href="#">试卷管理</a>
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li>
-                        <a href="#">考试列表</a>
+                        <a href="#">试卷列表</a>
                         <i class="fa fa-angle-right"></i>
                     </li>
 
                 </ul>
-                <%--<div class="page-toolbar">
-                    <div class="btn-group pull-right">
-                        <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle"> Actions
-                            <i class="fa fa-angle-down"></i>
-                        </button>
-                    </div>
-                </div>--%>
             </div>
             <!-- END PAGE HEADER-->
             <!-- BEGIN PAGE HEADER-->
@@ -79,7 +72,7 @@
                     <div class="portlet box green">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-globe"></i>考试列表 </div>
+                                <i class="fa fa-globe"></i>试卷列表 </div>
                             <div class="tools"> </div>
                         </div>
                         <div class="portlet-body">
@@ -87,10 +80,10 @@
                                 <div class="col-md-8">
                                     <table>
                                         <tr>
-                                            <td>考试名称</td>
+                                            <td>试卷名称</td>
                                             <td>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="考试名称"  name="key1" class="form-control">
+                                                    <input type="text" placeholder="试卷名称"  name="key1" class="form-control">
                                                 </div>
                                             </td>
                                             <td>考试类型</td>
@@ -106,7 +99,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <button class="btn blue" type="button" onclick="goPage('1',2);"><i class=" icon-magnifier"></i>查询</button>
+                                                <button class="btn blue" type="button" onclick="goPage('1',10);"><i class=" icon-magnifier"></i>查询</button>
                                             </td>
                                         </tr>
                                     </table>
@@ -147,7 +140,7 @@
             $.ajax({
 
                 type: 'POST',
-                url: ctx + "/exam/ajax/ajaxList",
+                url: ctx + "/paper/ajax/ajaxList",
                 data: {'parameterMap':parameterMap, 'pageNo': pageNo, 'pageSize': pageSize},
                 dataType: "text",
                 success: function (msg) {
