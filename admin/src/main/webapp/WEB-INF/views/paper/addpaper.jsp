@@ -58,6 +58,7 @@
                                         <span class="input-group-addon input-circle-right"> <i class="fa fa-user"></i></span>
                                     </div>
                                 </div>
+                                <div class="form-group"><hr></div>
                                 <div class="form-group"><label>选择题题库范围</label>
                                     <select class="form-control input-circle" name="singleChoiceType">
                                         <option VALUE="">－请选择题库范围－</option>
@@ -76,6 +77,7 @@
                                     <label>选择题数量</label>
                                     <input class="form-control spinner input-circle" required type="text" placeholder="请输入选择题数量" name="singleChoiceCount" id="singleCount" maxlength="2"/>
                                 </div>
+                                <div class="form-group"><hr></div>
                                 <div class="form-group"><label>简答题题库范围</label>
                                     <select class="form-control input-circle" name="shortQuestionType">
                                         <option VALUE="">－请选择题库范围－</option>
@@ -94,7 +96,7 @@
                                     <label>简答题数量</label>
                                     <input class="form-control spinner input-circle" required type="text" placeholder="请输入简答题数量" name="shortQuestionCount" id="jdCount" maxlength="2"/>
                                 </div>
-
+                                <div class="form-group"><hr></div>
                                 <div class="form-group">
                                     <label>您新建的试卷总分数为：</label>
                                     <div class="input-icon right">
