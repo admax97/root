@@ -11,6 +11,8 @@ public class Library {
 
     private String libraryType;
 
+    private String quesType;
+
     private Integer createId;
 
     private Date createTime;
@@ -49,6 +51,14 @@ public class Library {
 
     public void setLibraryType(String libraryType) {
         this.libraryType = libraryType == null ? null : libraryType.trim();
+    }
+
+    public String getQuesType() {
+        return quesType;
+    }
+
+    public void setQuesType(String quesType) {
+        this.quesType = quesType == null ? null : quesType.trim();
     }
 
     public Integer getCreateId() {

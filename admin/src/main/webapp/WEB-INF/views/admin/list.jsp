@@ -50,7 +50,7 @@
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- END THEME PANEL -->
-            <h1 class="page-title">管理员管理</h1>
+            <h1 class="page-title">管理员列表</h1>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
                     <li>
@@ -60,7 +60,7 @@
                     </li>
                     <li>
                         <a href="#">管理员列表</a>
-                        <i class="fa fa-angle-right"></i>
+                        <%--<i class="fa fa-angle-right"></i>--%>
                     </li>
 
                 </ul>

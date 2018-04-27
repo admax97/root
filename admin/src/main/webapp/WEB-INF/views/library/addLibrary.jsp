@@ -18,17 +18,16 @@
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <div class="page-content">
-        <h4 class=" page-title">创建试题</h4>
+        <h4 class=" page-title">创建题库</h4>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
                     <li>
                         <i class="icon-home"></i>
-                        <a href="#">题库管理</a>
+                        <a href="index.html">题库管理</a>
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li>
-                        <%--<i class="icon-home"></i>--%>
-                        <a href="#">创建试题</a>
+                        <a href="#">创建题库</a>
                         <%--<i class="fa fa-angle-right"></i>--%>
                     </li>
                 </ul>
@@ -46,49 +45,43 @@
                     <div class="portlet-title">
                         <div class="caption ">
                             <i class="icon-settings"></i>
-                            <span class="caption-subject bold uppercase">输入试题信息</span>
+                            <span class="caption-subject bold uppercase">输入题库信息</span>
                         </div>
                     </div>
                     <div class="portlet-body form">
-                        <form role="form" action="${ctx}/admin/update" method="post">
+                        <form role="form"  method="post" id="libraryForm">
                             <div class="form-body">
                                 <div class="form-group">
-                                    <label >请选择试题类型</label>
-                                    <select name="选择" class="form-control input-circle">
-                                        <option>java</option>
-                                        <option>c语言</option>
-                                        <option>html</option>
-                                        <option>数据库</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label >请选择题库类型</label>
-
-                                </div>
-
-
-
-                                <div class="form-group">
-                                    <label >名称</label>
+                                    <label >题库名称</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control input-circle-left" placeholder="请输入管理员名称" name="name" maxlength="11">
+                                        <input type="text" class="form-control input-circle-left" placeholder="请输入题库名称" name="title" maxlength="11">
                                         <span class="input-group-addon input-circle-right"> <i class="fa fa-user"></i></span>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
-                                    <label>手机号</label>
-                                    <input class="form-control spinner input-circle" type="text" placeholder="请输入管理员手机号" name="phonenumber" maxlength="11"/>
+                                    <label>题库题型</label>
+                                    <select class="form-control input-circle" name="quesType">
+                                        <option VALUE="">－请选择试题类型－</option>
+                                        <c:if test="${!empty quesType}">
+                                            <c:forEach var="type" items="${quesType}">
+                                                <option value="${type.typeSubCd}">${type.typeSubName}</option>
+                                            </c:forEach>
+                                        </c:if>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>密码</label>
-                                    <div class="input-icon right">
-                                        <i class="fa fa-microphone"></i>
-                                        <input type="text" class="form-control input-circle" placeholder="请输入管理员密码" name="password" maxlength="50">
-                                    </div>
+                                    <label>题库试题范围</label>
+                                    <select class="form-control input-circle" name="libraryType">
+                                        <option VALUE="">－请选择试题范围－</option>
+                                        <c:if test="${!empty areaType}">
+                                            <c:forEach var="type" items="${areaType}">
+                                                <option value="${type.typeSubCd}">${type.typeSubName}</option>
+                                            </c:forEach>
+                                        </c:if>
+                                    </select>
                                 </div>
                             <div class="form-actions">
-                                <input type="submit" class="btn blue-steel"/>
+                                <button type="button" class="btn blue-steel" onclick="addLibrary()">提交</button>
                                 <button type="button" class="btn default" >返回</button>
                             </div>
                             </div>
@@ -102,6 +95,7 @@
     </div>
     <!-- END CONTENT -->
 </div>
+<script src="${ctx}/static/script/exam/library.js" type="text/javascript"></script>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
 <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>

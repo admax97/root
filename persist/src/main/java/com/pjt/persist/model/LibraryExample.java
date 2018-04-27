@@ -365,6 +365,76 @@ public class LibraryExample {
             return (Criteria) this;
         }
 
+        public Criteria andQuesTypeIsNull() {
+            addCriterion("ques_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeIsNotNull() {
+            addCriterion("ques_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeEqualTo(String value) {
+            addCriterion("ques_type =", value, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeNotEqualTo(String value) {
+            addCriterion("ques_type <>", value, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeGreaterThan(String value) {
+            addCriterion("ques_type >", value, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("ques_type >=", value, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeLessThan(String value) {
+            addCriterion("ques_type <", value, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeLessThanOrEqualTo(String value) {
+            addCriterion("ques_type <=", value, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeLike(String value) {
+            addCriterion("ques_type like", value, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeNotLike(String value) {
+            addCriterion("ques_type not like", value, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeIn(List<String> values) {
+            addCriterion("ques_type in", values, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeNotIn(List<String> values) {
+            addCriterion("ques_type not in", values, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeBetween(String value1, String value2) {
+            addCriterion("ques_type between", value1, value2, "quesType");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuesTypeNotBetween(String value1, String value2) {
+            addCriterion("ques_type not between", value1, value2, "quesType");
+            return (Criteria) this;
+        }
+
         public Criteria andCreateIdIsNull() {
             addCriterion("create_id is null");
             return (Criteria) this;
