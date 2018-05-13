@@ -57,7 +57,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="${ctx}/question/list?libraryid=${library.id}"> 查看试题库 </a>
+                                <a href="${ctx}/question/list?libraryType=${library.libraryType}&questionType=${library.quesType}"> 查看试题库 </a>
                             </li>
                             <li>
                                 <a href="${ctx}/question/add?libraryid=${library.id}"> 创建试题</a>

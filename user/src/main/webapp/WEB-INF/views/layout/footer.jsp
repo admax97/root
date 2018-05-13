@@ -26,7 +26,7 @@
     <div class="page-wrapper-bottom">
         <!-- BEGIN FOOTER -->
         <!-- BEGIN PRE-FOOTER -->
-        <div class="page-prefooter">
+       <%-- <div class="page-prefooter">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
@@ -81,13 +81,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
         <!-- END PRE-FOOTER -->
         <!-- BEGIN INNER FOOTER -->
-        <div class="page-footer">
-            <div class="container"> 2016 &copy; Metronic Theme By
-                <a target="_blank" href="http://keenthemes.com">Keenthemes</a> &nbsp;|&nbsp;
-                <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
+        <div class="page-footer" style="width: 1360px;">
+            <div class="container"> 2018 &copy; 在线考试
+                <a target="_blank" href="http://keenthemes.com">good</a> &nbsp;|&nbsp;
+                <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank"> luck!</a>
             </div>
         </div>
         <div class="scroll-to-top">

@@ -27,13 +27,16 @@
   <sql id="where">
     <where>
       <if test="parameterMap.title!=null and parameterMap.title!=''">
-        AND title LIKE concat('%',concat('*',LTrim(RTrim(#{parameterMap.title}))),'%') ESCAPE '*'
+          AND title LIKE concat('%',concat('*',LTrim(RTrim(#{parameterMap.title}))),'%') ESCAPE '*'
       </if>
       <!-- <if test="parameterMap.name!=null and parameterMap.name!=''">
       #  AND name LIKE concat('%',concat('*',LTrim(RTrim(#{parameterMap.name}))),'%') ESCAPE '*'
        </if>-->
-      <if test="parameterMap.typeSubCd!=null and parameterMap.typeSubCd!=''">
-        AND library_type = #{parameterMap.typeSubCd}
+      <if test="parameterMap.questionType!=null and parameterMap.questionType!=''">
+        AND question_type = #{parameterMap.questionType}
+      </if>
+      <if test="parameterMap.libraryType!=null and parameterMap.libraryType!=''">
+        AND library_type = #{parameterMap.libraryType}
       </if>
       <if test="parameterMap.libraryId!=null and parameterMap.libraryId!=''">
         AND library_id = #{parameterMap.libraryId}
@@ -52,7 +55,7 @@
     <include refid="Base_Column_List" />
     from question
     <include refid="where"/>
-    order by id
+    order by id DESC
     <include refid="pageLimit"/>
   </select>
 

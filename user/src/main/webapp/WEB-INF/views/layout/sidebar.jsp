@@ -2,6 +2,7 @@
 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 <div class="page-sidebar navbar-collapse collapse">
     <!-- BEGIN SIDEBAR MENU -->
+<%--
     <ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
         <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
         <li class="sidebar-toggler-wrapper">
@@ -11,7 +12,7 @@
             <!-- END SIDEBAR TOGGLER BUTTON -->
         </li>
         <li class="start active ">
-            <a href="index.html">
+            <a href="#">
                 <i class="icon-home"></i>
                 <span class="title">Dashboard</span>
                 <span class="selected"></span>
@@ -23,33 +24,7 @@
                 <span class="title">eCommerce</span>
                 <span class="arrow "></span>
             </a>
-            <ul class="sub-menu">
-                <li>
-                    <a href="ecommerce_index.html">
-                        <i class="icon-home"></i>
-                        Dashboard</a>
-                </li>
-                <li>
-                    <a href="ecommerce_orders.html">
-                        <i class="icon-basket"></i>
-                        Orders</a>
-                </li>
-                <li>
-                    <a href="ecommerce_orders_view.html">
-                        <i class="icon-tag"></i>
-                        Order View</a>
-                </li>
-                <li>
-                    <a href="ecommerce_products.html">
-                        <i class="icon-handbag"></i>
-                        Products</a>
-                </li>
-                <li>
-                    <a href="ecommerce_products_edit.html">
-                        <i class="icon-pencil"></i>
-                        Product Edit</a>
-                </li>
-            </ul>
+
         </li>
         <!-- BEGIN FRONTEND THEME LINKS -->
         <li>
@@ -122,5 +97,6 @@
             </a>
         </li>
     </ul>
+--%>
     <!-- END SIDEBAR MENU -->
 </div>

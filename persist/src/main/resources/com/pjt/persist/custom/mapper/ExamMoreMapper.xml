@@ -8,6 +8,7 @@
       <result column="exam_type" property="examType" jdbcType="VARCHAR" />
       <result column="exam_number" property="examNumber" jdbcType="VARCHAR" />
       <result column="paper_id" property="paperId" jdbcType="INTEGER" />
+      <result column="paper_name" property="paperName" jdbcType="VARCHAR" />
       <result column="exam_mark" property="examMark" jdbcType="VARCHAR" />
       <result column="expired_time" property="expiredTime" jdbcType="TIMESTAMP" />
       <result column="creater" property="creater" jdbcType="VARCHAR" />
@@ -18,7 +19,7 @@
       <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List">
-      id, exam_time, exam_name, exam_type, exam_number, paper_id, exam_mark, expired_time,
+      id, exam_time, exam_name, exam_type, exam_number, paper_id, exam_mark,paper_name, expired_time,
     creater, exam_status, create_id, create_time, update_id, update_time
  </sql>
   <sql id="where">

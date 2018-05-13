@@ -27,9 +27,9 @@ public class UserController {
 
     @RequestMapping(value = "login", method = {RequestMethod.GET, RequestMethod.POST})
     public String loginPage(Model mode, Student student, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(!("".equals(student.getName()) )&& !("".equals(student.getPassword()) ) ){
+        /*if(!("".equals(student.getName()) )&& !("".equals(student.getPassword()) ) ){
             student.setPassword(MD5Utils.md5(student.getPassword()));
-        }
+        }*/
         System.out.println(student.getName());
         Student ckStu = studentService.getStuByNamePwd(student);
         HttpSession session = request.getSession();

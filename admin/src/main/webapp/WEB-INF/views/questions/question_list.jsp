@@ -73,10 +73,18 @@
                                         <tr>
                                             <td>试题名称</td>
                                             <td>
-                                                <c:if test="${null !=libraryid && libraryid!=''}">
-                                                    <input type="hidden" value="${libraryid}" name="libraryid">
+                                                <%--<c:if test="${null !=libraryid && libraryid!=''}">--%>
+                                                    <%--<input type="hidden" value="${libraryid}" name="libraryid">--%>
 
-                                                </c:if>
+                                                <%--</c:if>--%>
+                                                    <c:if test="${null !=libraryType && libraryType!=''}">
+                                                        <input type="hidden" value="${libraryType}" name="libraryType">
+
+                                                    </c:if>
+                                                    <c:if test="${null !=questionType && questionType!=''}">
+                                                        <input type="hidden" value="${questionType}" name="questionType">
+
+                                                    </c:if>
                                                 <div class="col-md-12">
                                                     <input type="text" placeholder="试题名称"  name="key1" class="form-control">
                                                 </div>
@@ -98,13 +106,20 @@
                                         </tr>
                                     </table>
                                </div>
-                                <div class="col-md-4 pull-right text-right">
-                                        <a class="btn btn-primary" href="${ctx}/question/add?libraryid=${libraryid}"> <i class=" icon-plus"></i>创建试题</a>
+                                <div class="modal fade" id="uploadDiv" role="dialog" aria-labelledby="myModalLabel" style=" width: 500px; height: 300px;background-color: white; margin: auto auto">
+                                    <title>批量导入试题</title>
+                                    <form action="addController/batchimport" method="post" enctype="multipart/form-data" id="excelForm">
+                                        <div style="margin: 30px;"><input id="excel_file" type="file" name="filename" accept="xlsx" size="80"/>
+                                            <input id="excel_button" type="button" value="导入Excel"/></div>
+                                    </form>
                                 </div>
+                                <a class="btn btn-success" href="#" id="uploadButton"> <i class=" fa fa-upload"></i>&nbsp;导入试题</a>&nbsp;
+                                <a class="btn btn-primary" href="javascript:editExamInfo('0');"> <i class=" icon-plus"></i>&nbsp;创建试题</a>
                             </div>
                             <div id="content" class="row">
 
                             </div>
+                        </div>
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -125,15 +140,13 @@
         var pageSize = 10;
 
         function goPage(pageNo, pageSize) {
-            if( $("input[name=libraryid]").val()!=''){
-                var libraryid = $("input[name=libraryid]").val();
-            }
-
+            var questionType = $("input[name=questionType]").val();
             var key1 = $("input[name=key1]").val();
 
-            var key2 = $("select[name=key2]").val();
+           /* var key2 = $("select[name=key2]").val();*/
+            var libraryType = $("input[name=libraryType]").val();
 
-            var parameterMap = {'title': key1,'typeSubCd':key2, 'libraryId': libraryid};
+            var parameterMap = {'title': key1,'libraryType':libraryType,'questionType':questionType};
 
             $.ajax({
 
@@ -150,6 +163,50 @@
             });
         }
     </script>
+<!--弹出框样式-->
+<script src="${ctx}/static/assets/global/plugins/bootbox/bootbox.min.js"></script>
+<script type="text/javascript" src="/static/script/jquery-form.js"></script>
+<script>
+    /*导入模态框*/
+    $('#uploadButton').click(function(){
+        $('#uploadDiv').modal();
+    });
+
+    $('#excel_button').click(function(){
+        var form = $("#excelForm");
+        var options = {
+            url:'/question/batchImport', //上传文件的路径
+            type:'post',
+            success:function(data,status)
+                {
+                    if('success' == status){
+                        bootbox.alert({
+                            size: "small",
+                            title: "提示",
+                            message: "导入成功！",
+                            callback: function(){
+                                window.location.href = ctx+"/question/list";
+                                /*window.location.href = '/admin/list';*/
+                            }
+                        });
+                    } else {
+                        bootbox.alert({
+                            size: "small",
+                            title: "提示",
+                            message: "导入失败！",
+                            callback: function(){
+                                window.location.href = '/question/list';
+                            }
+                        });
+                    }
+
+                }
+            };
+        form.ajaxSubmit(options);
+    });
+
+
+</script>
     <script src="${ctx}/static/script/exam/exam.js" type="text/javascript"></script>
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
 </div>

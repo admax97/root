@@ -13,6 +13,8 @@ public class Exam {
 
     private String examNumber;
 
+    private String paperName;
+
     private Integer paperId;
 
     private String examMark;
@@ -141,5 +143,13 @@ public class Exam {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getPaperName() {
+        return paperName;
+    }
+
+    public void setPaperName(String paperName) {
+        this.paperName = paperName;
     }
 }

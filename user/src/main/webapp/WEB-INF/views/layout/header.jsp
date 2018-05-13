@@ -155,7 +155,7 @@
 
 					</li>
 					<li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
-						<a href="javascript:;"> 可报名的考试
+						<a href="${ctx}/exam/list"> 可报名的考试
 							<span class="arrow"></span>
 						</a>
 

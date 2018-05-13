@@ -2,7 +2,6 @@ package com.pjt.controller;
 
 import com.pjt.common.utils.Page;
 import com.pjt.persist.model.Exam;
-import com.pjt.persist.model.ExamExample;
 import com.pjt.persist.model.Paper;
 import com.pjt.persist.model.PaperExample;
 import com.pjt.service.ExamService;
@@ -18,6 +17,7 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
 
 @Controller
 @RequestMapping(value = "/exam")
@@ -79,5 +79,5 @@ public class ExamController {
         out.flush();
     }
 
-
+   
 }

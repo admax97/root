@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>关联试卷</label>
-                                    <select class="form-control input-circle" name="examTime">
+                                    <select class="form-control input-circle" name="paperId">
                                         <option VALUE="">－请选择要关联的试卷－</option>
                                         <c:forEach var="paper" items="${paperList}">
                                             <option VALUE="${paper.id}">－${paper.paperName}－</option>
@@ -105,7 +105,7 @@
     </div>
     <!-- END CONTENT -->
 </div>
-<script src="${ctx}/static/script/library/addLibrary.js" type="text/javascript"></script>
+<script src="${ctx}/static/script/exam/addExam.js" type="text/javascript"></script>
 
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->

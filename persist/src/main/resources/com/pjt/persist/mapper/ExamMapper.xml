@@ -8,6 +8,7 @@
     <result column="exam_type" property="examType" jdbcType="VARCHAR" />
     <result column="exam_number" property="examNumber" jdbcType="VARCHAR" />
     <result column="paper_id" property="paperId" jdbcType="INTEGER" />
+    <result column="paper_name" property="paperName" jdbcType="VARCHAR" />
     <result column="exam_mark" property="examMark" jdbcType="VARCHAR" />
     <result column="expired_time" property="expiredTime" jdbcType="TIMESTAMP" />
     <result column="creater" property="creater" jdbcType="VARCHAR" />
@@ -47,7 +48,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, exam_time, exam_name, exam_type, exam_number, paper_id, exam_mark, expired_time, 
+    id, exam_time, exam_name, exam_type, exam_number, paper_id,paper_name, exam_mark, expired_time,
     creater, exam_status, create_id, create_time, update_id, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pjt.persist.model.ExamExample" >
@@ -77,7 +78,7 @@
   </delete>
   <insert id="insert" parameterType="com.pjt.persist.model.Exam" >
     insert into exam (id, exam_time, exam_name, 
-      exam_type, exam_number, paper_id, 
+      exam_type, exam_number, paper_id, paper_name,
       exam_mark, expired_time, creater, 
       exam_status, create_id, create_time, 
       update_id, update_time)
@@ -107,6 +108,9 @@
       </if>
       <if test="paperId != null" >
         paper_id,
+      </if>
+      <if test="paperName != null" >
+        paper_name,
       </if>
       <if test="examMark != null" >
         exam_mark,
@@ -151,6 +155,9 @@
       </if>
       <if test="paperId != null" >
         #{paperId,jdbcType=INTEGER},
+      </if>
+      <if test="paperName != null" >
+        #{paperName,jdbcType=VARCHAR},
       </if>
       <if test="examMark != null" >
         #{examMark,jdbcType=VARCHAR},
@@ -202,6 +209,9 @@
       <if test="paperId != null" >
         paper_id = #{paperId,jdbcType=INTEGER},
       </if>
+      <if test="paperName != null" >
+        paper_name = #{paperName,jdbcType=VARCHAR},
+      </if>
       <if test="examMark != null" >
         exam_mark = #{examMark,jdbcType=VARCHAR},
       </if>
@@ -236,6 +246,7 @@
       exam_type = #{examType,jdbcType=VARCHAR},
       exam_number = #{examNumber,jdbcType=VARCHAR},
       paper_id = #{paperId,jdbcType=INTEGER},
+      paper_name = #{paperName,jdbcType=VARCHAR},
       exam_mark = #{examMark,jdbcType=VARCHAR},
       expired_time = #{expiredTime,jdbcType=TIMESTAMP},
       creater = #{creater,jdbcType=VARCHAR},

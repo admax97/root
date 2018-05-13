@@ -90,7 +90,7 @@
                                     </table>
                                </div>
                                 <div class="col-md-4 pull-right text-right">
-                                        <a class="btn btn-primary" href="javascript:editExamInfo('0');"> <i class=" icon-plus"></i>创建考试</a>
+                                        <a class="btn btn-primary" href="${ctx}/exam/add"> <i class=" icon-plus"></i>创建考试</a>
                                 </div>
                             </div>
                             <div id="content" class="row">
