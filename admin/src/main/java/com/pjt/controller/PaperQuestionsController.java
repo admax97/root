@@ -47,7 +47,17 @@ public class PaperQuestionsController {
         return paper;
 
     }
+    @RequestMapping(value = "review", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public PaperDTO review(Model model, Integer paperId){
 
+
+        /*预览试卷*/
+        PaperDTO paper = paperQuestionService.viewPpaerById( paperId);
+
+        return paper;
+
+    }
     @RequestMapping("/delete")
     public String removePaper(String idString){
 

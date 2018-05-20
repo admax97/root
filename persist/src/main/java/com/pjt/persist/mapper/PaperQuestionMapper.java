@@ -61,6 +61,25 @@ public interface PaperQuestionMapper {
     List<Question> selectSignle(@Param("id") Integer paperID, @Param("questionType") String questionType);
 
     /**
+     * 查询单选题集合
+     *@param paperID 试卷编号
+     */
+    @Select("SELECT q.title, q.answer_a answerA, q.answer_b answerB, q.answer_c answerC,answer_d answerD, pq.question_number,pq.score score " +
+            "FROM question q, paper_question pq WHERE q.id = pq.question_id AND pq.paper_id = #{id} AND q.question_type = 'AA01'" +
+            "ORDER BY pq.question_number")
+    List<Question>selectSignleByPaperId(@Param("id") Integer paperID);
+    /**
+     *  查询某个试卷的简答题题集合
+     * @param paperID 试卷编号
+     * @return
+     */
+    @Select("SELECT q.title, pq.score " +
+            "FROM question q, paper_question pq WHERE q.id = pq.question_id AND pq.paper_id = #{id} AND q.question_type = 'AA02' " +
+            "ORDER BY pq.question_number")
+    List<Question> selectShortByPaperId( @Param("id")Integer paperID);
+
+
+    /**
      *  查询某个试卷的简答题题集合
      * @param paperID 试卷编号
      * @param questionType 题型

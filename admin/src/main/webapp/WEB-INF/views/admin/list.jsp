@@ -136,11 +136,11 @@
 </div>
 <script>
     /* 删除管理员 */
+
     function delAdmin(id,status){
         if(status == 2){
-           // var op = confirm("该管理员已经被冻结！");
             bootbox.confirm({
-                message: "您确定删除所选中代理商户吗？",
+                message: "该管理员已经被冻结！",
                 buttons: {
                     confirm: {
                         label: '确定',

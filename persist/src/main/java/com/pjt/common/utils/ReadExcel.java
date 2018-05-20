@@ -74,7 +74,6 @@ public class ReadExcel {
      * @return
      */
     public List<Question> getExcelInfo(String fileName, MultipartFile Mfile) throws Exception {
-
         //把spring文件上传的MultipartFile转换成CommonsMultipartFile类型
         CommonsMultipartFile cf= (CommonsMultipartFile)Mfile; //获取本地存储路径
         File file = new  File("E:\\QuestionExcel");
@@ -85,7 +84,6 @@ public class ReadExcel {
         //将上传的文件写入新建的文件中
         org.apache.commons.fileupload.FileItem fileItem = cf.getFileItem();
         fileItem.write(file1);
-
         //初始化客户信息的集合
         List<Question> questionList=new ArrayList<Question>();
         //初始化输入流

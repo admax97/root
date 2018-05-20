@@ -85,15 +85,12 @@ public class PaperQuestionService {
      * @return
      */
     public PaperDTO lookPaper(Integer paperID, PaperDTO paperDTO){
-
         PaperDTO result = new PaperDTO();
         result.setId(paperID);
-
         /*查询page对象*/
         Paper paper = paperMapper.selectByPrimaryKey(paperID);
         result.setPaperName(paper.getPaperName());
         result.setTitle(paper.getTitle());
-
         /*查询单选题集合*/
         List<Question> signleQuestion= null;
         if (paperDTO.getSingleChoiceCount() != 0) {
@@ -105,7 +102,6 @@ public class PaperQuestionService {
             result.setShortQuestionScore(0);
             result.setSingleChoiceCount(0);
         }
-
         /*查询简答题集合*/
         List<Question> shortQuestion= null;
         if (paperDTO.getShortQuestionCount() != 0) {
@@ -117,11 +113,44 @@ public class PaperQuestionService {
             result.setShortQuestionScore(0);
             result.setShortQuestionCount(0);
         }
-
         return result;
-
     }
 
+    /***
+     * 根据试卷id查询试卷
+     */
+    public PaperDTO viewPpaerById(Integer paperId){
+        PaperDTO paperDTO = new PaperDTO();
+        paperDTO.setId(paperId);
+        /*查询page对象*/
+        Paper paper = paperMapper.selectByPrimaryKey(paperId);
+        paperDTO.setPaperName(paper.getPaperName());
+        paperDTO.setTitle(paper.getTitle());
+
+        /*查询单选题集合*/
+        List<Question> signleQuestion = paperQuestionMapper.selectSignleByPaperId(paperId);
+        if (signleQuestion.size() != 0) {
+            paperDTO.setSingleChoiceList(signleQuestion);
+            paperDTO.setSingleChoiceCount(signleQuestion.size());
+            paperDTO.setSingleChoiceScore(signleQuestion.size() * Integer.valueOf(signleQuestion.get(0).getScore()));
+        }else {
+            paperDTO.setShortQuestionScore(0);
+            paperDTO.setSingleChoiceCount(0);
+        }
+
+        /*查询简答题集合*/
+        List<Question> shortQuestion = paperQuestionMapper.selectShortByPaperId(paperId);
+        if (shortQuestion.size() != 0) {
+            paperDTO.setShortQuestionList(shortQuestion);
+            paperDTO.setShortQuestionCount(shortQuestion.size());
+            paperDTO.setShortQuestionScore(shortQuestion.size() * Integer.valueOf(shortQuestion.get(0).getScore()));
+        }else{
+            paperDTO.setShortQuestionScore(0);
+            paperDTO.setShortQuestionCount(0);
+        }
+
+        return paperDTO;
+    }
     /**
      * 批量删除试卷
      * @param ids

@@ -76,6 +76,11 @@
                     </label>
                     <button type="submit" class="btn green pull-right"> 登录 </button>
                 </div>
+                <div class="create-account">
+                    <p> 还没有账户 ?&nbsp;
+                        <a href="javascript:;" id="register-btn"> 注册一个吧！ </a>
+                    </p>
+                </div>
                 <div class="login-options">
                 </div>
                   <div class="forget-password">

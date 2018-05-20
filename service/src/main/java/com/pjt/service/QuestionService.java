@@ -57,23 +57,18 @@ public class QuestionService {
 
     //导入poi
     public boolean batchImportQuestion(String name, MultipartFile file) throws Exception {
-
         boolean f = false;
-
         //创建处理EXCEL
         ReadExcel readExcel=new ReadExcel();
         //解析excel，获取客户信息集合。
         List<Question> questionList = readExcel.getExcelInfo(name ,file);
-
         if(questionList != null){
             f = true;
         }
-
         for(Question question: questionList){
             questionMoreMapper.insert(question);
         }
         return f;
-
     }
 }
 

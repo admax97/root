@@ -43,9 +43,27 @@
                                 <a href="javascript:;"> 编辑试卷 </a>
                             </li>
                             <li>
-                                <a href="javascript:;"> 预览试卷 </a>
+                                <a href="javascript:viewPaper(${paper.id});"> 预览试卷 </a>
                             </li>
                         </ul>
+                    </div>
+                    <!--预览试卷模态框-->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">试卷预览</h4>
+                                </div>
+                                <div class="modal-body" id="body">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="closeModal" class="btn btn-default" data-dismiss="modal" onclick="goPaperList()">关闭</button>
+                                    <button type="button" class="btn btn-primary" onclick="goPaperList()">确定</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -60,3 +78,34 @@
         <jsp:param name="totalCnt" value="${totalCnt}"/>
     </jsp:include>
 </c:if>
+<script type="text/javascript">
+     function viewPaper(id){
+         $.post(
+             "${ctx}/paperQuestion/review",
+             {paperId:id},
+             function (data, status) {
+                 var number = 0;
+                 var html = "<h3>试卷名称:"+data.paperName+"</h3>";
+                 if(data.singleChoiceCount>0){
+                     for(var i = 0; i<data.singleChoiceList.length; i++){
+                         number++;
+                         html += "<span style='text-align:left'><p>"+number+"."+data.singleChoiceList[i].title+"</p><span>";
+                         html +="<p>A."+data.singleChoiceList[i].answerA+"&nbsp;&nbsp; B."+data.singleChoiceList[i].answerB+" <br> C."+data.singleChoiceList[i].answerC+" &nbsp;&nbsp;D."+data.singleChoiceList[i].answerD+"</p>"
+                     }
+                 }
+                 if(data.shortQuestionCount>0){
+                     for(var i = 0; i<data.shortQuestionList.length; i++){
+                         number++;
+                         html += "<p>"+number+"."+data.shortQuestionList[i].title+"</p>";
+                     }
+                 }
+                 var b = $("#body");
+                 b.append(html);
+                 $('#myModal').modal();
+
+             },
+             "json"
+
+         );
+     }
+</script>

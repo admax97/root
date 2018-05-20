@@ -186,7 +186,6 @@
                             message: "导入成功！",
                             callback: function(){
                                 window.location.href = ctx+"/question/list";
-                                /*window.location.href = '/admin/list';*/
                             }
                         });
                     } else {

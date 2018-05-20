@@ -129,7 +129,7 @@
 <!-- BEGIN FOOTER -->
 <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
 </div>
-<!-- Modal -->
+<!--预览试卷模态框-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -138,7 +138,6 @@
                 <h4 class="modal-title" id="myModalLabel">试卷预览</h4>
             </div>
             <div class="modal-body" id="body">
-
             </div>
             <div class="modal-footer">
                 <button type="button" id="closeModal" class="btn btn-default" data-dismiss="modal" onclick="goPaperList()">关闭</button>
@@ -149,7 +148,6 @@
 </div>
 
 <script>
-
     $("#subbutton").click(function () {
         var data = $("#paperForm").serialize();
         $.post(
@@ -177,7 +175,6 @@
 
             },
             "json"
-
         );
     });
 </script>
