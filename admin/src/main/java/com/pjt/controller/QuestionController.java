@@ -105,7 +105,7 @@ public class QuestionController {
 
     @RequestMapping(value = "batchImport", method = {RequestMethod.GET,RequestMethod.POST} )
     @ResponseBody
-    public Map<String, Object> batchImportQuestion(Model model, @RequestParam(value="filename") MultipartFile file) throws Exception {
+        public Map<String, Object> batchImportQuestion(@RequestParam(value="filename") MultipartFile file) throws Exception {
 
         if(file == null) {
             return null;
