@@ -171,7 +171,7 @@
                 }
                 var b = $("#body");
                 b.append(html);
-                    $('#myModal').modal();
+                $('#myModal').modal();
 
             },
             "json"

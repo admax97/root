@@ -30,7 +30,7 @@ public class AdminController {
     @Autowired
     HttpServletRequest request;
     @RequestMapping(value = "login", method = {RequestMethod.GET, RequestMethod.POST})
-    public String loginPage(HttpServletResponse response,HttpServletRequest request,  Admin admin) throws Exception {
+    public String loginPage(HttpServletResponse response,HttpServletRequest request,  Admin admin) throws ServletException, IOException {
         System.out.println("这里是login,,,,main/indea"+admin.getName()+admin.getPassword() );
         admin.setPassword(MD5Utils.md5(admin.getPassword()));
         Admin ckAdmin = adminService.checkAdmin(admin);
