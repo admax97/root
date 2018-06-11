@@ -99,7 +99,6 @@ public class AdminController {
             admin.setStatus(2);
         }
         int resu = adminService.updateByPrimaryKeySelective(admin);
-        System.out.println("要作废的管理员id："+id+"jieguo:"+resu);
         List<Admin> adminList =adminService.selectByExample(new AdminExample());
         return new ModelAndView("admin/list","adminList",adminList);
     }

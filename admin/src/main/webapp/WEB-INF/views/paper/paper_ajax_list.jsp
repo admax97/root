@@ -85,7 +85,7 @@
              {paperId:id},
              function (data, status) {
                  var number = 0;
-                 var html = "<h3>试卷名称:"+data.paperName+"</h3>";
+                 var html = "<h3>试卷名称："+data.paperName+"</h3>";
                  if(data.singleChoiceCount>0){
                      for(var i = 0; i<data.singleChoiceList.length; i++){
                          number++;

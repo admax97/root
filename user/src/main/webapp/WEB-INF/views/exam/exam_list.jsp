@@ -66,23 +66,6 @@
                             <div class="page-content">
                                 <div class="container">
                                     <!-- BEGIN PAGE BREADCRUMBS -->
-                                    <ul class="page-breadcrumb breadcrumb">
-                                        <li>
-                                            <a href="index.html">Home</a>
-                                            <i class="fa fa-circle"></i>
-                                        </li>
-                                        <li>
-                                            <a href="#">More</a>
-                                            <i class="fa fa-circle"></i>
-                                        </li>
-                                        <li>
-                                            <a href="#">Tables</a>
-                                            <i class="fa fa-circle"></i>
-                                        </li>
-                                        <li>
-                                            <span>Datatables</span>
-                                        </li>
-                                    </ul>
                                     <!-- END PAGE BREADCRUMBS -->
                                     <!-- BEGIN PAGE CONTENT INNER -->
                                     <div class="page-content-inner">
@@ -425,28 +408,52 @@
                                                 <div class="portlet box green">
                                                     <div class="portlet-title">
                                                         <div class="caption">
-                                                            <i class="fa fa-globe"></i>Column Reordering </div>
+                                                            <i class="fa fa-globe"></i>考试列表</div>
                                                         <div class="tools"> </div>
                                                     </div>
                                                     <div class="portlet-body">
                                                         <table class="table table-striped table-bordered table-hover" id="sample_2">
                                                             <thead>
                                                                 <tr>
-                                                                    <th> Rendering engine </th>
-                                                                    <th> Browser </th>
-                                                                    <th> Platform(s) </th>
-                                                                    <th> Engine version </th>
-                                                                    <th> CSS grade </th>
+                                                                    <th> 编号 </th>
+                                                                    <th> 考试名称 </th>
+                                                                    <th> 时长 </th>
+                                                                    <th> 考试类型 </th>
+                                                                    <th> 关联的试卷 </th>
+                                                                    <th> 有效期</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+
+
+                                                            <c:forEach var="exam" items="${examList}">
                                                                 <tr>
-                                                                    <td> Trident </td>
-                                                                    <td> Internet Explorer 4.0 </td>
-                                                                    <td> Win 95+ </td>
-                                                                    <td> 4 </td>
-                                                                    <td> X </td>
+                                                                    <td>${exam.examNumber}</td>
+                                                                    <td>${exam.examName}</td>
+                                                                    <td>${exam.examTime} </td>
+                                                                    <td>${exam.examType}</td>
+                                                                    <td>${exam.paperId}</td>
+                                                                    <td><c:if test="${exam.examStatus==1}">正常</c:if> <c:if test="${exam.examStatus==2}">作废</c:if> </td>
+                                                                    <td> ${exam.creater}</td>
+                                                                    <td width="150px">
+                                                                        <div class="btn-group">
+                                                                            <a href="${ctx}/paQuestion/review?paperId=${exam.paperId}">
+                                                                                <button class="btn btn-sm blue"  type="button"> 立即考试
+                                                                                <%--<i class="fa fa-angle-down"></i>--%>
+                                                                                </button>
+                                                                            </a>
+                                                                            <%--<ul class="dropdown-menu" role="menu">--%>
+                                                                                <%--<li>--%>
+                                                                                    <%--<a href="javascript:;"> 查看考试 </a>--%>
+                                                                                <%--</li>--%>
+                                                                                <%--<li>--%>
+                                                                                    <%--<a href="javascript:;"> 预览试卷 </a>--%>
+                                                                                <%--</li>--%>
+                                                                            <%--</ul>--%>
+                                                                        </div>
+                                                                    </td>
                                                                 </tr>
+                                                            </c:forEach>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -478,6 +485,24 @@
                 </div>
             </div>
         </div>
+        <!--预览试卷模态框-->
+        <%--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">--%>
+            <%--<div class="modal-dialog" role="document">--%>
+                <%--<div class="modal-content">--%>
+                    <%--<div class="modal-header">--%>
+                        <%--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>--%>
+                        <%--<h4 class="modal-title" id="myModalLabel">试卷预览</h4>--%>
+                    <%--</div>--%>
+                    <%--<div class="modal-body" id="body">--%>
+
+                    <%--</div>--%>
+                    <%--<div class="modal-footer">--%>
+                        <%--<button type="button" id="closeModal" class="btn btn-default" data-dismiss="modal" onclick="goPaperList()">关闭</button>--%>
+                        <%--<button type="button" class="btn btn-primary" onclick="goPaperList()">确定</button>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
         <!-- BEGIN QUICK NAV -->
         <nav class="quick-nav">
             <a class="quick-nav-trigger" href="#0">
@@ -527,13 +552,43 @@
         <script src="${ctx}/static/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
         <script>
-            $(document).ready(function()
-            {
-                $('#clickmewow').click(function()
-                {
-                    $('#radio1003').attr('checked', 'checked');
-                });
-            })
+            <%--function goexaming(id){--%>
+                <%--$.post(--%>
+                    <%--"${ctx}/paQuestion/review",--%>
+                    <%--{paperId:id},--%>
+                    <%--function (data, status) {--%>
+                        <%--var number = 0;--%>
+                        <%--var html = "<h3>试卷名称："+data.paperName+"</h3>";--%>
+                        <%--if(data.singleChoiceCount>0){--%>
+                            <%--for(var i = 0; i<data.singleChoiceList.length; i++){--%>
+                                <%--number++;--%>
+                                <%--html += "<span style='text-align:left'><p>"+number+"."+data.singleChoiceList[i].title+"</p><span>";--%>
+                                <%--html +="<p>A."+data.singleChoiceList[i].answerA+"&nbsp;&nbsp; B."+data.singleChoiceList[i].answerB+" <br> C."+data.singleChoiceList[i].answerC+" &nbsp;&nbsp;D."+data.singleChoiceList[i].answerD+"</p>"--%>
+                            <%--}--%>
+                        <%--}--%>
+                        <%--if(data.shortQuestionCount>0){--%>
+                            <%--for(var i = 0; i<data.shortQuestionList.length; i++){--%>
+                                <%--number++;--%>
+                                <%--html += "<p>"+number+"."+data.shortQuestionList[i].title+"</p>";--%>
+                            <%--}--%>
+                        <%--}--%>
+                        <%--var b = $("#body");--%>
+                        <%--b.append(html);--%>
+                        <%--$('#myModal').modal();--%>
+
+                    <%--},--%>
+                    <%--"json"--%>
+
+                <%--);--%>
+            <%--}--%>
+
+            <%--$(document).ready(function()--%>
+            <%--{--%>
+                <%--$('#clickmewow').click(function()--%>
+                <%--{--%>
+                    <%--$('#radio1003').attr('checked', 'checked');--%>
+                <%--});--%>
+            <%--})--%>
         </script>
     </body>
 

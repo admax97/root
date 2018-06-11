@@ -107,44 +107,44 @@
             <form class="register-form" action="index.html" method="post">
                 <h3>用户注册</h3>
                 <p> 请您填写注册信息: </p>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">姓名</label>
-                    <div class="input-icon">
-                        <i class="fa fa-font"></i>
-                        <input class="form-control placeholder-no-fix" type="text" placeholder="请输入姓名" name="fullname" /> </div>
-                </div>
-                <div class="form-group">
-                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                    <label class="control-label visible-ie8 visible-ie9">邮箱</label>
-                    <div class="input-icon">
-                        <i class="fa fa-envelope"></i>
-                        <input class="form-control placeholder-no-fix" type="text" placeholder="请输入邮箱地址" name="email" /> </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">地址</label>
-                    <div class="input-icon">
-                        <i class="fa fa-check"></i>
-                        <input class="form-control placeholder-no-fix" type="text" placeholder="请输入家庭地址" name="address" /> </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">市/县</label>
-                    <div class="input-icon">
-                        <i class="fa fa-location-arrow"></i>
-                        <input class="form-control placeholder-no-fix" type="text" placeholder="市/县" name="city" /> </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">国家</label>
-                    <select name="country" id="country_list" class="select2 form-control">
-                        <option value=""></option>
-                        <option value="AF">中国</option>
-                        <option value="AL">美国</option>
-                        <option value="DZ">法国</option>
-                        <option value="AS">韩国</option>
-                        <option value="AD">澳大利亚</option>
-                        <option value="AO">新加坡</option>
-                    </select>
-                </div>
-                <p> 请设置登录账户及密码: </p>
+                <%--<div class="form-group">--%>
+                    <%--<label class="control-label visible-ie8 visible-ie9">姓名</label>--%>
+                    <%--<div class="input-icon">--%>
+                        <%--<i class="fa fa-font"></i>--%>
+                        <%--<input class="form-control placeholder-no-fix" type="text" placeholder="请输入姓名" name="fullname" /> </div>--%>
+                <%--</div>--%>
+                <%--<div class="form-group">--%>
+                    <%--<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->--%>
+                    <%--<label class="control-label visible-ie8 visible-ie9">邮箱</label>--%>
+                    <%--<div class="input-icon">--%>
+                        <%--<i class="fa fa-envelope"></i>--%>
+                        <%--<input class="form-control placeholder-no-fix" type="text" placeholder="请输入邮箱地址" name="email" /> </div>--%>
+                <%--</div>--%>
+                <%--<div class="form-group">--%>
+                    <%--<label class="control-label visible-ie8 visible-ie9">地址</label>--%>
+                    <%--<div class="input-icon">--%>
+                        <%--<i class="fa fa-check"></i>--%>
+                        <%--<input class="form-control placeholder-no-fix" type="text" placeholder="请输入家庭地址" name="address" /> </div>--%>
+                <%--</div>--%>
+                <%--<div class="form-group">--%>
+                    <%--<label class="control-label visible-ie8 visible-ie9">市/县</label>--%>
+                    <%--<div class="input-icon">--%>
+                        <%--<i class="fa fa-location-arrow"></i>--%>
+                        <%--<input class="form-control placeholder-no-fix" type="text" placeholder="市/县" name="city" /> </div>--%>
+                <%--</div>--%>
+                <%--<div class="form-group">--%>
+                    <%--<label class="control-label visible-ie8 visible-ie9">国家</label>--%>
+                    <%--<select name="country" id="country_list" class="select2 form-control">--%>
+                        <%--<option value=""></option>--%>
+                        <%--<option value="AF">中国</option>--%>
+                        <%--<option value="AL">美国</option>--%>
+                        <%--<option value="DZ">法国</option>--%>
+                        <%--<option value="AS">韩国</option>--%>
+                        <%--<option value="AD">澳大利亚</option>--%>
+                        <%--<option value="AO">新加坡</option>--%>
+                    <%--</select>--%>
+                <%--</div>--%>
+                <%--<p> 请设置登录账户及密码: </p>--%>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">用户名</label>
                     <div class="input-icon">

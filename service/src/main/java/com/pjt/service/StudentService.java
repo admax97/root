@@ -44,7 +44,6 @@ public class StudentService {
     }
    public Student getStuByNamePwd(Student student){
         Student ss = studentMoreMapper.getStuByNamePwd(student);
-        Object s = studentMoreMapper.getStuByNamePwd(student);
        System.out.print("sevice:"+studentMoreMapper.getStuByNamePwd(student));
         return ss;
     }

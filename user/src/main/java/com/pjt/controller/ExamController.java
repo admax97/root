@@ -2,6 +2,7 @@ package com.pjt.controller;
 
 import com.pjt.common.utils.Page;
 import com.pjt.persist.model.Exam;
+import com.pjt.persist.model.ExamExample;
 import com.pjt.persist.model.Paper;
 import com.pjt.persist.model.PaperExample;
 import com.pjt.service.ExamService;
@@ -27,9 +28,10 @@ public class ExamController {
 
     @Autowired
     private PaperService paperService;
-    @RequestMapping(value = "list",method = RequestMethod.GET )
-    public ModelAndView examList(Model mode ){
-        //List<Exam> examList = examService.selectByExample(new ExamExample());
+    @RequestMapping(value = "alllist",method = RequestMethod.GET )
+    public ModelAndView examList(Model model ){
+        List<Exam> examList = examService.selectByExample(new ExamExample());
+        model.addAttribute("examList",examList);
         return new ModelAndView("exam/exam_list");
     }
 
