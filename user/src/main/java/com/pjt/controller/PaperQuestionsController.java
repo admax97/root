@@ -60,6 +60,7 @@ public class PaperQuestionsController {
         return paper;
 
     }
+    //在线考试
     @RequestMapping(value = "review", method = {RequestMethod.GET, RequestMethod.POST})
     public String review(Model model, Integer paperId, HttpServletRequest request){
 
@@ -68,8 +69,6 @@ public class PaperQuestionsController {
 
         /*展示试卷*/
         PaperDTO paper = paperQuestionService.viewPpaerById( paperId);
-
-
 
         ExamExample examExample = new ExamExample();
         examExample.createCriteria().andPaperIdEqualTo(paperId);
@@ -82,15 +81,15 @@ public class PaperQuestionsController {
         criteria.andExamIdEqualTo(exams.get(0).getId());
         List<StuExamInfo> stuExamInfos =  stuExamInfoService.selectByExample(stuExamInfoExample);
         if (stuExamInfos != null && stuExamInfos.size() != 0){
-            // 该学生已经参加过了。
+            // 该学生已经参加过了。time是结束时间的时间戳
             long time =  stuExamInfos.get(0).getCreateTime().getTime() + stuExamInfos.get(0).getTime()*60*1000;
+
             session.setAttribute("examTime",time);
             // 该学生答题时间是否已到
             if (stuExamInfos.get(0).getExamTime() != null) {
                 return "404"; //答题时间已过
             }
-        }else {
-
+        }else {//如果该生未参见过考试
             StuExamInfo stuExamInfo = new StuExamInfo();
             if (exams != null && exams.size() != 0) {
                 stuExamInfo.setTime(Integer.parseInt(exams.get(0).getExamTime()));

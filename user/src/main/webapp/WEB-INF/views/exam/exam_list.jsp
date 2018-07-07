@@ -408,7 +408,7 @@
                                                 <div class="portlet box green">
                                                     <div class="portlet-title">
                                                         <div class="caption">
-                                                            <i class="fa fa-globe"></i>考试列表</div>
+                                                            <i class="fa fa-globe"></i>已报名的考试</div>
                                                         <div class="tools"> </div>
                                                     </div>
                                                     <div class="portlet-body">
@@ -419,8 +419,10 @@
                                                                     <th> 考试名称 </th>
                                                                     <th> 时长 </th>
                                                                     <th> 考试类型 </th>
-                                                                    <th> 关联的试卷 </th>
-                                                                    <th> 有效期</th>
+                                                                    <%--<th> 关联的试卷 </th>--%>
+                                                                    <th> 状态</th>
+                                                                    <%--<th> 创建人</th>--%>
+                                                                    <th> 操作</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -428,13 +430,13 @@
 
                                                             <c:forEach var="exam" items="${examList}">
                                                                 <tr>
-                                                                    <td>${exam.examNumber}</td>
+                                                                    <td>${exam.id}</td>
                                                                     <td>${exam.examName}</td>
-                                                                    <td>${exam.examTime} </td>
+                                                                    <td>${exam.examTime}分钟 </td>
                                                                     <td>${exam.examType}</td>
-                                                                    <td>${exam.paperId}</td>
+                                                                    <%--<td>${exam.paperId}</td>--%>
                                                                     <td><c:if test="${exam.examStatus==1}">正常</c:if> <c:if test="${exam.examStatus==2}">作废</c:if> </td>
-                                                                    <td> ${exam.creater}</td>
+                                                                    <%--<td> ${exam.creater}</td>--%>
                                                                     <td width="150px">
                                                                         <div class="btn-group">
                                                                             <a href="${ctx}/paQuestion/review?paperId=${exam.paperId}">
@@ -442,14 +444,6 @@
                                                                                 <%--<i class="fa fa-angle-down"></i>--%>
                                                                                 </button>
                                                                             </a>
-                                                                            <%--<ul class="dropdown-menu" role="menu">--%>
-                                                                                <%--<li>--%>
-                                                                                    <%--<a href="javascript:;"> 查看考试 </a>--%>
-                                                                                <%--</li>--%>
-                                                                                <%--<li>--%>
-                                                                                    <%--<a href="javascript:;"> 预览试卷 </a>--%>
-                                                                                <%--</li>--%>
-                                                                            <%--</ul>--%>
                                                                         </div>
                                                                     </td>
                                                                 </tr>

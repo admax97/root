@@ -25,11 +25,11 @@ public class ExamScheduled {
         for (StuExamInfo stuExamInfo: stuExamInfos) {
             StuExamInfo s = new StuExamInfo();
             long time = stuExamInfo.getCreateTime().getTime() + stuExamInfo.getTime() * 60 *1000;
-            if (stuExamInfo.getExamTime() == null && time >= System.currentTimeMillis()) {
+            if (stuExamInfo.getExamTime() == null && time <= System.currentTimeMillis()) {//员工考试时间已经到了
                 s.setExamTime(new Date());
             }
             stuExamInfoService.updateByPrimaryKeySelective(s);
         }
-        System.out.println("haha...哈哈.。。。");
+        System.out.println("开始执行定时器。。。");
     }
 }
